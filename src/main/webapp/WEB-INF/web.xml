@@ -1,7 +1,48 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.CadastrarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListaCliente</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.ListaCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarCliente</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.AlterarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletBD</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.ServletBD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarCliente</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.ListarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarCliente</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.DeletarCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListaCliente</servlet-name>
+        <url-pattern>/ListaCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarCliente</servlet-name>
+        <url-pattern>/AlterarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBD</servlet-name>
+        <url-pattern>/ServletBD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarCliente</servlet-name>
+        <url-pattern>/ListarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarCliente</servlet-name>
+        <url-pattern>/DeletarCliente</url-pattern>
+    </servlet-mapping>
 </web-app>
