@@ -1,5 +1,5 @@
 package br.com.farmacia.util;
 
-public class ConexãoDB {
+public class ConexaoDB {
 
 }
