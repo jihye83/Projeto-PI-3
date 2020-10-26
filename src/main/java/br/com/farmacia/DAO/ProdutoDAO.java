@@ -25,7 +25,7 @@ public class ProdutoDAO {
 			while (rs.next()) {
 				int id_Produto = rs.getInt("id_Produto");
 				String nome_Prod = rs.getString("nome_Prod");
-				double preco_Prod = rs.getDouble("preco_Prod");
+				float preco_Prod = rs.getFloat("preco_Prod");
 				String descricao_Prod = rs.getString("descricao_Prod");
 				int qtd_Prod = rs.getInt("qtd_Prod");
 				listaProdutos.add(new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
@@ -42,7 +42,7 @@ public class ProdutoDAO {
 		String query = "insert into produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod(?,?,?,?))";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, produto.getNome_Prod());
-		ps.setDouble(1, produto.getPreco_Prod());
+		ps.setFloat(2, produto.getPreco_Prod());
 		ps.setString(3, produto.getDescricao_Prod());
 		ps.setInt(4, produto.getQtd_Prod());
 		ps.execute();
@@ -53,7 +53,7 @@ public class ProdutoDAO {
 		String query = "update produto set nome_Prod=?,preco_Prod=?,descricao_Prod=?, qtd_Prod=? where id_Produto=?";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, produto.getNome_Prod());
-		ps.setDouble(1, produto.getPreco_Prod());
+		ps.setFloat(1, produto.getPreco_Prod());
 		ps.setString(3, produto.getDescricao_Prod());
 		ps.setInt(4, produto.getQtd_Prod());
 		ps.execute();
@@ -77,7 +77,7 @@ public class ProdutoDAO {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				String nome_Prod = rs.getString("nome_Prod");
-				double preco_Prod = rs.getDouble("preco_Prod");
+				float preco_Prod = rs.getFloat("preco_Prod");
 				String descricao_Prod = rs.getString("descricao_Prod");
 				int qtd_Prod = rs.getInt("qtd_Prod");
 				produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);

@@ -9,11 +9,11 @@ public class Produto {
 
 	private int id_Produto;
 	private String nome_Prod;
-	private double preco_Prod;
+	private float preco_Prod;
 	private String descricao_Prod;
 	private int qtd_Prod;
 
-	public Produto(int id_Produto, String nome_Prod, double preco_Prod, String descricao_Prod, int qtd_Prod) {
+	public Produto(int id_Produto, String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
 		this.id_Produto = id_Produto;
 		this.nome_Prod = nome_Prod;
 		this.preco_Prod = preco_Prod;
