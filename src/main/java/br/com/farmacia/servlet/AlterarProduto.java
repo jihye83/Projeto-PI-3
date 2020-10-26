@@ -28,7 +28,7 @@ public class AlterarProduto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id_Produto = Integer.parseInt(request.getParameter("id_Produto"));
-		String nome_Prod = request.getParameter("nome_Produto");
+		String nome_Prod = request.getParameter("nome_Prod");
 		double preco_Prod = Double.parseDouble(request.getParameter("preco_Prod"));
 		String descricao_Prod = request.getParameter("descricao_Prod");
 		int qtd_Prod = Integer.parseInt("qtd_Prod");

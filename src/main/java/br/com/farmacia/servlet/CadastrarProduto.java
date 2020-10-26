@@ -23,13 +23,13 @@ public class CadastrarProduto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// se tirar o id_Prod está dando erro na contrutor
-		int id_Prod = Integer.parseInt(request.getParameter("id_Prod"));
+		int id_Produto = Integer.parseInt(request.getParameter("id_Produto"));
 		String nome_Prod = request.getParameter("nome_Prod");
 		double preco_Prod = Double.parseDouble(request.getParameter("preco_Prod"));
 		String descricao_Prod = request.getParameter("descricao_Prod");
 		int qtd_Prod = Integer.parseInt(request.getParameter("qtd_Prod"));
 		
-		Produto produto = new Produto(id_Prod, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+		Produto produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
 		try {
 			ProdutoDAO.adicionaProduto(produto);
 			response.sendRedirect("sucesso.jsp");
