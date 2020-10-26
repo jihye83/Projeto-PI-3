@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.farmacia.Model.Produto;
+import br.com.farmacia.servlet.ServletBD;
 import br.com.farmacia.util.ConexaoDB;
 
 public class ProdutoDAO {
@@ -31,9 +32,7 @@ public class ProdutoDAO {
 			}
 
 		} catch (Exception ex) {
-
-			// precisa arrumar p ServletDB na parte de ConexaoDB
-			Logger.getLogger(ConexaoDB.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(ServletBD.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		return listaProdutos;
 	}
@@ -84,13 +83,8 @@ public class ProdutoDAO {
 				produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
 			}
 		} catch (Exception ex) {
-
-			// precisa arrumar p ServletDB na parte de ConexaoDB
-			Logger.getLogger(ConexaoDB.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		
+			Logger.getLogger(ServletBD.class.getName()).log(Level.SEVERE, null, ex);
+		}	
 		return produto;
 	}
-	
-
 }
