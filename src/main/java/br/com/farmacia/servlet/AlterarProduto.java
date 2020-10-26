@@ -31,7 +31,7 @@ public class AlterarProduto extends HttpServlet {
 		String nome_Prod = request.getParameter("nome_Produto");
 		double preco_Prod = Double.parseDouble(request.getParameter("preco_Prod"));
 		String descricao_Prod = request.getParameter("descricao_Prod");
-		int qtd_Prod = Integer.parseInt("descricao_Prod");
+		int qtd_Prod = Integer.parseInt("qtd_Prod");
 		
 		Produto produto = ProdutoDAO.getProduto(id_Produto);
 		produto.setNome_Prod(nome_Prod);
