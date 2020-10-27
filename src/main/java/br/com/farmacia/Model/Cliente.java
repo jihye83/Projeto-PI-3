@@ -6,9 +6,13 @@
 package br.com.farmacia.Model;
 
 /**
- *
- * @author Victor Vilela
- */
+*
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,23 +32,24 @@ public class Cliente {
     private String bairro;
     private String cidade;
     private String uf;
-    private String telefone;
+    private String cel;
     private Date dataNasc;
     private long cpf;
 
-    public Cliente(String nome, String email, String logradouro, String numLogr, String compLogr, String cep, String bairro, String cidade, String uf, String telefone, Date dataNasc, long cpf) {
+    public Cliente(String nome, long cpf, Date dataNasc, String email, String cel, String logradouro, String numLogr, String compLogr, String bairro, String cidade, String uf, String cep ) {
         this.nome = nome;
+        this.cpf = cpf;
+        this.dataNasc = dataNasc;
         this.email = email;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;
-        this.cep = cep;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
-        this.telefone = telefone;
-        this.dataNasc = dataNasc;
-        this.cpf = cpf;
+        this.cep = cep;
+        
     }
 
     @Override

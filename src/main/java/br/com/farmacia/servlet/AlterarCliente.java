@@ -23,9 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author PICHAU
- */
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 public class AlterarCliente extends HttpServlet {
 
     @Override
@@ -43,18 +46,20 @@ public class AlterarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Long cpf = Long.parseLong(request.getParameter("cpf"));
+        
         String nome = request.getParameter("nome");
+        Long cpf = Long.parseLong(request.getParameter("cpf"));
+        String dataNascStr = request.getParameter("dataNasc");
         String email = request.getParameter("email");
+        String cel = request.getParameter("cel");
         String logradouro = request.getParameter("logradouro");
         String numLogr = request.getParameter("numLogr");
         String compLogr = request.getParameter("compLogr");
-        String cep = request.getParameter("cep");
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
         String uf = request.getParameter("uf");
-        String telefone = request.getParameter("telefone");
-        String dataNascStr = request.getParameter("dataNasc");
+        String cep = request.getParameter("cep");
+       
         Date dataNasc = null;
         try {
             dataNasc = new SimpleDateFormat("dd/MM/yyyy").parse(dataNascStr);
@@ -63,17 +68,17 @@ public class AlterarCliente extends HttpServlet {
         }
         Cliente cliente = ClienteDAO.getCliente(cpf);
         cliente.setNome(nome);
+        cliente.setDataNasc(dataNasc);
         cliente.setEmail(email);
+        cliente.setCel(cel);
         cliente.setLogradouro(logradouro);
         cliente.setNumLogr(numLogr);
         cliente.setCompLogr(compLogr);
-        cliente.setCep(cep);
         cliente.setBairro(bairro);
         cliente.setCidade(cidade);
         cliente.setUf(uf);
-        cliente.setTelefone(telefone);
-        cliente.setDataNasc(dataNasc);
-
+        cliente.setCep(cep);
+        
         try {
             ClienteDAO.updateCliente(cliente);
             response.sendRedirect("sucesso.jsp");

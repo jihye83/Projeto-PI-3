@@ -5,6 +5,14 @@
  */
 package br.com.farmacia.servlet;
 
+/**
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
+
 import br.com.farmacia.DAO.ClienteDAO;
 import br.com.farmacia.Model.Cliente;
 import java.io.IOException;
