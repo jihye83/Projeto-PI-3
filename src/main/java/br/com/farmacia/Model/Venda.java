@@ -14,15 +14,20 @@ public class Venda {
 	private float desconto;
 	private String pagamento;
 	private float total;
-
-	public Venda(int cod_Venda, Date data_Venda, float valor_Bruto, float desconto, String pagamento, float total) {
+	private int id_Cliente;
+	
+	public Venda() {
+		
+	}
+	
+	public Venda(int cod_Venda, Date data_Venda, float valor_Bruto, float desconto, String pagamento, float total, int id_Cliente) {
 		this.cod_Venda = cod_Venda;
 		this.data_Venda = data_Venda;
 		this.valor_Bruto = valor_Bruto;
 		this.desconto = desconto;
 		this.pagamento = pagamento;
 		this.total= total;
-		
+		this.id_Cliente = id_Cliente;
 	}
 	
 	@Override
