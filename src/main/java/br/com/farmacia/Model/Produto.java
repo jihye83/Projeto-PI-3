@@ -1,5 +1,14 @@
 package br.com.farmacia.Model;
 
+/**
+*
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
+
 import lombok.Getter;
 import lombok.Setter;
 

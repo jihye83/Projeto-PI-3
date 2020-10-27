@@ -1,5 +1,13 @@
 package br.com.farmacia.servlet;
 
+/**
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
+
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;

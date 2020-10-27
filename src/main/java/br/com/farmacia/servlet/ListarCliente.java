@@ -11,7 +11,7 @@ package br.com.farmacia.servlet;
 * @author Marcus
 * @author Thyago Rodrigues
 * @author Victor Vilela
-*/
+*///
 
 import br.com.farmacia.DAO.ClienteDAO;
 import br.com.farmacia.Model.Cliente;

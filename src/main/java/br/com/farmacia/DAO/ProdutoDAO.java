@@ -1,5 +1,14 @@
 package br.com.farmacia.DAO;
 
+/**
+*
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,3 +97,4 @@ public class ProdutoDAO {
 		return produto;
 	}
 }
+
