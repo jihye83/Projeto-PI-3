@@ -37,6 +37,12 @@ public class Cliente {
     private long cpf;
 
     public Cliente(String nome, long cpf, Date dataNasc, String email, String cel, String logradouro, String numLogr, String compLogr, String bairro, String cidade, String uf, String cep ) {
+    
+    public Cliente() {
+    	
+    }
+    
+    public Cliente(String nome, String email, String logradouro, String numLogr, String compLogr, String cep, String bairro, String cidade, String uf, String telefone, Date dataNasc, long cpf) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
