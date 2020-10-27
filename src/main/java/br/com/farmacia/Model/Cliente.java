@@ -12,7 +12,7 @@ package br.com.farmacia.Model;
 * @author Marcus
 * @author Thyago Rodrigues
 * @author Victor Vilela
-*/
+*///
 
 import lombok.Getter;
 import lombok.Setter;

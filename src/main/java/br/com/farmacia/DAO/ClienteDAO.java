@@ -12,7 +12,7 @@ package br.com.farmacia.DAO;
  * @author Marcus
  * @author Thyago Rodrigues
  * @author Victor Vilela
- */
+ *///
 
 import br.com.farmacia.util.ConexaoDB;
 import br.com.farmacia.Model.Cliente;
