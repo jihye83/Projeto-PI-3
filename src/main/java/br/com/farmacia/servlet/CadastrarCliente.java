@@ -5,6 +5,14 @@
  */
 package br.com.farmacia.servlet;
 
+/**
+* @author Victor Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*///
+
 import br.com.farmacia.DAO.ClienteDAO;
 import br.com.farmacia.Model.Cliente;
 import br.com.farmacia.util.Utils;
@@ -33,17 +41,18 @@ public class CadastrarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nome = request.getParameter("nome");
+        String cpfStr = request.getParameter("cpf");
+        String dataNascStr = request.getParameter("dataNasc");
         String email = request.getParameter("email");
+        String cel = request.getParameter("cel");
         String logradouro = request.getParameter("logradouro");
         String numLogr = request.getParameter("numLogr");
         String compLogr = request.getParameter("compLogr");
-        String cep = request.getParameter("cep");
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
         String uf = request.getParameter("uf");
-        String telefone = request.getParameter("telefone");
-        String dataNascStr = request.getParameter("dataNasc");
-        String cpfStr = request.getParameter("cpf");
+        String cep = request.getParameter("cep");
+
         Long cpf = Long.parseLong(cpfStr);
         Date dataNasc = null;
         try {
@@ -52,7 +61,7 @@ public class CadastrarCliente extends HttpServlet {
             out.println("Erro de conversão da data");
         }
 
-        Cliente cliente = new Cliente(nome, email, logradouro, numLogr, compLogr, cep, bairro, cidade, uf, telefone, dataNasc, cpf);
+        Cliente cliente = new Cliente(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
 
         try {
             ClienteDAO.addCliente(cliente);

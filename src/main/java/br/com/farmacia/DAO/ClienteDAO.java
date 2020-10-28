@@ -7,8 +7,12 @@ package br.com.farmacia.DAO;
 
 /**
  *
+ * @author Victor Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
  * @author Victor Vilela
- */
+ *///
 
 import br.com.farmacia.util.ConexaoDB;
 import br.com.farmacia.Model.Cliente;
@@ -22,7 +26,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author tscarton
@@ -38,18 +41,20 @@ public class ClienteDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String nome = rs.getString("nome");
+                long cpf = rs.getLong("cpf");
+                Date dataNasc = rs.getDate("dataNasc");
                 String email = rs.getString("email");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
-                String cep = rs.getString("cep");
                 String bairro = rs.getString("bairro");
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
-                String telefone = rs.getString("telefone");
-                Date dataNasc = rs.getDate("dataNasc");
-                long cpf = rs.getLong("cpf");
-                listaClientes.add(new Cliente(nome, email, logradouro, numLogr, compLogr, cep, bairro, cidade, uf, telefone, dataNasc, cpf));
+                String cep = rs.getString("cep");
+                
+                
+                listaClientes.add(new Cliente(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep ));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -96,17 +101,18 @@ public class ClienteDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String nome = rs.getString("nome");
+                Date dataNasc = rs.getDate("dataNasc");
                 String email = rs.getString("email");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
-                String cep = rs.getString("cep");
                 String bairro = rs.getString("bairro");
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
-                String telefone = rs.getString("telefone");
-                Date dataNasc = rs.getDate("dataNasc");
-                cliente = new Cliente(nome, email, logradouro, numLogr, compLogr, cep, bairro, cidade, uf, telefone, dataNasc, cpf);
+                String cep = rs.getString("cep");
+                
+                cliente = new Cliente(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep );
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
