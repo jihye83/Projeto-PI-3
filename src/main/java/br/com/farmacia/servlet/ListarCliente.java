@@ -39,10 +39,10 @@ public class ListarCliente extends HttpServlet {
             throws ServletException, IOException {
 
         List<Cliente> listaClientes = ClienteDAO.getClientes();
-        request.setAttribute("listaClientes", listaClientes);
+        request.setAttribute("listaCliente", listaClientes);
 
          RequestDispatcher requestDispatcher = getServletContext()
-                 .getRequestDispatcher("/listaClientes.jsp");
+                 .getRequestDispatcher("/listaCliente.jsp");
          requestDispatcher.forward(request, response);
     }
 }
