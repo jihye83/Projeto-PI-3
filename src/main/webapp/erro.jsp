@@ -1,9 +1,3 @@
-<%-- 
-    Document   : erro
-    Created on : 25/10/2020, 16:46:47
-    Author     : PICHAU
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

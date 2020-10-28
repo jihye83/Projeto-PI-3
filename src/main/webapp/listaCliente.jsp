@@ -1,9 +1,3 @@
-<%-- 
-    Document   : listaCliente
-    Created on : 25/10/2020, 16:25:50
-    Author     : PICHAU
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

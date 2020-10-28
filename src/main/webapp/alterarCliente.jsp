@@ -10,31 +10,31 @@
 	<h1>Alteração de Cadastro: ${cliente.nome}</h1>
 	<form action="AlterarCliente" method="POST">
 		<p>Nome</p>
-		<input name="nome" value="${cliente.nome}" /><br />
-		<p>Email</p>
-		<input name="email" value="${cliente.email}" /><br />
-		<p>Logradouro</p>
-		<input name="logradouro" value="${cliente.logradouro}" /><br />
-		<p>Número do Logradouro</p>
-		<input name="numLogr" value="${cliente.numLogr}" /><br />
-		<p>Complemento</p>
-		<input name="compLogr" value="${cliente.compLogr}" /><br />
-		<p>CEP</p>
-		<input name="cep" value="${cliente.cep}" /><br />
-		<p>Bairro</p>
-		<input name="bairro" value="${cliente.bairro}" /><br />
-		<p>Cidade</p>
-		<input name="cidade" value="${cliente.cidade}" /><br />
-		<p>UF</p>
-		<input name="uf" value="${cliente.uf}" /><br />
-		<p>Telefone</p>
-		<input name="telefone" value="${cliente.telefone}" /><br />
-		<p>Data de Nascimento</p>
-		<input name="dataNasc" value="${cliente.dataNasc}" /><br />
-		<p>CPF</p>
-		<input name="cpf" value="${cliente.cpf}" readonly="true" /><br />
+            <input name="nome" class="form-control" required="true"/><br/>
+            <p>Email</p>
+            <input name="email" class="form-control" required="true"/><br/>
+            <p>Logradouro</p>
+            <input name="logradouro" class="form-control" required="true"/><br/>
+            <p>Número</p>
+            <input name="numLogr" class="form-control" required="true"/><br/>
+            <p>Complemento</p>
+            <input name="compLogr" class="form-control" required="true"/><br/>
+            <p>CEP</p>
+            <input name="cep" class="form-control" required="true"/><br/>
+            <p>Bairro</p>
+            <input name="bairro" class="form-control" required="true"/><br/>
+            <p>Cidade</p>
+            <input name="cidade" class="form-control" required="true"/><br/>
+            <p>UF</p>
+            <input name="uf" class="form-control" required="true"/><br/>
+            <p>DDD + Telefone</p>
+            <input name="telefone" class="form-control" required="true"/><br/>
+            <p>Data de Nascimento</p>
+            <input name="dataNasc" class="form-control" required="true"/><br/>
+            <p>CPF</p>
+            <input name="cpf" class="form-control" required="true"/><br/>
 
-		<button type="submit">Enviar</button>
+            <button type="submit" class="btn btn-primary">Alterar Cadastro Cliente</button>
 	</form>
 </body>
 </html>
