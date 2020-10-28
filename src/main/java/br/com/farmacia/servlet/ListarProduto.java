@@ -1,12 +1,6 @@
 package br.com.farmacia.servlet;
 
-/**
-* @author Victor Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
+
 
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.com.farmacia.DAO.ProdutoDAO;
 import br.com.farmacia.Model.Produto;
-
+/**
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 public class ListarProduto extends HttpServlet{
 
 	@Override

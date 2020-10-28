@@ -1,12 +1,5 @@
 package br.com.farmacia.servlet;
 
-/**
-* @author Victor Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,7 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.farmacia.DAO.ProdutoDAO;
-
+/**
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*///
 public class DeletarProduto extends HttpServlet{
 	
 	@Override

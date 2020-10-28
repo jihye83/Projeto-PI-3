@@ -1,5 +1,14 @@
 package br.com.farmacia.Model;
 
+
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*///
 public class Filial {
 
 	private int id_Filial;

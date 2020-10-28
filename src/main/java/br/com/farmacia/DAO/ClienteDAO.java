@@ -7,7 +7,7 @@ package br.com.farmacia.DAO;
 
 /**
  *
- * @author Victor Felipe Dias Amorim Pessoa
+ * @author Felipe Dias Amorim Pessoa
  * @author Ji Hye Koo
  * @author Marcus
  * @author Thyago Rodrigues

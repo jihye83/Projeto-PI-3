@@ -5,13 +5,7 @@
  */
 package br.com.farmacia.servlet;
 
-/**
-* @author Victor Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*///
+
 
 import br.com.farmacia.DAO.ClienteDAO;
 import br.com.farmacia.Model.Cliente;
@@ -31,9 +25,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author PICHAU
- */
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*///
 @WebServlet(name = "CadastrarCliente", urlPatterns = {"/CadastrarCliente"})
 public class CadastrarCliente extends HttpServlet {
 

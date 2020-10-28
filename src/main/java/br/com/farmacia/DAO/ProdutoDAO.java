@@ -1,14 +1,5 @@
 package br.com.farmacia.DAO;
 
-/**
-*
-* @author Victor Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +12,14 @@ import br.com.farmacia.Model.Produto;
 import br.com.farmacia.servlet.ServletBD;
 import br.com.farmacia.util.ConexaoDB;
 
+/**
+ * @author Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
+ * @author Victor Vilela
+ *
+ */
 public class ProdutoDAO {
 
 	public static List<Produto> getProdutos() {
@@ -67,7 +66,7 @@ public class ProdutoDAO {
 		ps.setInt(4, produto.getQtd_Prod());
 		ps.execute();
 	}
-	
+
 	public static void deletaProduto(int id_Produto) throws SQLException, ClassNotFoundException {
 		Connection con = ConexaoDB.conector();
 		String query = "delete from produto where id_Produto=?";
@@ -75,7 +74,7 @@ public class ProdutoDAO {
 		ps.setInt(1, id_Produto);
 		ps.execute();
 	}
-	
+
 	public static Produto getProduto(int id_Produto) {
 		Produto produto = null;
 		try {
@@ -84,7 +83,7 @@ public class ProdutoDAO {
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, id_Produto);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				String nome_Prod = rs.getString("nome_Prod");
 				float preco_Prod = rs.getFloat("preco_Prod");
 				String descricao_Prod = rs.getString("descricao_Prod");
@@ -93,8 +92,7 @@ public class ProdutoDAO {
 			}
 		} catch (Exception ex) {
 			Logger.getLogger(ServletBD.class.getName()).log(Level.SEVERE, null, ex);
-		}	
+		}
 		return produto;
 	}
 }
-

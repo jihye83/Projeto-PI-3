@@ -1,19 +1,17 @@
 package br.com.farmacia.Model;
 
+import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
 /**
 *
-* @author Victor Felipe Dias Amorim Pessoa
+* @author Felipe Dias Amorim Pessoa
 * @author Ji Hye Koo
 * @author Marcus
 * @author Thyago Rodrigues
 * @author Victor Vilela
 */
-
-import java.util.Date;
-
-import lombok.Getter;
-import lombok.Setter;
-
 @Getter
 @Setter
 public class Venda {
