@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 package br.com.farmacia.servlet;
 
 
@@ -15,16 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
-* @author Victor Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*///
-public class DeletarCliente extends HttpServlet {
 
-    
+public class DeletarCliente extends HttpServlet {
 
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

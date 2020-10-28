@@ -1,6 +1,12 @@
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 package br.com.farmacia.servlet;
-
-
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,14 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.farmacia.DAO.ProdutoDAO;
 import br.com.farmacia.Model.Produto;
 import br.com.farmacia.util.Utils;
-/**
-*
-* @author Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
+
 public class AlterarProduto extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

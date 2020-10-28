@@ -1,6 +1,3 @@
-package br.com.farmacia.Model;
-
-
 /**
 *
 * @author Felipe Dias Amorim Pessoa
@@ -8,7 +5,9 @@ package br.com.farmacia.Model;
 * @author Marcus
 * @author Thyago Rodrigues
 * @author Victor Vilela
-*///
+*/
+package br.com.farmacia.Model;
+
 public class Filial {
 
 	private int id_Filial;
@@ -22,8 +21,16 @@ public class Filial {
 	private String uf;
 	private String cep;
 
-	public Filial(int id_Filial, String nome_Loja, String telefone, String logradouro, String numLogr, String compLogr,
-			String bairro, String cidade, String uf, String cep) {
+	public Filial(int id_Filial, 
+			String nome_Loja, 
+			String telefone, 
+			String logradouro, 
+			String numLogr, 
+			String compLogr,
+			String bairro, 
+			String cidade, 
+			String uf, 
+			String cep) {
 
 		this.id_Filial = id_Filial;
 		this.nome_Loja = nome_Loja;
@@ -120,10 +127,24 @@ public class Filial {
 	@Override
 	public String toString() {
 		return String.format(
-				"Codigo %d <br/> Nome loja %s <br/> Telefone %s <br/> Logradouro %s <br/> Numero %s <br/> Complemento %s <br/> Bairro %s <br/> Cidade %s <br/> "
-						+ "UF %s <br/> CEP %s  ",
-				this.getId_Filial(), this.getNome_Loja(), this.getTelefone(), this.getLogradouro(), this.getNumLogr(),
-				this.getCompLogr(), this.getBairro(), this.getCidade(), this.getUf(), this.getCep());
+				"Codigo %d <br/> Nome loja %s "
+				+ "<br/> Telefone %s "
+				+ "<br/> Logradouro %s "
+				+ "<br/> Numero %s "
+				+ "<br/> Complemento %s "
+				+ "<br/> Bairro %s "
+				+ "<br/> Cidade %s <br/> "
+				+ "UF %s <br/> CEP %s  ",
+				this.getId_Filial(), 
+				this.getNome_Loja(), 
+				this.getTelefone(), 
+				this.getLogradouro(), 
+				this.getNumLogr(),
+				this.getCompLogr(), 
+				this.getBairro(), 
+				this.getCidade(), 
+				this.getUf(), 
+				this.getCep());
 	}
 
 

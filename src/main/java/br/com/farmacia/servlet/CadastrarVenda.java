@@ -1,3 +1,11 @@
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 package br.com.farmacia.servlet;
 
 import java.io.IOException;
@@ -16,9 +24,7 @@ import br.com.farmacia.DAO.VendaDAO;
 import br.com.farmacia.Model.Venda;
 import br.com.farmacia.util.*;
 
-/**
- * Servlet implementation class CadastrarVenda
- */
+
 @WebServlet(name = "CadastrarVenda", urlPatterns = {"/CadastrarVenda"})
 public class CadastrarVenda extends HttpServlet {
 	   

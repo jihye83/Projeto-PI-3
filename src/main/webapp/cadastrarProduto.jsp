@@ -7,7 +7,7 @@
 		<title>Cadastrar Produto</title>
 	</head>
 	<body class="container">
-		<h1>Cadastro</h1>
+		<h1>Cadastro Produto</h1>
 		<form action="CadastrarProduto" method="POST">
 			<p>Nome do Produto</p>
 			<input name="nome_Prod" class="form-control" required="true">

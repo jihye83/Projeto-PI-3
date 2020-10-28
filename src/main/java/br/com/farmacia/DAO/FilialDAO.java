@@ -1,3 +1,11 @@
+/**
+ * @author Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
+ * @author Victor Vilela
+ *
+ */
 package br.com.farmacia.DAO;
 
 import java.sql.Connection;
@@ -12,14 +20,6 @@ import java.util.logging.Logger;
 import br.com.farmacia.Model.Filial;
 import br.com.farmacia.util.ConexaoDB;
 
-/**
- * @author Felipe Dias Amorim Pessoa
- * @author Ji Hye Koo
- * @author Marcus
- * @author Thyago Rodrigues
- * @author Victor Vilela
- *
- */
 public class FilialDAO {
 
 	public static List<Filial> getFiliais() {

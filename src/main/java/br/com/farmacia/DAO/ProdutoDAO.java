@@ -1,3 +1,11 @@
+/**
+ * @author Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
+ * @author Victor Vilela
+ *
+ */
 package br.com.farmacia.DAO;
 
 import java.sql.Connection;
@@ -12,14 +20,6 @@ import br.com.farmacia.Model.Produto;
 import br.com.farmacia.servlet.ServletBD;
 import br.com.farmacia.util.ConexaoDB;
 
-/**
- * @author Felipe Dias Amorim Pessoa
- * @author Ji Hye Koo
- * @author Marcus
- * @author Thyago Rodrigues
- * @author Victor Vilela
- *
- */
 public class ProdutoDAO {
 
 	public static List<Produto> getProdutos() {

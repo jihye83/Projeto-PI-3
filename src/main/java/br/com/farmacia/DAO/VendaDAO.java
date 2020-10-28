@@ -1,3 +1,11 @@
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 package br.com.farmacia.DAO;
 
 import java.sql.Connection;
@@ -15,14 +23,6 @@ import br.com.farmacia.Model.Venda;
 import br.com.farmacia.servlet.ServletBD;
 import br.com.farmacia.util.ConexaoDB;
 
-/**
-*
-* @author Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*///
 public class VendaDAO {
 	public static List<Venda> getVendas() {
 		List<Venda> listaVendas = new ArrayList();

@@ -1,3 +1,11 @@
+/**
+*
+* @author Felipe Dias Amorim Pessoa
+* @author Ji Hye Koo
+* @author Marcus
+* @author Thyago Rodrigues
+* @author Victor Vilela
+*/
 package br.com.farmacia.Model;
 
 import java.util.Date;
@@ -31,8 +39,19 @@ public class Cliente {
 	public Cliente() {
 	}
 
-	public Cliente(String nome, long cpf, Date dataNasc, String email, String cel, String logradouro, String numLogr, String compLogr,
-			String bairro, String cidade, String uf, String cep) {
+	public Cliente(String nome, 
+			long cpf, 
+			Date dataNasc, 
+			String email, 
+			String cel, 
+			String logradouro, 
+			String numLogr,
+			String compLogr, 
+			String bairro, 
+			String cidade, 
+			String uf, 
+			String cep) 
+	{
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNasc = dataNasc;

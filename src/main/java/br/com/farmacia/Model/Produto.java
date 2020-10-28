@@ -1,10 +1,3 @@
-package br.com.farmacia.Model;
-
-
-
-import lombok.Getter;
-import lombok.Setter;
-
 /**
 *
 * @author Felipe Dias Amorim Pessoa
@@ -13,6 +6,11 @@ import lombok.Setter;
 * @author Thyago Rodrigues
 * @author Victor Vilela
 */
+package br.com.farmacia.Model;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Getter
 @Setter
 public class Produto {
