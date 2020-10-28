@@ -15,7 +15,7 @@
 
         <script lang="text/javascript">
             
-            function mostrarModalExclusao(cpf, nome){
+            function mostrarModalExclusao(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep){
                 $("#nomeCliente").html(nome);
                 $("#cpfCliente").val(cpf);
                 $('#modalExclusao').modal('show');
@@ -23,7 +23,7 @@
             
             function excluirCliente() {
                 var cpf = $("#cpfCliente").val();
-                $.get( "ExcluirCliente?cpf="+cpf, function( resposta ) {
+                $.get("ExcluirCliente?cpf="+cpf, function( resposta ) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Feito!");
@@ -40,24 +40,33 @@
         <table class="table">
             <thead>
                 <th>Nome</th>
-                <th>Email</th>
                 <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Email</th>
+                <th>DDD + Telefone</th>
+                <th>Logradouro</th>
+                <th>Número do Logradouro</th>
+                <th>Complemento do Logradouro</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>CEP</th>
             </thead>
             <tbody> 
                 <c:forEach var="cliente" items="${listaClientes}">
                     <tr>
                         <td>${cliente.nome}</td>
+                        <td>${cliente.cpf}</td>
+                        <td>${cliente.dataNasc}</td>
                         <td>${cliente.email}</td>
+                        <td>${cliente.cel}</td>
                         <td>${cliente.logradouro}</td>
                         <td>${cliente.numLogr}</td>
                         <td>${cliente.compLogr}</td>
-                        <td>${cliente.cep}</td>
                         <td>${cliente.bairro}</td>
                         <td>${cliente.cidade}</td>
                         <td>${cliente.uf}</td>
-                        <td>${cliente.telefone}</td>
-                        <td>${cliente.dataNasc}</td>
-                        <td>${cliente.cpf}</td>
+                        <td>${cliente.cep}</td>
                         <td><a href="AlterarCliente?cpf=${cliente.cpf}">Alterar</a></td>
                         <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')">Excluir</button></td>
                     </tr>
