@@ -11,31 +11,30 @@ package br.com.farmacia.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConexaoDB {
 
 	    public static Connection CONEXAO;
-	    /**
-	     * Método para fazer a conexão com o banco de dados
-	     * @return uma conexao do tipo Connection
-	     */
-	    public static Connection conector() {
-	        java.sql.Connection conexao = null;
-	        //chamando o driver importado da biblioteca
-	        //Armazenando informacoes referente ao banco
-	        String url = "jdbc:mysql://localhost:3306/tades";
+	    static {
+	        try {
+	            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+	            
+	        } catch (ClassNotFoundException ex) {
+	            Logger.getLogger(ConexaoDB.class.getName())
+	                    .log(Level.SEVERE, null, ex);
+	        }
+	       
+	    }
+	    
+	    public static Connection conector() 
+	            throws ClassNotFoundException, SQLException {
+	        String url = "jdbc:mysql://localhost:3306/TADES";
 	        String user = "root";
 	        String password = "";
-	        //Estabelecendo a conexao com o banco
-	        try {
-	            conexao = DriverManager.getConnection(url, user, password);
-	            return conexao;
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            System.out.println(e);
-	            return null;
-	        }
-
+	        CONEXAO = DriverManager.getConnection(url, user, password);
+	        return CONEXAO;
 	    }
 	    /**
 	     * Método para encerrar a conexão com o banco de dados

@@ -28,6 +28,14 @@ public class Produto {
 		this.descricao_Prod = descricao_Prod;
 		this.qtd_Prod = qtd_Prod;
 	}
+	
+	public Produto( String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
+		this.id_Produto = id_Produto;
+		this.nome_Prod = nome_Prod;
+		this.preco_Prod = preco_Prod;
+		this.descricao_Prod = descricao_Prod;
+		this.qtd_Prod = qtd_Prod;
+	}
 
 	@Override
 	public String toString() {

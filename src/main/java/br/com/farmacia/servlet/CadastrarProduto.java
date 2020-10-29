@@ -26,17 +26,22 @@ public class CadastrarProduto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// se tirar o id_Prod está dando erro na contrutor
-		int id_Produto = Integer.parseInt(request.getParameter("id_Produto"));
+		//String id_ProdutoStr = request.getParameter("id_Produto");
+	//	int id_Produto = (id_ProdutoStr!=null) ? Integer.parseInt(id_ProdutoStr) : 0;
 		String nome_Prod = request.getParameter("nome_Prod");
-		float preco_Prod = Float.parseFloat(request.getParameter("preco_Prod"));
+		String preco_ProdStr = request.getParameter("preco_Prod");
+		float preco_Prod = (preco_ProdStr!=null) ? Float.parseFloat(preco_ProdStr) : 0 ;
 		String descricao_Prod = request.getParameter("descricao_Prod");
-		int qtd_Prod = Integer.parseInt(request.getParameter("qtd_Prod"));
+		String qtd_ProdStr = request.getParameter("qtd_Prod");
+		int qtd_Prod = (qtd_ProdStr!=null) ? Integer.parseInt(qtd_ProdStr) : 0;
 		
-		Produto produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+		Produto produto = new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
 		try {
+			System.out.println("erro aqui");
 			ProdutoDAO.adicionaProduto(produto);
 			response.sendRedirect("sucesso.jsp");
 		} catch (ClassNotFoundException | SQLException ex) {
+			
 			Logger.getLogger(CadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
 			Utils.mostrarTelaErro(ex, request, response);
 		}

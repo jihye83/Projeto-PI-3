@@ -50,7 +50,10 @@ public class ClienteDAO {
                 
                 listaClientes.add(new Cliente(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep ));
             }
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+            log(Level.SEVERE, null, ex);
+} catch (SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
@@ -108,7 +111,10 @@ public class ClienteDAO {
                 
                 cliente = new Cliente(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep );
             }
-        } catch (SQLException ex) {
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+            log(Level.SEVERE, null, ex);
+}  catch (SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
         }

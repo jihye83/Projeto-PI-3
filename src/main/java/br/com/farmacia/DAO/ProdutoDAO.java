@@ -47,13 +47,13 @@ public class ProdutoDAO {
 
 	public static void adicionaProduto(Produto produto) throws SQLException, ClassNotFoundException {
 		Connection con = ConexaoDB.conector();
-		String query = "insert into produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod(?,?,?,?))";
+		String query = "insert into Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod) values(?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, produto.getNome_Prod());
 		ps.setFloat(2, produto.getPreco_Prod());
 		ps.setString(3, produto.getDescricao_Prod());
 		ps.setInt(4, produto.getQtd_Prod());
-		ps.execute();
+		ps.executeUpdate();
 	}
 
 	public static void alteraProduto(Produto produto) throws SQLException, ClassNotFoundException {
