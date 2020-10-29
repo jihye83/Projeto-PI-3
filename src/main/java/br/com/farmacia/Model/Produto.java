@@ -21,14 +21,13 @@ public class Produto {
 	private String descricao_Prod;
 	private int qtd_Prod;
 
-	public Produto(int id_Produto, String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
-		this.id_Produto = id_Produto;
+	public Produto(String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
 		this.nome_Prod = nome_Prod;
 		this.preco_Prod = preco_Prod;
 		this.descricao_Prod = descricao_Prod;
 		this.qtd_Prod = qtd_Prod;
 	}
-
+        
 	@Override
 	public String toString() {
 		return String.format("Cod %d <br/> Nome %s <br/> Preco %f <br/> Descricao %s <br/> Qtd %d",

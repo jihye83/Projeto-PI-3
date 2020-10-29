@@ -16,11 +16,10 @@
         <h1>Menu</h1>
         <a href="/Projeto-PI-3/ListarCliente">Lista Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
-        <a href="alterarCliente.jsp">Alteração Cadastro Clientes</a><br/>
         <a href="/Projeto-PI-3/ListarProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br>
+        <a href="listarVendas.jsp">Listar Vendas</a><br>
         <a href="alterarProduto.jsp">Alterar Produtos</a><br>
         <a href="cadastrarVenda.jsp">Venda</a><br>
-        <a href="listarVendas.jsp">Listar Vendas</a><br>
     </body>
 </html>

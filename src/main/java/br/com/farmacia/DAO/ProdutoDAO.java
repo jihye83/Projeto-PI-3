@@ -29,12 +29,11 @@ public class ProdutoDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int id_Produto = rs.getInt("id_Produto");
                 String nome_Prod = rs.getString("nome_Prod");
                 float preco_Prod = rs.getFloat("preco_Prod");
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
-                listaProdutos.add(new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
+                listaProdutos.add(new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -86,7 +85,7 @@ public class ProdutoDAO {
                 float preco_Prod = rs.getFloat("preco_Prod");
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
-                produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+                produto = new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).

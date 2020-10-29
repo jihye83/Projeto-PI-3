@@ -16,15 +16,15 @@
         <h1>Cadastro</h1>
 		<form action="CadastrarProduto" method="POST">
 			<p>Nome do Produto</p>
-			<input name="nome_Prod" class="form-control" required="true">
+			<input name="nome_Prod" type="text" class="form-control" required="true">
 			<p>Preço</p>
-			<input name="preco_Prod" class="form-control" required="true">
+			<input name="preco_Prod" type="text" class="form-control" required="true">
 			<p>Descrição</p>
-			<input name="descricao_prod" class="form-control" required="true">
+			<input name="descricao_prod" type="text" class="form-control" required="true">
 			<p>Quantidade</p>
-			<input name="qtd_Prod" class="form-control" required="true">
+			<input name="qtd_Prod" type="text" class="form-control" required="true">
 
-			<button type="submit" class="btn btn-primary">Enviar</button>
+			<button type="submit" type="text" class="btn btn-primary">Enviar</button>
 		</form>
     </body>
 </html>

@@ -33,7 +33,7 @@ public class CadastrarProduto extends HttpServlet{
 		String descricao_Prod = request.getParameter("descricao_Prod");
 		int qtd_Prod = Integer.parseInt(request.getParameter("qtd_Prod"));
 		
-		Produto produto = new Produto(id_Produto, nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+		Produto produto = new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
 		
                 try {
 			ProdutoDAO.addProduto(produto);
