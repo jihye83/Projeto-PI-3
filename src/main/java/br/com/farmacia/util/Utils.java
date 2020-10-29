@@ -1,13 +1,14 @@
-/**
-*
-* @author Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
-package br.com.farmacia.util;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.farmacia.Util;
 
+/**
+ *
+ * @author PICHAU
+ */
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

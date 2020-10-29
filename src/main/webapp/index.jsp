@@ -1,3 +1,9 @@
+<%-- 
+    Document   : index
+    Created on : 29/10/2020, 05:45:06
+    Author     : PICHAU
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

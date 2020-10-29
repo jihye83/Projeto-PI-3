@@ -1,3 +1,9 @@
+<%-- 
+    Document   : alterarCliente
+    Created on : 29/10/2020, 05:49:04
+    Author     : PICHAU
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

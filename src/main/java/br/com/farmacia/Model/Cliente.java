@@ -1,15 +1,22 @@
-/**
-*
-* @author Felipe Dias Amorim Pessoa
-* @author Ji Hye Koo
-* @author Marcus
-* @author Thyago Rodrigues
-* @author Victor Vilela
-*/
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.farmacia.Model;
 
-import java.util.Date;
-
+/**
+ *
+ * @author PICHAU
+ */
+/**
+ *
+ * @author Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
+ * @author Victor Vilela
+ */
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,58 +24,48 @@ import lombok.Setter;
 @Setter
 public class Cliente {
 
-	private int idCliente;
-	private String nome;
-	private String email;
-	private String logradouro;
-	private String numLogr;
-	private String compLogr;
-	private String cep;
-	private String bairro;
-	private String cidade;
-	private String uf;
-	private String cel;
-	private Date dataNasc;
-	private long cpf;
+    private int idCliente;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String cel;
+    private String logradouro;
+    private String bairro;
+    private String cidade;
+    private String uf;
+    private String cep;
 
-//	public Cliente(String nome, long cpf, Date dataNasc, String email, String cel, String logradouro, String numLogr, String compLogr,
-//			String bairro, String cidade, String uf, String cep) {
-//
-//	}
+    public Cliente(int idCliente, String nome, String cpf, String email, String cel, String logradouro, String bairro, String cidade, String uf, String cep) {
+        this.idCliente = idCliente;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.cel = cel;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.cep = cep;
+    }
 
-	public Cliente() {
-	}
+    public Cliente() {
+    }
 
-	public Cliente(String nome, 
-			long cpf, 
-			Date dataNasc, 
-			String email, 
-			String cel, 
-			String logradouro, 
-			String numLogr,
-			String compLogr, 
-			String bairro, 
-			String cidade, 
-			String uf, 
-			String cep) 
-	{
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dataNasc = dataNasc;
-		this.email = email;
-		this.cel = cel;
-		this.logradouro = logradouro;
-		this.numLogr = numLogr;
-		this.compLogr = compLogr;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.uf = uf;
-		this.cep = cep;
-	}
+    public Cliente(String nome, String cpf, String email, String cel, String logradouro, String bairro, String cidade, String uf, String cep) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.cel = cel;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.cep = cep;
+    }
 
-	@Override
-	public String toString() {
-		return String.format("Nome %s <br/> Email %s <br/> CPF %d", this.getNome(), this.getEmail(), this.getCpf());
-	}
+    @Override
+    public String toString() {
+        return String.format("Nome %s <br/> Email %s <br/> CPF %d", this.getNome(), this.getEmail(), this.getCpf());
+    }
 
 }

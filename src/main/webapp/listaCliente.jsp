@@ -1,3 +1,9 @@
+<%-- 
+    Document   : listaCliente
+    Created on : 29/10/2020, 05:47:35
+    Author     : PICHAU
+--%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +15,7 @@
 
         <script lang="text/javascript">
             
-            function mostrarModalExclusao(nome, cpf, dataNasc, email, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep){
+            function mostrarModalExclusao(nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep){
                 $("#nomeCliente").html(nome);
                 $("#cpfCliente").val(cpf);
                 $('#modalExclusao').modal('show');
@@ -35,28 +41,22 @@
             <thead>
                 <th>Nome</th>
                 <th>CPF</th>
-                <th>Data de Nascimento</th>
                 <th>Email</th>
                 <th>DDD + Telefone</th>
                 <th>Logradouro</th>
-                <th>Número do Logradouro</th>
-                <th>Complemento do Logradouro</th>
                 <th>Bairro</th>
                 <th>Cidade</th>
                 <th>UF</th>
                 <th>CEP</th>
             </thead>
             <tbody> 
-                <c:forEach var="cliente" items="${listaClientes}">
+                <c:forEach var="cliente" items="${listaCliente}">
                     <tr>
                         <td>${cliente.nome}</td>
                         <td>${cliente.cpf}</td>
-                        <td>${cliente.dataNasc}</td>
                         <td>${cliente.email}</td>
                         <td>${cliente.cel}</td>
                         <td>${cliente.logradouro}</td>
-                        <td>${cliente.numLogr}</td>
-                        <td>${cliente.compLogr}</td>
                         <td>${cliente.bairro}</td>
                         <td>${cliente.cidade}</td>
                         <td>${cliente.uf}</td>
