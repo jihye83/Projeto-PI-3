@@ -50,10 +50,7 @@ public class ClienteDAO {
                 
                 listaClientes.add(new Cliente(nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep));
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServletDB.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
@@ -62,7 +59,7 @@ public class ClienteDAO {
     
     public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
-        String query = "INSERT INTO cliente (nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
+        String query = "insert into cliente (nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNome());
         ps.setString(2, cliente.getCpf());
@@ -78,17 +75,17 @@ public class ClienteDAO {
     
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update cliente set nome=?,cpf=?,email=?,cel=?,logradouro=?,bairro=?,cidade=?,uf=?,cep=? where cpf=?";
+        String query = "update cliente set nome=?,email=?,cel=?,logradouro=?,bairro=?,cidade=?,uf=?,cep=? where cpf=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNome());
-        ps.setString(2, cliente.getCpf());
-        ps.setString(3, cliente.getEmail());
-        ps.setString(4, cliente.getCel());
-        ps.setString(5, cliente.getLogradouro());
-        ps.setString(6, cliente.getBairro());
-        ps.setString(7, cliente.getCidade());
-        ps.setString(8, cliente.getUf());
-        ps.setString(9, cliente.getCep());
+        ps.setString(2, cliente.getEmail());
+        ps.setString(3, cliente.getCel());
+        ps.setString(4, cliente.getLogradouro());
+        ps.setString(5, cliente.getBairro());
+        ps.setString(6, cliente.getCidade());
+        ps.setString(7, cliente.getUf());
+        ps.setString(8, cliente.getCep());
+        ps.setString(9, cliente.getCpf());
         ps.execute();
     }
     
