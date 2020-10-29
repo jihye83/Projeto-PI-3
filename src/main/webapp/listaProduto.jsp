@@ -45,7 +45,7 @@
             <th>Quantidade</th>
         </thead>
         <tbody> 
-            <c:forEach var="produto" items="${listaProdutos}">
+            <c:forEach var="produto" items="${listaProduto}">
                 <tr>
                     <td>${produto.id_Produto}</td>
                     <td>${produto.nome_Prod}</td>

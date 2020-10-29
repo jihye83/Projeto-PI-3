@@ -24,12 +24,12 @@ public class ListarProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Produto> listaProdutos = ProdutoDAO.getProdutos();
+        List<Produto> listaProduto = ProdutoDAO.getProdutos();
 
-        request.setAttribute("listaProdutos", listaProdutos);
+        request.setAttribute("listaProduto", listaProduto);
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listaProdutos.jsp");
+                .getRequestDispatcher("/listaProduto.jsp");
 
         requestDispatcher.forward(request, response);
     }

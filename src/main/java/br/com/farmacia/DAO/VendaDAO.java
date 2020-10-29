@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 import br.com.farmacia.Model.Cliente;
 import br.com.farmacia.Model.Venda;
-import br.com.farmacia.Servlet.ServletDB;
+import br.com.farmacia.servlet.ServletDB;
 import br.com.farmacia.DB.ConexaoDB;
 
 public class VendaDAO {

@@ -17,7 +17,7 @@ package br.com.farmacia.DAO;
 
 import br.com.farmacia.DB.ConexaoDB;
 import br.com.farmacia.Model.Cliente;
-import br.com.farmacia.Servlet.ServletDB;
+import br.com.farmacia.servlet.ServletDB;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

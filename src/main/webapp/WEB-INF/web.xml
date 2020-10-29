@@ -2,43 +2,43 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>ServletDB</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.ServletDB</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.ServletDB</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.ListarCliente</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.ListarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.AlterarCliente</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.AlterarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.ExcluirCliente</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.ExcluirCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.CadastrarCliente</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.ListarProduto</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.ListarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.AlterarProduto</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.AlterarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirProduto</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.ExcluirProduto</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.ExcluirProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.CadastrarProduto</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.CadastrarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarVenda</servlet-name>
-        <servlet-class>br.com.farmacia.Servlet.CadastrarVenda</servlet-class>
+        <servlet-class>br.com.farmacia.servlet.CadastrarVenda</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletDB</servlet-name>
@@ -62,7 +62,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarProduto</servlet-name>
-        <url-pattern>/ListarProdutos</url-pattern>
+        <url-pattern>/ListarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarProduto</servlet-name>
@@ -74,7 +74,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
-        <url-pattern>/CadastrarProdutos</url-pattern>
+        <url-pattern>/CadastrarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarVenda</servlet-name>

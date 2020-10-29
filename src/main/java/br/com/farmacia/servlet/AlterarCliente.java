@@ -3,17 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.farmacia.Servlet;
+package br.com.farmacia.servlet;
 
 import br.com.farmacia.DAO.ClienteDAO;
 import br.com.farmacia.Model.Cliente;
 import br.com.farmacia.Util.Utils;
 import java.io.IOException;
-import static java.lang.System.out;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
