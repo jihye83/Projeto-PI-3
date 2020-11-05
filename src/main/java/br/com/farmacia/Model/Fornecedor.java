@@ -46,5 +46,4 @@ public class Fornecedor {
         return String.format("razaoSocial %s <br/> cnpj %s <br/> tel %s <br/> logradouro %s <br/> numLogr %s <br/> compLogr %s <br/> bairro %s <br/> cidade %s <br/> uf %s <br/> cep %s", this.getRazaoSocial(),
                 this.getCnpj(), this.getTel(), this.getLogradouro(), this.getNumLogr(), this.getCompLogr(), this.getBairro(), this.getCidade(), this.getUf(), this.getCep());
     }
-
 }

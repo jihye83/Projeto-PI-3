@@ -34,7 +34,6 @@ public class Produto {
 				this.getId_Produto(), this.getNome_Prod(), this.getPreco_Prod(), this.getDescricao_Prod(),
 				this.getQtd_Prod());
 	}
-
 }
 
 
