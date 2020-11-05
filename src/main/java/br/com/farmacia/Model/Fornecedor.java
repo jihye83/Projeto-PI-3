@@ -19,7 +19,7 @@ public class Fornecedor {
     private int id_Fornecedor;
     private String razaoSocial;
     private String cnpj;
-    private String tel;
+    private String Tel;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -28,10 +28,19 @@ public class Fornecedor {
     private String uf;
     private String cep;
 
-    public Fornecedor(String razaoSocial, String cnpj, String tel, String logradouro, String numLogr, String comLogr, String bairro, String cidade, String uf, String cep) {
+    public Fornecedor(String razaoSocial, 
+            String cnpj, 
+            String Tel, 
+            String logradouro, 
+            String numLogr, 
+            String comLogr, 
+            String bairro, 
+            String cidade, 
+            String uf, 
+            String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.tel = tel;
+        this.Tel = Tel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = comLogr;
@@ -43,7 +52,25 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return String.format("razaoSocial %s <br/> cnpj %s <br/> tel %s <br/> logradouro %s <br/> numLogr %s <br/> compLogr %s <br/> bairro %s <br/> cidade %s <br/> uf %s <br/> cep %s", this.getRazaoSocial(),
-                this.getCnpj(), this.getTel(), this.getLogradouro(), this.getNumLogr(), this.getCompLogr(), this.getBairro(), this.getCidade(), this.getUf(), this.getCep());
+        return String.format("razaoSocial %s <br/> "
+                + "cnpj %s <br/> "
+                + "Tel %s <br/> "
+                + "logradouro %s <br/> "
+                + "numLogr %s <br/> "
+                + "compLogr %s <br/> "
+                + "bairro %s <br/> "
+                + "cidade %s <br/> "
+                + "uf %s <br/> "
+                + "cep %d", 
+                this.getRazaoSocial(),
+                this.getCnpj(), 
+                this.getTel(), 
+                this.getLogradouro(), 
+                this.getNumLogr(), 
+                this.getCompLogr(), 
+                this.getBairro(), 
+                this.getCidade(), 
+                this.getUf(), 
+                this.getCep());
     }
 }
