@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.farmacia.servlet;
 
 import br.com.farmacia.DAO.FornecedorDAO;
@@ -31,7 +26,7 @@ public class CadastrarFornecedor extends HttpServlet {
             throws ServletException, IOException {
         String razaoSocial = request.getParameter("razaoSocial");
         String cnpj = request.getParameter("cnpj");
-        String telefone = request.getParameter("Tel");
+        String cel = request.getParameter("cel");
         String logradouro = request.getParameter("logradouro");
         String numLogradouro = request.getParameter("numLogr");
         String comprLogr = request.getParameter("compLogr");
@@ -49,7 +44,7 @@ public class CadastrarFornecedor extends HttpServlet {
         fornecedor.setLogradouro(logradouro);
         fornecedor.setNumLogr(numLogradouro);
         fornecedor.setRazaoSocial(razaoSocial);
-        fornecedor.setTel(telefone);
+        fornecedor.setCel(cel);
         fornecedor.setUf(uf);
         try {
             FornecedorDAO.addFornecedor(fornecedor);

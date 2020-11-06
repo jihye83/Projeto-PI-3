@@ -19,7 +19,7 @@ public class Fornecedor {
     private int id_Fornecedor;
     private String razaoSocial;
     private String cnpj;
-    private String Tel;
+    private String cel;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -30,7 +30,7 @@ public class Fornecedor {
 
     public Fornecedor(String razaoSocial, 
             String cnpj, 
-            String Tel, 
+            String cel, 
             String logradouro, 
             String numLogr, 
             String comLogr, 
@@ -40,7 +40,7 @@ public class Fornecedor {
             String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.Tel = Tel;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = comLogr;
@@ -58,7 +58,7 @@ public class Fornecedor {
     public String toString() {
         return String.format("razaoSocial %s <br/> "
                 + "cnpj %s <br/> "
-                + "Tel %s <br/> "
+                + "cel %s <br/> "
                 + "logradouro %s <br/> "
                 + "numLogr %s <br/> "
                 + "compLogr %s <br/> "
@@ -68,7 +68,7 @@ public class Fornecedor {
                 + "cep %d", 
                 this.getRazaoSocial(),
                 this.getCnpj(), 
-                this.getTel(), 
+                this.getCel(), 
                 this.getLogradouro(), 
                 this.getNumLogr(), 
                 this.getCompLogr(), 

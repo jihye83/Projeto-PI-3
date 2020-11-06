@@ -30,7 +30,7 @@ public class FornecedorDAO {
             while (rs.next()) {
                 String razaoSocial = rs.getString("razaoSocial");
                 String cnpj = rs.getString("cnpj");
-                String Tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -39,7 +39,7 @@ public class FornecedorDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
 
-                listaFornecedores.add(new Fornecedor(razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
+                listaFornecedores.add(new Fornecedor(razaoSocial, cnpj, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -52,11 +52,11 @@ public class FornecedorDAO {
     public static void addFornecedor(Fornecedor fornecedor) throws SQLException, ClassNotFoundException {
         try {
              Connection con = ConexaoDB.conector();
-        String query = "insert into Fornecedor (razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into Fornecedor (razaoSocial, cnpj, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
-        ps.setString(3, fornecedor.getTel());
+        ps.setString(3, fornecedor.getCel());
         ps.setString(4, fornecedor.getLogradouro());
         ps.setString(5, fornecedor.getNumLogr());
         ps.setString(6, fornecedor.getCompLogr());
@@ -72,11 +72,11 @@ public class FornecedorDAO {
 
     public static void updateFornecedor(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update fornecedor set razaoSocial=?,cnpj=?,Tel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=?";
+        String query = "update fornecedor set razaoSocial=?,cnpj=?,cel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
-        ps.setString(3, fornecedor.getTel());
+        ps.setString(3, fornecedor.getCel());
         ps.setString(4, fornecedor.getLogradouro());
         ps.setString(5, fornecedor.getNumLogr());
         ps.setString(6, fornecedor.getCompLogr());
@@ -105,7 +105,7 @@ public class FornecedorDAO {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 String razaoSocial = rs.getString("razaoSocial");
-                String Tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -113,7 +113,7 @@ public class FornecedorDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                fornecedor = new Fornecedor(razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
+                fornecedor = new Fornecedor(razaoSocial, cnpj, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
