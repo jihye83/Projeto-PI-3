@@ -49,6 +49,10 @@ public class Fornecedor {
         this.uf = uf;
         this.cep = cep;
     }
+    
+    public Fornecedor(){
+        
+    }
 
     @Override
     public String toString() {

@@ -49,7 +49,8 @@ public class FornecedorDAO {
     }
 
     public static void addFornecedor(Fornecedor fornecedor) throws SQLException, ClassNotFoundException {
-        Connection con = ConexaoDB.conector();
+        try {
+             Connection con = ConexaoDB.conector();
         String query = "insert into fornecedor (razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
@@ -63,6 +64,9 @@ public class FornecedorDAO {
         ps.setString(9, fornecedor.getUf());
         ps.setString(10, fornecedor.getCep());
         ps.execute();
+        } catch (Exception e) {
+        }
+       
     }
 
     public static void updateFornecedor(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {

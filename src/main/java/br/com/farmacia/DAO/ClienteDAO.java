@@ -34,7 +34,7 @@ public class ClienteDAO {
         List<Cliente> listaClientes = new ArrayList();
         try {
             Connection con = ConexaoDB.conector();
-            String query = "select * from cliente";
+            String query = "select * from Cliente";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -59,7 +59,7 @@ public class ClienteDAO {
     
     public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
-        String query = "insert into cliente (nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
+        String query = "insert into Cliente (nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNome());
         ps.setString(2, cliente.getCpf());

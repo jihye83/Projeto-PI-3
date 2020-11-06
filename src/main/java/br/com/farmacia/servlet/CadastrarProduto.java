@@ -27,12 +27,14 @@ public class CadastrarProduto extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// se tirar o id_Prod está dando erro na contrutor
-		int id_Produto = Integer.parseInt(request.getParameter("id_Produto"));
+		String id_ProdutoStr = request.getParameter("id_Produto");
+                int id_Produto = Integer.parseInt(id_ProdutoStr);
 		String nome_Prod = request.getParameter("nome_Prod");
-		float preco_Prod = Float.parseFloat(request.getParameter("preco_Prod"));
-		String descricao_Prod = request.getParameter("descricao_Prod");
-		int qtd_Prod = Integer.parseInt(request.getParameter("qtd_Prod"));
-		
+		String preco_ProdStr = request.getParameter("preco_Prod");
+		float preco_Prod = Float.parseFloat(preco_ProdStr);
+                String descricao_Prod = request.getParameter("descricao_Prod");
+		String qtd_ProdStr = request.getParameter("qtd_Prod");
+		int qtd_Prod = Integer.parseInt(qtd_ProdStr);
 		Produto produto = new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
 		
                 try {
