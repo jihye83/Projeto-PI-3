@@ -1,19 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.farmacia.DAO;
-
-/**
- *
- * @author PICHAU
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import br.com.farmacia.DB.ConexaoDB;
 import br.com.farmacia.Model.Cliente;
@@ -24,10 +9,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author tscarton
- */
 public class ClienteDAO {
 
     public static List<Cliente> getClientes() {

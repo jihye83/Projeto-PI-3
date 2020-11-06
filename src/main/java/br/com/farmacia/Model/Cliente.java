@@ -35,7 +35,16 @@ public class Cliente {
     private String uf;
     private String cep;
 
-    public Cliente(int idCliente, String nome, String cpf, String email, String cel, String logradouro, String bairro, String cidade, String uf, String cep) {
+    public Cliente(int idCliente, 
+            String nome, 
+            String cpf, 
+            String email, 
+            String cel, 
+            String logradouro, 
+            String bairro, 
+            String cidade, 
+            String uf, 
+            String cep) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.cpf = cpf;
@@ -51,7 +60,15 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String cpf, String email, String cel, String logradouro, String bairro, String cidade, String uf, String cep) {
+    public Cliente(String nome, 
+            String cpf, 
+            String email, 
+            String cel, 
+            String logradouro, 
+            String bairro, 
+            String cidade, 
+            String uf, 
+            String cep) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -65,7 +82,25 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return String.format("Nome %s <br/> Email %s <br/> CPF %d", this.getNome(), this.getEmail(), this.getCpf());
+        return String.format("Nome %s <br/> "
+                + "cpf %s <br/> "
+                + "Email %s <br/> "
+                + "cel %s <br/> "
+                + "logradouro %s <br/> "
+                + "bairro %s <br/> "
+                + "cidade %s <br/> "
+                + "uf %s <br/> "
+                + "cep %d", 
+                this.getNome(),
+                this.getCpf(),
+                this.getEmail(),
+                this.getCel(),
+                this.getLogradouro(),
+                this.getBairro(),
+                this.getCidade(),
+                this.getUf(),
+                this.getCep());
+    
     }
 
 }

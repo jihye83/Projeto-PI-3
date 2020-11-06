@@ -19,9 +19,8 @@ public class Funcionario {
     private String cpf;
     private String cel;
     private String email;
-    private String salario_Func;
+    private double salario_Func;
     private String data_Admissao;
-    private String perfil_Func;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -29,16 +28,19 @@ public class Funcionario {
     private String cidade;
     private String uf;
     private String cep;
+    private String usuario;
+    private String senha;
+    private String perfil_Func;
     private String id_Filial;
     
     public Funcionario (int id_Func, 
-            String nome, 
+            String nome,             
+            String data_Nasc, //REVER SE É STRING MESMO, PORQUE NO BANCO ESTÁ COMO DATE
             String cpf, 
             String cel, 
-            String email, 
-            String salario_Func, 
-            String data_Admissao, 
-            String perfil_Func, 
+            String email,             
+            double salario_Func, //Atentar-se para o tipo da variável, que vem como numeric do banco
+            String data_Admissao, //REVER SE É STRING MESMO, PORQUE NO BANCO ESTÁ COMO DATE            
             String logradouro, 
             String numLogr, 
             String compLogr, 
@@ -46,6 +48,9 @@ public class Funcionario {
             String cidade, 
             String uf, 
             String cep, 
+            String usuario,
+            String senha,
+            String perfil_Func, 
             String id_Filial) {
         
         this.id_Func = id_Func;
@@ -55,8 +60,7 @@ public class Funcionario {
         this.cel = cel;
         this.email = email;
         this.salario_Func = salario_Func;
-        this.data_Admissao = data_Admissao;
-        this.perfil_Func = perfil_Func;
+        this.data_Admissao = data_Admissao;        
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;
@@ -64,8 +68,14 @@ public class Funcionario {
         this.cidade = cidade;
         this.uf = uf;
         this.cep = cep;
+        this.usuario = usuario;
+        this.senha = senha;
+        this.perfil_Func = perfil_Func;
         this.id_Filial = id_Filial;
         
+    }
+    
+    public Funcionario(String nome, String data_Nasc, String cpf, String cel, String email, double salario_Func, String data_Admissao, String logradouro, String numLogr, String compLogr, String bairro, String cidade, String uf, String cep, String usuario, String senha, String perfil_Func) {
     }
     
     @Override
@@ -77,8 +87,7 @@ public class Funcionario {
                 + "cel %s <br/> "
                 + "email %s <br/> "
                 + "salario_Func %s <br/> "
-                + "data_Admissao %s <br/> "
-                + "perfil_Func %s <br/> "
+                + "data_Admissao %s <br/> "                
                 + "logradouro %s <br/> "
                 + "num_Logr %s <br/> "
                 + "comp_Logr %s <br/> "
@@ -86,6 +95,9 @@ public class Funcionario {
                 + "cidade %s <br/> "
                 + "uf %s <br/> "
                 + "cep %s <br/> "
+                + "usuario %s <br/> "
+                + "senha %s <br/> "
+                + "perfil_Func %s <br/> "
                 + "id_Filial %d",
                 this.getNome(), 
                 this.getData_Nasc(), 
@@ -93,8 +105,7 @@ public class Funcionario {
                 this.getCel(), 
                 this.getEmail(), 
                 this.getSalario_Func(), 
-                this.getData_Admissao(), 
-                this.getPerfil_Func(), 
+                this.getData_Admissao(),                 
                 this.getLogradouro(), 
                 this.getNumLogr(), 
                 this.getCompLogr(), 
@@ -102,6 +113,9 @@ public class Funcionario {
                 this.getCidade(),
                 this.getUf(), 
                 this.getCep(), 
+                this.getUsuario(),
+                this.getSenha(),
+                this.getPerfil_Func(), 
                 this.getId_Filial());        
         
     }    
