@@ -6,7 +6,9 @@
 package br.com.farmacia.servlet;
 
 import br.com.farmacia.DAO.ClienteDAO;
+import br.com.farmacia.DAO.FornecedorDAO;
 import br.com.farmacia.Model.Cliente;
+import br.com.farmacia.Model.Fornecedor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -45,6 +47,25 @@ public class ServletDB extends HttpServlet {
             List<Cliente> listaClientes = ClienteDAO.getClientes();
             for(Cliente cliente: listaClientes) {
                 out.println(cliente);
+                out.println("<br/>");
+            }
+            
+            out.println("</body>");
+            out.println("</html>");
+        }
+        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletBD</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            
+            List<Fornecedor> listaf = FornecedorDAO.getFornecedores();
+            for(Fornecedor fornecedor: listaf) {
+                out.println(fornecedor);
                 out.println("<br/>");
             }
             

@@ -24,7 +24,7 @@ public class FornecedorDAO {
         List<Fornecedor> listaFornecedores = new ArrayList();
         try {
             Connection con = ConexaoDB.conector();
-            String query = "selecy * from fornecedor";
+            String query = "select * from Fornecedor";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -45,13 +45,14 @@ public class FornecedorDAO {
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
+        
         return listaFornecedores;
     }
 
     public static void addFornecedor(Fornecedor fornecedor) throws SQLException, ClassNotFoundException {
         try {
              Connection con = ConexaoDB.conector();
-        String query = "insert into fornecedor (razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into Fornecedor (razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());

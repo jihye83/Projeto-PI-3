@@ -5,6 +5,18 @@
         <servlet-class>br.com.farmacia.servlet.ServletDB</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CadastrarFornecedor</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.CadastrarFornecedor</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>ListarFornecedores</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.ListarFornecedores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarFornecedor</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.AlterarFornecedor</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ListarCliente</servlet-name>
         <servlet-class>br.com.farmacia.servlet.ListarCliente</servlet-class>
     </servlet>
@@ -43,6 +55,18 @@
     <servlet-mapping>
         <servlet-name>ServletDB</servlet-name>
         <url-pattern>/ServletDB</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarFornecedor</servlet-name>
+        <url-pattern>/CadastrarFornecedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarFornecedores</servlet-name>
+        <url-pattern>/ListarFornecedores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarFornecedor</servlet-name>
+        <url-pattern>/AlterarFornecedor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarCliente</servlet-name>

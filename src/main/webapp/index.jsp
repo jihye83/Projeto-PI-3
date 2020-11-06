@@ -22,5 +22,6 @@
         <a href="alterarProduto.jsp">Alterar Produtos</a><br>
         <a href="cadastrarVenda.jsp">Venda</a><br>
          <a href="cadastrarFornecedor.jsp">Cadastrar Fornecedor</a><br>
+           <a href="listaFornecedor.jsp">Listar Fornecedor</a><br>
     </body>
 </html>
