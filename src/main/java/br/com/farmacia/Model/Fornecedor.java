@@ -33,7 +33,7 @@ public class Fornecedor {
             String cel, 
             String logradouro, 
             String numLogr, 
-            String comLogr, 
+            String compLogr, 
             String bairro, 
             String cidade, 
             String uf, 
@@ -43,7 +43,7 @@ public class Fornecedor {
         this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
-        this.compLogr = comLogr;
+        this.compLogr = compLogr;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
