@@ -86,7 +86,7 @@ public class FornecedorServlet extends HttpServlet {
         boolean verificaExistencia = dao.containFornecedor(fornecedor.getCnpj());
         
         try {
-             if(idFornecedor == null || idFornecedor.isEmpty() && !verificaExistencia)
+             if(idFornecedor == null || idFornecedor.isEmpty())
         {
             dao.addFornecedor(fornecedor);
         }

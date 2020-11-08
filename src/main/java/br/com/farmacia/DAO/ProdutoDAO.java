@@ -33,6 +33,7 @@ public class ProdutoDAO {
                 float preco_Prod = rs.getFloat("preco_Prod");
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
+                
                 listaProdutos.add(new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
             }
         } catch (ClassNotFoundException | SQLException ex) {

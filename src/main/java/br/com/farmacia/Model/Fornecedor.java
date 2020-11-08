@@ -30,20 +30,20 @@ public class Fornecedor {
 
     public Fornecedor(String razaoSocial, 
             String cnpj, 
-            String Tel, 
+            String tel, 
             String logradouro, 
             String numLogr, 
-            String comLogr, 
+            String compLogr, 
             String bairro, 
             String cidade, 
             String uf, 
             String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.tel = Tel;
+        this.tel = tel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
-        this.compLogr = comLogr;
+        this.compLogr = compLogr;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
@@ -81,7 +81,7 @@ public class Fornecedor {
     public String toString() {
         return String.format("razaoSocial %s <br/> "
                 + "cnpj %s <br/> "
-                + "Tel %s <br/> "
+                + "cel %s <br/> "
                 + "logradouro %s <br/> "
                 + "numLogr %s <br/> "
                 + "compLogr %s <br/> "
