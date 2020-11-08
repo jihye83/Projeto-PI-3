@@ -16,10 +16,10 @@ import lombok.Setter;
 @Setter
 public class Fornecedor {
 
-    private int id_Fornecedor;
+    private int idFornecedor;
     private String razaoSocial;
     private String cnpj;
-    private String Tel;
+    private String tel;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -40,7 +40,7 @@ public class Fornecedor {
             String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.Tel = Tel;
+        this.tel = Tel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = comLogr;
@@ -48,6 +48,29 @@ public class Fornecedor {
         this.cidade = cidade;
         this.uf = uf;
         this.cep = cep;
+    }
+    
+     public Fornecedor(int idFornecedor,String razaoSocial, 
+            String cnpj, 
+            String Tel, 
+            String logradouro, 
+            String numLogr, 
+            String comLogr, 
+            String bairro, 
+            String cidade, 
+            String uf, 
+            String cep) {
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.tel = Tel;
+        this.logradouro = logradouro;
+        this.numLogr = numLogr;
+        this.compLogr = comLogr;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.cep = cep;
+        this.idFornecedor = idFornecedor;
     }
     
     public Fornecedor(){

@@ -1,28 +1,27 @@
-<%-- 
-    Document   : listaFornecedor
-    Created on : 05/11/2020, 21:14:53
-    Author     : felipe
---%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
-    <%@include file="header.jsp" %>
+      <%@include file="header.jsp" %>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <title>Lista de Fornecedores</title>
+         
+        <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+        <title>listar fornecedores</title>
+        
         
         <script lang="text/javascript">
             
-            function mostrarModalExclusao(cpf, nome){
-                $("#razaoSocial").html(nome);
-                $("#cnpjFornecedor").val(cpf);
+            function mostrarModalExclusao(cnpj, razao){
+                $("#razaoSocial").html(razao);
+                $("#cnpj").val(cnpj);
                 $('#modalExclusao').modal('show');
             }
             
-            function excluirFornecedor() {
-                var cpf = $("#cnpjFornecedor").val();
-                $.get( "ExcluirFornecedor?cpf="+cpf, function( resposta ) {
+            function excluirCliente() {
+                var cnpj = $("#cnpj").val();
+                $.get( "FornecedorServlet?action=delete&fornecedorCnpj="+cnpj, function( resposta ) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -36,26 +35,42 @@
     </head>
     <body class="container">
         <h1>Lista de Fornecedores</h1>
-        <table class="table">
-            <thead>
-                <th>Razão Social</th>
-                <th>Cidade</th>
-                <th>CNPJ</th>
-            </thead>
-            <tbody> 
-                <c:forEach var="fornecedor" items="${listaFornecedores}">
-                    <tr>
-                        <td>${fornecedor.razaoSocial}</td>
-                        <td>${fornecedor.cidade}</td>
-                        <td>${fornecedor.cnpj}</td>
-                        <td><a href="AlterarFornecedor?cpf=${fornecedor.cpf}">Alterar</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${fornecedor.cnpj} '${fornecedor.razaoSocial}')">Excluir</button></td>
-                    </tr>
-                </c:forEach>
-                
-            </tbody>
-            
-        </table>
+        <table border=0 class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>razao social</th>
+                <th>cnpj</th>
+                <th>tel</th>
+                <th>logradouro</th>
+                <th>num Logradouro</th>
+                <th>comp Logradouro</th>
+                <th>bairro</th>
+                <th>cidade</th>
+                <th>uf</th>
+                <th>cep</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${fornecedores}" var="fornecedor">
+                <tr>
+                    <td><c:out value="${fornecedor.idFornecedor}" /></td>
+                    <td><c:out value="${fornecedor.razaoSocial}" /></td>
+                    <td><c:out value="${fornecedor.cnpj}" /></td>
+                    <td><c:out value="${fornecedor.tel}" /></td>
+                    <td><c:out value="${fornecedor.logradouro}" /></td>
+                    <td><c:out value="${fornecedor.numLogr}" /></td>
+                    <td><c:out value="${fornecedor.compLogr}" /></td>
+                    <td><c:out value="${fornecedor.bairro}" /></td>
+                    <td><c:out value="${fornecedor.cidade}" /></td>
+                    <td><c:out value="${fornecedor.uf}" /></td>
+                    <td><c:out value="${fornecedor.cep}" /></td>
+                    <td><a class="btn btn-primary " href="FornecedorServlet?action=edit&fornecedorCnpj=<c:out value="${fornecedor.cnpj}" />">Update</a></td>
+                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${fornecedor.cnpj}', '${fornecedor.razaoSocial}')">Delete</button></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
         <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -66,18 +81,20 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do fornecedor  <label id="razaoSocialFornecedor"></label> ?
-                    <input id="cnpjFornecedor" hidden="true" />
+                    Confirmar exclusão do fornecedor  <label id="razaoSocial"></label> ?
+                    <input id="cnpj" hidden="true" />
                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirFornecedor()">Confirmar</button>
+                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
                 </div>
               </div>
             </div>
           </div>
-        <br/>
-        <a href="index.jsp">Voltar</a>
-    </body>
+        
+    <p><a href="FornecedorServlet?action=insert">Add Fornecedor</a></p>
+    <a href="index.jsp">voltar</a>
+    
+</body>
 </html>

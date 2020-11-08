@@ -28,6 +28,7 @@ public class FornecedorDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                 int id = rs.getInt("id_Fornecedor");
                 String razaoSocial = rs.getString("razaoSocial");
                 String cnpj = rs.getString("cnpj");
                 String Tel = rs.getString("Tel");
@@ -39,7 +40,7 @@ public class FornecedorDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
 
-                listaFornecedores.add(new Fornecedor(razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
+                listaFornecedores.add(new Fornecedor(id,razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -72,7 +73,7 @@ public class FornecedorDAO {
 
     public static void updateFornecedor(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update fornecedor set razaoSocial=?,cnpj=?,Tel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=?";
+        String query = "update Fornecedor set razaoSocial=?,cnpj=?,Tel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=? where id_Fornecedor=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
@@ -84,26 +85,32 @@ public class FornecedorDAO {
         ps.setString(8, fornecedor.getCidade());
         ps.setString(9, fornecedor.getUf());
         ps.setString(10, fornecedor.getCep());
+        ps.setInt(11, fornecedor.getIdFornecedor());
         ps.execute();
     }
 
     public static void deleteFornecedor(String cnpj) throws ClassNotFoundException, SQLException {
-        Connection con = ConexaoDB.conector();
-        String query = "delete from fornecedor where cnpj=?";
+        try {
+            Connection con = ConexaoDB.conector();
+        String query = "delete from Fornecedor where cnpj=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cnpj);
-        ps.execute();
+        ps.execute(); 
+        } catch (Exception e) {
+        }
+       
     }
 
     public static Fornecedor getFornecedor(String cnpj) {
         Fornecedor fornecedor = null;
         try {
             Connection con = ConexaoDB.conector();
-            String query = "select * from fornecedor where cnpj=?";
+            String query = "select * from Fornecedor where cnpj=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, cnpj);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
+                int id = rs.getInt("id_Fornecedor");
                 String razaoSocial = rs.getString("razaoSocial");
                 String Tel = rs.getString("Tel");
                 String logradouro = rs.getString("logradouro");
@@ -113,7 +120,7 @@ public class FornecedorDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                fornecedor = new Fornecedor(razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
+                fornecedor = new Fornecedor(id,razaoSocial, cnpj, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -123,5 +130,25 @@ public class FornecedorDAO {
                     log(Level.SEVERE, null, ex);
         }
         return fornecedor;
+    }
+    
+    public static boolean containFornecedor(String cnpj) {
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Fornecedor where cnpj=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cnpj);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
