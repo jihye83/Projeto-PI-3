@@ -36,16 +36,17 @@ public class CadastrarFornecedor extends HttpServlet {
         String cep = request.getParameter("cep");
         
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setBairro(bairro);
-        fornecedor.setCep(cep);
-        fornecedor.setCidade(cidade);
+        fornecedor.setRazaoSocial(razaoSocial);
         fornecedor.setCnpj(cnpj);
-        fornecedor.setCompLogr(comprLogr);
+        fornecedor.setCel(cel);
         fornecedor.setLogradouro(logradouro);
         fornecedor.setNumLogr(numLogradouro);
-        fornecedor.setRazaoSocial(razaoSocial);
-        fornecedor.setCel(cel);
+        fornecedor.setCompLogr(comprLogr);
+        fornecedor.setBairro(bairro);
+        fornecedor.setCidade(cidade);
         fornecedor.setUf(uf);
+        fornecedor.setCep(cep); 
+        
         try {
             FornecedorDAO.addFornecedor(fornecedor);
             response.sendRedirect("sucesso.jsp");

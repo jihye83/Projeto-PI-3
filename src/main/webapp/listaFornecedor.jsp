@@ -41,7 +41,7 @@
                 <th>id</th>
                 <th>razao social</th>
                 <th>cnpj</th>
-                <th>tel</th>
+                <th>cel</th>
                 <th>logradouro</th>
                 <th>num Logradouro</th>
                 <th>comp Logradouro</th>
@@ -57,7 +57,7 @@
                     <td><c:out value="${fornecedor.idFornecedor}" /></td>
                     <td><c:out value="${fornecedor.razaoSocial}" /></td>
                     <td><c:out value="${fornecedor.cnpj}" /></td>
-                    <td><c:out value="${fornecedor.tel}" /></td>
+                    <td><c:out value="${fornecedor.cel}" /></td>
                     <td><c:out value="${fornecedor.logradouro}" /></td>
                     <td><c:out value="${fornecedor.numLogr}" /></td>
                     <td><c:out value="${fornecedor.compLogr}" /></td>

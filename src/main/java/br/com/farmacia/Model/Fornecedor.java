@@ -19,7 +19,7 @@ public class Fornecedor {
     private int idFornecedor;
     private String razaoSocial;
     private String cnpj;
-    private String tel;
+    private String cel;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -30,7 +30,7 @@ public class Fornecedor {
 
     public Fornecedor(String razaoSocial, 
             String cnpj, 
-            String tel, 
+            String cel, 
             String logradouro, 
             String numLogr, 
             String compLogr, 
@@ -40,7 +40,7 @@ public class Fornecedor {
             String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.tel = tel;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;
@@ -52,7 +52,7 @@ public class Fornecedor {
     
      public Fornecedor(int idFornecedor,String razaoSocial, 
             String cnpj, 
-            String Tel, 
+            String cel, 
             String logradouro, 
             String numLogr, 
             String compLogr, 
@@ -62,7 +62,7 @@ public class Fornecedor {
             String cep) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.tel = Tel;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;

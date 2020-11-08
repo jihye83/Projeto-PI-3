@@ -73,15 +73,15 @@ public class FornecedorServlet extends HttpServlet {
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setRazaoSocial(request.getParameter("razaoSocial"));
         fornecedor.setCnpj(request.getParameter("cnpj"));
-        fornecedor.setCep(request.getParameter("cep"));
+        fornecedor.setCel(request.getParameter("cel"));
+        fornecedor.setLogradouro(request.getParameter("logradouro"));
         fornecedor.setNumLogr(request.getParameter("numLogr"));
         fornecedor.setCompLogr(request.getParameter("compLogr"));
-        fornecedor.setCidade(request.getParameter("cidade"));
         fornecedor.setBairro(request.getParameter("bairro"));
-        fornecedor.setTel(request.getParameter("tel"));
+        fornecedor.setCidade(request.getParameter("cidade"));
         fornecedor.setUf(request.getParameter("uf"));
-      
-        fornecedor.setLogradouro(request.getParameter("logradouro"));
+        fornecedor.setCep(request.getParameter("cep"));
+        
         String idFornecedor = request.getParameter("idFornecedor");
         boolean verificaExistencia = dao.containFornecedor(fornecedor.getCnpj());
         

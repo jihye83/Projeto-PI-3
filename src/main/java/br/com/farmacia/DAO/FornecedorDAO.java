@@ -31,7 +31,7 @@ public class FornecedorDAO {
                  int id = rs.getInt("id_Fornecedor");
                 String razaoSocial = rs.getString("razaoSocial");
                 String cnpj = rs.getString("cnpj");
-                String tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -40,7 +40,7 @@ public class FornecedorDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
 
-                listaFornecedores.add(new Fornecedor(id,razaoSocial, cnpj, tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
+                listaFornecedores.add(new Fornecedor(id,razaoSocial, cnpj, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -73,7 +73,7 @@ public class FornecedorDAO {
 
     public static void updateFornecedor(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update Fornecedor set razaoSocial=?,cnpj=?,Tel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=? where id_Fornecedor=?";
+        String query = "update Fornecedor set razaoSocial=?,cnpj=?,cel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=? where id_Fornecedor=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
@@ -112,7 +112,7 @@ public class FornecedorDAO {
             if(rs.next()){
                 int id = rs.getInt("id_Fornecedor");
                 String razaoSocial = rs.getString("razaoSocial");
-                String tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -120,7 +120,7 @@ public class FornecedorDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                fornecedor = new Fornecedor(id,razaoSocial, cnpj, tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
+                fornecedor = new Fornecedor(id,razaoSocial, cnpj, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
