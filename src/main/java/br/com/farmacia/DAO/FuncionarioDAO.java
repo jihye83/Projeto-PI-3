@@ -68,7 +68,11 @@ public class FuncionarioDAO {
         String query = "insert into Funcionario (nome,"
                 + "data_Nasc,"
                 + "cpf,"
+<<<<<<< HEAD
                 + "tel,"
+=======
+                + "cel,"
+>>>>>>> 86f22cab9ebee194edee6c4ed80a9fe18be36fa9
                 + "email,"
                 + "salario_Func,"
                 + "data_Admissao,"

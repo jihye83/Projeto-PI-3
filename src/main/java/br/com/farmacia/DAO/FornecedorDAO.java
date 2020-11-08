@@ -57,7 +57,7 @@ public class FornecedorDAO {
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
-        ps.setString(3, fornecedor.getTel());
+        ps.setString(3, fornecedor.getCel());
         ps.setString(4, fornecedor.getLogradouro());
         ps.setString(5, fornecedor.getNumLogr());
         ps.setString(6, fornecedor.getCompLogr());
@@ -77,7 +77,7 @@ public class FornecedorDAO {
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, fornecedor.getRazaoSocial());
         ps.setString(2, fornecedor.getCnpj());
-        ps.setString(3, fornecedor.getTel());
+        ps.setString(3, fornecedor.getCel());
         ps.setString(4, fornecedor.getLogradouro());
         ps.setString(5, fornecedor.getNumLogr());
         ps.setString(6, fornecedor.getCompLogr());
