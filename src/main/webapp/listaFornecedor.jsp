@@ -19,7 +19,7 @@
                 $('#modalExclusao').modal('show');
             }
             
-            function excluirCliente() {
+            function excluirFornecedor() {
                 var cnpj = $("#cnpj").val();
                 $.get( "FornecedorServlet?action=delete&fornecedorCnpj="+cnpj, function( resposta ) {
                     $('#modalExclusao').modal('hide')
@@ -87,7 +87,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                  <button type="button" class="btn btn-primary" onclick="excluirFornecedor()">Confirmar</button>
                 </div>
               </div>
             </div>
