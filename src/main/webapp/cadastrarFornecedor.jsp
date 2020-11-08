@@ -24,7 +24,7 @@
             <input value="<c:out value="${fornecedor.razaoSocial}" />" name="razaoSocial" class="form-control" type="text" required="true"/><br/>
             <p>CNPJ</p>
             <input value="<c:out value="${fornecedor.cnpj}" />" name="cnpj" class="form-control" type="text" required="true"/><br/>
-            <p>Telefone</p>
+            <p>Celular</p>
             <input value="<c:out value="${fornecedor.cel}" />" name="cel" class="form-control" type="text" required="true"/><br/>
             <p>Logradouro</p>
             <input value="<c:out value="${fornecedor.logradouro}" />" name="logradouro" class="form-control" type="text" required="true"/><br/>

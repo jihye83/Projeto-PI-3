@@ -33,6 +33,8 @@ public class FornecedorServlet extends HttpServlet {
       private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/cadastrarFornecedor.jsp";
     private static String LIST_FORNECEDOR = "/listaFornecedor.jsp";
+    private static String SUCESSO = "/sucesso.jsp";
+     private static String ERROR = "/erro.jsp";
     private FornecedorDAO dao;
 
     public FornecedorServlet() {
@@ -70,6 +72,8 @@ public class FornecedorServlet extends HttpServlet {
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String forward = "";
+        
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setRazaoSocial(request.getParameter("razaoSocial"));
         fornecedor.setCnpj(request.getParameter("cnpj"));
@@ -86,19 +90,26 @@ public class FornecedorServlet extends HttpServlet {
         boolean verificaExistencia = dao.containFornecedor(fornecedor.getCnpj());
         
         try {
-             if(idFornecedor == null || idFornecedor.isEmpty())
+            if(verificaExistencia){
+                forward = ERROR;
+            }
+             if((idFornecedor == null || idFornecedor.isEmpty()) && !(verificaExistencia))
         {
             dao.addFornecedor(fornecedor);
+            forward = SUCESSO;
         }
         else
         {
             fornecedor.setIdFornecedor(Integer.parseInt(idFornecedor));
             dao.updateFornecedor(fornecedor);
+             forward = SUCESSO;
         }
-        RequestDispatcher view = request.getRequestDispatcher(LIST_FORNECEDOR);
+       
+        } catch (Exception e) {
+        } finally{
+             RequestDispatcher view = request.getRequestDispatcher(forward);
         request.setAttribute("fornecedores", dao.getFornecedores());
         view.forward(request, response);
-        } catch (Exception e) {
         }
         
        
