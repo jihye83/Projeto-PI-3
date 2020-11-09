@@ -15,14 +15,14 @@
         <script lang="text/javascript">
 
             function mostrarModalExclusao(id_Produto, nome_Prod) {
-                $("#nome_Prod").html(nome_Prod);
-                $("#id_Produto").val(id_Produto);
+                $("#nomeProd").html(nome_Prod);
+                $("#idProd").val(id_Produto);
                 $('#modalExclusao').modal('show');
             }
 
             function excluirProduto() {
-                var id_Produto = $("#id_Produto").val();
-                $.get("ExcluirProduto?id_Produto=" + id_Produto, function (resposta) {
+                var id = $("#idProd").val();
+                $.get( "ProdutoServlet?action=delete&idProduto="+id, function( resposta ) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -45,15 +45,15 @@
             <th>Quantidade</th>
         </thead>
         <tbody> 
-            <c:forEach var="produto" items="${listaProduto}">
+            <c:forEach  items="${produtos}" var="produto">
                 <tr>
-                    <td>${produto.id_Produto}</td>
-                    <td>${produto.nome_Prod}</td>
-                    <td>${produto.preco_Prod}</td>
-                    <td>${produto.descricao_Prod}</td>
-                    <td>${produto.qtd_Prod}</td>
-                    <td><a href="AlterarProduto?cpf=${produto.id_Produto}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.id_Produto}, '${produto.nome_Prod}')">Excluir</button></td>
+                    <td><c:out value="${produto.idProduto}" /></td>
+                    <td><c:out value="${produto.nomeProd}" /></td>
+                    <td><c:out value="${produto.precoProd}" /></td>
+                    <td><c:out value="${produto.descricaoProd}" /></td>
+                    <td><c:out value="${produto.qtdProd}" /></td>
+                    <td><a href="ProdutoServlet?action=edit&idProduto=<c:out value="${produto.idProduto}" />">Alterar</a></td>
+                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.idProduto}, '${produto.nomeProd}')">Excluir</button></td>
                 </tr>
             </c:forEach>
 
@@ -70,8 +70,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do Produto  <label id="id_Produto"></label> ?
-                    <input id="id_Produto" hidden="true" />
+                    Confirmar exclusão do Produto  <label id="nomeProd"></label> ?
+                    <input id="idProd" hidden="true" />
 
                 </div>
                 <div class="modal-footer">
@@ -82,6 +82,8 @@
         </div>
     </div>
     <br/>
+    
+    <p><a href="ProdutoServlet?action=insert">Add Produto</a></p>
     <a href="index.jsp">Voltar</a>
 </body>
 </html>

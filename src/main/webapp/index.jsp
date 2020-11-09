@@ -17,7 +17,7 @@
         <h1>Menu</h1>
         <a href="listaCliente.jsp">Lista Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
-        <a href="listaProduto.jsp">Listar Produtos</a><br/>
+        <a href="ProdutoServlet?action=listaProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br>
         <a href="listarVendas.jsp">Listar Vendas</a><br>
         <a href="alterarProduto.jsp">Alterar Produtos</a><br>

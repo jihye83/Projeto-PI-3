@@ -16,39 +16,34 @@ import lombok.Setter;
 @Setter
 public class Produto {
         
-        private int id_Produto;
-	private String nome_Prod;
-	private float preco_Prod;
-	private String descricao_Prod;
-	private int qtd_Prod;
+        private int idProduto;
+	private String nomeProd;
+	private float precoProd;
+	private String descricaoProd;
+	private int qtdProd;
 
         public Produto() {
             
         }
         
 	public Produto(int id_Produto, String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
-		this.id_Produto = id_Produto;
-                this.nome_Prod = nome_Prod;
-		this.preco_Prod = preco_Prod;
-		this.descricao_Prod = descricao_Prod;
-		this.qtd_Prod = qtd_Prod;
+		this.idProduto = id_Produto;
+                this.nomeProd = nome_Prod;
+		this.precoProd = preco_Prod;
+		this.descricaoProd = descricao_Prod;
+		this.qtdProd = qtd_Prod;
 	}
 
     public Produto(String nome_Prod, float preco_Prod, String descricao_Prod, int qtd_Prod) {
         
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "idProduto=" + idProduto + ", nomeProd=" + nomeProd + ", precoProd=" + precoProd + ", descricaoProd=" + descricaoProd + ", qtdProd=" + qtdProd + '}';
+    }
         
-	@Override
-	public String toString() {
-		return String.format("nome_Prod %s <br/> "
-                        + "preco_Prod %s <br/> "
-                        + "descricao_Prod %s <br/> "
-                        + "qtd_Prod %d",
-				this.getNome_Prod(), 
-                                this.getPreco_Prod(), 
-                                this.getDescricao_Prod(),
-                                this.getQtd_Prod());
-	}
+	
 }
 
 

@@ -14,9 +14,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Fornecedor</title>
     </head>
-    <body>
         <body class="container">
-        <h1>Cadastro</h1>
+        <h1>Cadastro de Fornecedor</h1>
         <form action="FornecedorServlet" method="POST">
             <p>ID</p>
             <input value="<c:out value="${fornecedor.idFornecedor}" />" readonly="readonly" name="idFornecedor" class="form-control" type="number"/><br/>

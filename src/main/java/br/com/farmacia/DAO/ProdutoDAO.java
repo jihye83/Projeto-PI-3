@@ -29,12 +29,13 @@ public class ProdutoDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                int id = rs.getInt("id_Produto");
                 String nome_Prod = rs.getString("nome_Prod");
                 float preco_Prod = rs.getFloat("preco_Prod");
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
                 
-                listaProdutos.add(new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
+                listaProdutos.add(new Produto(id,nome_Prod, preco_Prod, descricao_Prod, qtd_Prod));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -47,10 +48,10 @@ public class ProdutoDAO {
         Connection con = ConexaoDB.conector();
         String query = "insert into Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, produto.getNome_Prod());
-        ps.setFloat(2, produto.getPreco_Prod());
-        ps.setString(3, produto.getDescricao_Prod());
-        ps.setInt(4, produto.getQtd_Prod());
+        ps.setString(1, produto.getNomeProd());
+        ps.setFloat(2, produto.getPrecoProd());
+        ps.setString(3, produto.getDescricaoProd());
+        ps.setInt(4, produto.getQtdProd());
         ps.execute();
     }
 
@@ -58,18 +59,19 @@ public class ProdutoDAO {
         Connection con = ConexaoDB.conector();
         String query = "update Produto set nome_Prod=?,preco_Prod=?,descricao_Prod=?, qtd_Prod=? where id_Produto=?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, produto.getNome_Prod());
-        ps.setFloat(1, produto.getPreco_Prod());
-        ps.setString(3, produto.getDescricao_Prod());
-        ps.setInt(4, produto.getQtd_Prod());
+        ps.setString(1, produto.getNomeProd());
+        ps.setFloat(1, produto.getPrecoProd());
+        ps.setString(3, produto.getDescricaoProd());
+        ps.setInt(4, produto.getQtdProd());
+        ps.setInt(5, produto.getIdProduto());
         ps.execute();
     }
 
-    public static void deleteProduto(int id_Produto) throws SQLException, ClassNotFoundException {
+    public static void deleteProduto(int idProduto) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
         String query = "delete from Produto where id_Produto=?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, id_Produto);
+        ps.setInt(1, idProduto);
         ps.execute();
     }
 
@@ -82,16 +84,37 @@ public class ProdutoDAO {
             ps.setInt(1, id_Produto);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                int id = rs.getInt("id_Produto");
                 String nome_Prod = rs.getString("nome_Prod");
                 float preco_Prod = rs.getFloat("preco_Prod");
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
-                produto = new Produto(nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+                produto = new Produto(id,nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
         return produto;
+    }
+    
+      public static boolean containProduto(String nomeProd) {
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Produto where nome_Prod = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, nomeProd);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

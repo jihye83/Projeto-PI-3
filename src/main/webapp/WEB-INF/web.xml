@@ -9,8 +9,8 @@
         <servlet-class>br.com.farmacia.servlet.FornecedorServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AlterarFornecedor</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.AlterarFornecedor</servlet-class>
+        <servlet-name>ProdutoServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.ProdutoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarCliente</servlet-name>
@@ -29,20 +29,8 @@
         <servlet-class>br.com.farmacia.servlet.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.ListarProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AlterarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.AlterarProduto</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ExcluirProduto</servlet-name>
         <servlet-class>br.com.farmacia.servlet.ExcluirProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarProduto</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.CadastrarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarVenda</servlet-name>
@@ -57,8 +45,8 @@
         <url-pattern>/FornecedorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AlterarFornecedor</servlet-name>
-        <url-pattern>/AlterarFornecedor</url-pattern>
+        <servlet-name>ProdutoServlet</servlet-name>
+        <url-pattern>/ProdutoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarCliente</servlet-name>
@@ -77,20 +65,8 @@
         <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListarProduto</servlet-name>
-        <url-pattern>/ListarProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AlterarProduto</servlet-name>
-        <url-pattern>/AlterarProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ExcluirProduto</servlet-name>
         <url-pattern>/ExcluirProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastrarProduto</servlet-name>
-        <url-pattern>/CadastrarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarVenda</servlet-name>
