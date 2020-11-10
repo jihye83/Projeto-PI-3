@@ -19,6 +19,7 @@ public class FuncionarioDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                int idFunc = rs.getInt("id_Func");
                 String nome = rs.getString("nome");
                 String data_Nasc = rs.getString("data_Nasc");
                 String cpf = rs.getString("cpf");
@@ -36,23 +37,9 @@ public class FuncionarioDAO {
                 String usuario = rs.getString("usuario");
                 String senha = rs.getString("senha");
                 String perfil_Func = rs.getString("perfil_Func");
-                
-                listaFuncionario.add(new Funcionario(nome,
-                        data_Nasc,
-                        cpf,
-                        cel,
-                        email,
-                        salario_Func,
-                        data_Admissao,
-                        logradouro,
-                        numLogr,
-                        compLogr,
-                        bairro,
-                        cidade,
-                        uf,
-                        cep,
-                        usuario,
-                        senha,
+
+                listaFuncionario.add(new Funcionario(idFunc, nome, data_Nasc, cpf, cel, email, salario_Func,
+                        data_Admissao, logradouro, numLogr, compLogr, bairro, cidade, uf, cep, usuario, senha,
                         perfil_Func));
             }
 
@@ -64,51 +51,55 @@ public class FuncionarioDAO {
     }
 
     public static void addFuncionario(Funcionario funcionario) throws SQLException, ClassNotFoundException {
-        Connection con = ConexaoDB.conector();
-        String query = "insert into Funcionario (nome,"
-                + "data_Nasc,"
-                + "cpf,"
-                + "tel,"
-                + "cel,"
-                + "email,"
-                + "salario_Func,"
-                + "data_Admissao,"
-                + "logradouro,"
-                + "numLogr,"
-                + "compLogr,"
-                + "bairro,"
-                + "cidade,"
-                + "uf,"
-                + "cep,"
-                + "usuario,"
-                + "senha,"
-                + "perfil_Func)"
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, funcionario.getNome());
-        ps.setString(2, funcionario.getData_Nasc());
-        ps.setString(3, funcionario.getCpf());
-        ps.setString(4, funcionario.getCel());
-        ps.setString(5, funcionario.getEmail());
-        ps.setDouble(6, funcionario.getSalario_Func());
-        ps.setString(7, funcionario.getData_Admissao());
-        ps.setString(8, funcionario.getLogradouro());
-        ps.setString(9, funcionario.getNumLogr());
-        ps.setString(10, funcionario.getCompLogr());
-        ps.setString(11, funcionario.getBairro());
-        ps.setString(12, funcionario.getCidade());
-        ps.setString(13, funcionario.getUf());
-        ps.setString(14, funcionario.getCep());
-        ps.setString(15, funcionario.getUsuario());
-        ps.setString(16, funcionario.getSenha());
-        ps.setString(17, funcionario.getPerfil_Func());       
-        ps.execute();
+        
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "insert into Funcionario (nome,"
+                    + "data_Nasc,"
+                    + "cpf,"
+                    + "cel,"
+                    + "email,"
+                    + "salario_Func,"
+                    + "data_Admissao,"
+                    + "logradouro,"
+                    + "numLogr,"
+                    + "compLogr,"
+                    + "bairro,"
+                    + "cidade,"
+                    + "uf,"
+                    + "cep,"
+                    + "usuario,"
+                    + "senha,"
+                    + "perfil_Func)"
+                    + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, funcionario.getNome());
+            ps.setString(2, funcionario.getData_Nasc());
+            ps.setString(3, funcionario.getCpf());
+            ps.setString(4, funcionario.getCel());
+            ps.setString(5, funcionario.getEmail());
+            ps.setDouble(6, funcionario.getSalario_Func());
+            ps.setString(7, funcionario.getData_Admissao());
+            ps.setString(8, funcionario.getLogradouro());
+            ps.setString(9, funcionario.getNumLogr());
+            ps.setString(10, funcionario.getCompLogr());
+            ps.setString(11, funcionario.getBairro());
+            ps.setString(12, funcionario.getCidade());
+            ps.setString(13, funcionario.getUf());
+            ps.setString(14, funcionario.getCep());
+            ps.setString(15, funcionario.getUsuario());
+            ps.setString(16, funcionario.getSenha());
+            ps.setString(17, funcionario.getPerfil_Func());
+            ps.execute();
+        } catch (Exception e) {
+        }
     }
 
-    public static void updateFornecedor(Funcionario funcionario) throws ClassNotFoundException, SQLException {
+    public static void updateFuncionario(Funcionario funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update Funcionario set nome=?, data_Nasc=?, cpf=?, cel=?, email=?, salario_Func=?, data_Admissao=?,"
-                + "logradouro=?, numLogr=?, compLogr=?, bairro=?, cidade=?, uf=?, cep=?, usuario=?, senha=?, perfil_Func=?";
+        String query = "update Funcionario set nome=?, data_Nasc=?, cpf=?, cel=?, email=?, "
+                + "salario_Func=?, data_Admissao=?,logradouro=?, numLogr=?, compLogr=?, bairro=?, "
+                + "cidade=?, uf=?, cep=?, usuario=?, senha=?, perfil_Func=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getData_Nasc());
@@ -126,13 +117,13 @@ public class FuncionarioDAO {
         ps.setString(14, funcionario.getCep());
         ps.setString(15, funcionario.getUsuario());
         ps.setString(16, funcionario.getSenha());
-        ps.setString(17, funcionario.getPerfil_Func());  
+        ps.setString(17, funcionario.getPerfil_Func());
         ps.execute();
     }
 
     public static void deleteFuncionario(String cpf) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "delete from cliente where nome=?";
+        String query = "delete from cliente where cpf=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cpf);
         ps.execute();
@@ -163,7 +154,7 @@ public class FuncionarioDAO {
                 String usuario = rs.getString("usuario");
                 String senha = rs.getString("senha");
                 String perfil_Func = rs.getString("perfil_Func");
-                
+
                 funcionario = new Funcionario(nome,
                         data_Nasc,
                         cpf,
@@ -190,6 +181,30 @@ public class FuncionarioDAO {
                     log(Level.SEVERE, null, ex);
         }
         return funcionario;
+    }
+
+    public static boolean containFornecedor(String cpf) {
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Funcionario where cpf=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean containFuncionario(String cpf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
