@@ -10,7 +10,11 @@ import lombok.Setter;
 
 /**
  *
- * @author JHK
+ * @author Felipe Dias Amorim Pessoa
+ * @author Ji Hye Koo
+ * @author Marcus
+ * @author Thyago Rodrigues
+ * @author Victor Vilela
  */
 @Getter
 @Setter
@@ -88,7 +92,7 @@ public class Fornecedor {
                 + "bairro %s <br/> "
                 + "cidade %s <br/> "
                 + "uf %s <br/> "
-                + "cep %d", 
+                + "cep %s", 
                 this.getRazaoSocial(),
                 this.getCnpj(), 
                 this.getCel(), 

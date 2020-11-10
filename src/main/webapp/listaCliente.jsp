@@ -1,11 +1,11 @@
 <%-- 
     Document   : listaCliente
     Created on : 29/10/2020, 05:47:35
-    Author     : PICHAU
+    Author     : Victor Vilela
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <%@include file="header.jsp" %>
@@ -15,15 +15,15 @@
 
         <script lang="text/javascript">
 
-            function mostrarModalExclusao(nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep) {
-                $("#nomeCliente").html(nome);
-                $("#cpfCliente").val(cpf);
+            function mostrarModalExclusao(cpf, nome) {
+                $("#nome").html(nome);
+                $("#cpf").val(cpf);
                 $('#modalExclusao').modal('show');
             }
 
             function excluirCliente() {
-                var cpf = $("#cpfCliente").val();
-                $.get("ExcluirCliente?cpf=" + cpf, function (resposta) {
+                var cpf = $("#cpf").val();
+                $.get("ClienteServlet?action=delete&clienteCpf=" + cpf, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Feito!");
@@ -37,32 +37,36 @@
     </head>
     <body class="container">
         <h1>Lista de Clientes</h1>
-        <table class="table">
+        <table border=0 class="table">
             <thead>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Email</th>
-            <th>DDD + Telefone</th>
-            <th>Logradouro</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>UF</th>
-            <th>CEP</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>DDD + Telefone</th>
+                    <th>Logradouro</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>UF</th>
+                    <th>CEP</th>
+                </tr>
         </thead>
         <tbody> 
-            <c:forEach var="cliente" items="${listaCliente}">
+            <c:forEach var="cliente" items="${clientes}">
                 <tr>
-                    <td>${cliente.nome}</td>
-                    <td>${cliente.cpf}</td>
-                    <td>${cliente.email}</td>
-                    <td>${cliente.cel}</td>
-                    <td>${cliente.logradouro}</td>
-                    <td>${cliente.bairro}</td>
-                    <td>${cliente.cidade}</td>
-                    <td>${cliente.uf}</td>
-                    <td>${cliente.cep}</td>
-                    <td><a href="AlterarCliente?cpf=${cliente.cpf}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')">Excluir</button></td>
+                    <td><c:out value="${cliente.idCliente}" /></td>
+                    <td><c:out value="${cliente.nome}" /></td>
+                    <td><c:out value="${cliente.cpf}" /></td>
+                    <td><c:out value="${cliente.email}" /></td>
+                    <td><c:out value="${cliente.cel}" /></td>
+                    <td><c:out value="${cliente.logradouro}" /></td>
+                    <td><c:out value="${cliente.bairro}" /></td>
+                    <td><c:out value="${cliente.cidade}" /></td>
+                    <td><c:out value="${cliente.uf}" /></td>
+                    <td><c:out value="${cliente.cep}" /></td>
+                    <td><a class="btn btn-primary " href="ClienteServlet?action=edit&clienteCpf=<c:out value="${cliente.cpf}" />">Alterar</a></td>
+                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Delete</button></td>
                 </tr>
             </c:forEach>
 
@@ -79,8 +83,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do cliente  <label id="nomeCliente"></label> ?
-                    <input id="cpfCliente" hidden="true" />
+                    Confirmar exclusão do cliente  <label id="nome"></label> ?
+                    <input id="cpf" hidden="true" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -89,7 +93,8 @@
             </div>
         </div>
     </div>
-    <br/>
+        
+    <p><a href="ClienteServlet?action=insert">Add Cliente</a></p>
     <a href="index.jsp">Voltar</a>
 </body>
 </html>

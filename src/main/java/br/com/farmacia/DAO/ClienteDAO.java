@@ -19,6 +19,7 @@ public class ClienteDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                int idCliente = rs.getInt("id_Cliente");
                 String nome = rs.getString("nome");
                 String cpf = rs.getString("cpf");
                 String email = rs.getString("email");
@@ -29,9 +30,12 @@ public class ClienteDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
                 
-                listaClientes.add(new Cliente(nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep));
+                listaClientes.add(new Cliente(idCliente, nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep));
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
@@ -56,23 +60,24 @@ public class ClienteDAO {
     
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update cliente set nome=?,email=?,cel=?,logradouro=?,bairro=?,cidade=?,uf=?,cep=? where cpf=?";
+        String query = "update cliente set nome=?,cpf=?,email=?,cel=?,logradouro=?,bairro=?,cidade=?,uf=?,cep=? where id_Cliente=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNome());
-        ps.setString(2, cliente.getEmail());
-        ps.setString(3, cliente.getCel());
-        ps.setString(4, cliente.getLogradouro());
-        ps.setString(5, cliente.getBairro());
-        ps.setString(6, cliente.getCidade());
-        ps.setString(7, cliente.getUf());
-        ps.setString(8, cliente.getCep());
-        ps.setString(9, cliente.getCpf());
+        ps.setString(2, cliente.getCpf());
+        ps.setString(3, cliente.getEmail());
+        ps.setString(4, cliente.getCel());
+        ps.setString(5, cliente.getLogradouro());
+        ps.setString(6, cliente.getBairro());
+        ps.setString(7, cliente.getCidade());
+        ps.setString(8, cliente.getUf());
+        ps.setString(9, cliente.getCep());
+        ps.setInt(10, cliente.getIdCliente());
         ps.execute();
     }
     
     public static void deleteCliente(String cpf) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "delete from cliente where cpf=?";
+        String query = "delete from Cliente where cpf=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cpf);
         ps.execute();
@@ -82,11 +87,12 @@ public class ClienteDAO {
         Cliente cliente = null;
         try {
             Connection con = ConexaoDB.conector();
-            String query = "select * from cliente where cpf=?";
+            String query = "select * from Cliente where cpf=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, cpf);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                int idCliente = rs.getInt("id_Cliente");
                 String nome = rs.getString("nome");
                 String email = rs.getString("email");
                 String cel = rs.getString("cel");
@@ -95,7 +101,7 @@ public class ClienteDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                cliente = new Cliente(nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep);
+                cliente = new Cliente(idCliente, nome, cpf, email, cel, logradouro, bairro, cidade, uf, cep);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -106,5 +112,25 @@ public class ClienteDAO {
         }
         return cliente;
     }
-
+    
+    public static boolean containCliente(String cpf) {
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Cliente where cpf=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
 }

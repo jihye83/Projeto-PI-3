@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <%@include file="header.jsp" %>
@@ -13,24 +15,27 @@
         <title>Cadastrar Cliente</title>
     </head>
     <body class="container">
-        <h1>Cadastro</h1>
+        <h1>Cadastro de Clientes</h1>
         <form action="CadastrarCliente" method="POST">
+            <p>ID</p>
+            <input value="<c:out value="${cliente.idCliente}" />" readonly="readonly" name="idCliente" class="form-control" type="number"/><br/>
             <p>Nome</p>
-            <input name="nome" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.nome}" />" name="nome" class="form-control" type="text" required="true"/><br/>
             <p>CPF</p>
-            <input name="cpf" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.cpf}" />" name="cpf" class="form-control" type="text" required="true"/><br/>
             <p>Email</p>
-            <input name="email" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.email}" />" name="email" class="form-control" type="text" required="true"/><br/>
             <p>DDD + Telefone</p>
-            <input name="cel" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.cel}" />" name="cel" class="form-control" type="text" required="true"/><br/>
             <p>Logradouro</p>
-            <input name="logradouro" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.logradouro}" />" name="logradouro" class="form-control" type="text" required="true"/><br/>
             <p>Bairro</p>
-            <input name="bairro" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.bairro}" />" name="bairro" class="form-control" type="text" required="true"/><br/>
             <p>Cidade</p>
-            <input name="cidade" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.cidade}" />" name="cidade" class="form-control" type="text" required="true"/><br/>
             <p>UF</p>
             <select class="form-control-lg col-4" name="estado">
+                <option value="<c:out value="${cliente.uf}" />">${cliente.uf}</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
                 <option value="AP">AP</option>
@@ -60,7 +65,7 @@
                 <option value="TO">TO</option>
             </select><br/>
             <p>CEP</p>
-            <input name="cep" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${fornecedor.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </body>
