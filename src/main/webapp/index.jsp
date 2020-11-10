@@ -24,5 +24,7 @@
         <a href="cadastrarVenda.jsp">Venda</a><br>
          <a href="cadastrarFornecedor.jsp">Cadastrar Fornecedor</a><br>
            <a href="FornecedorServlet?action=listaFornecedor">Listar Fornecedor</a><br>
+           <a href="cadastrarFuncionario.jsp">Cadastrar Funcionario</a><br>
+           <a href="FuncionarioServlet?action=listaFuncionario">Listar Funcionario</a><br>
     </body>
 </html>
