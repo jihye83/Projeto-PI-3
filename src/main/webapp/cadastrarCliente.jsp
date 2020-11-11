@@ -16,7 +16,7 @@
     </head>
     <body class="container">
         <h1>Cadastro de Clientes</h1>
-        <form action="CadastrarCliente" method="POST">
+        <form action="ClienteServlet" method="POST">
             <p>ID</p>
             <input value="<c:out value="${cliente.idCliente}" />" readonly="readonly" name="idCliente" class="form-control" type="number"/><br/>
             <p>Nome</p>
