@@ -90,7 +90,7 @@ public class Cliente {
                 + "bairro %s <br/> "
                 + "cidade %s <br/> "
                 + "uf %s <br/> "
-                + "cep %d", 
+                + "cep %s", 
                 this.getNome(),
                 this.getCpf(),
                 this.getEmail(),

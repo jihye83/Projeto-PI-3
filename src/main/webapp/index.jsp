@@ -15,7 +15,7 @@
     <body>
        
         <h1>Menu</h1>
-        <a href="listaCliente.jsp">Lista Clientes</a><br/>
+        <a href="ClienteServlet?action=listaCliente">Lista Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         <a href="ProdutoServlet?action=listaProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br>
@@ -24,5 +24,7 @@
         <a href="cadastrarVenda.jsp">Venda</a><br>
          <a href="cadastrarFornecedor.jsp">Cadastrar Fornecedor</a><br>
            <a href="FornecedorServlet?action=listaFornecedor">Listar Fornecedor</a><br>
+           <a href="cadastrarFuncionario.jsp">Cadastrar Funcionario</a><br>
+           <a href="FuncionarioServlet?action=listaFuncionario">Listar Funcionario</a><br>
     </body>
 </html>
