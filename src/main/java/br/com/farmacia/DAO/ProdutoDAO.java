@@ -60,7 +60,7 @@ public class ProdutoDAO {
         String query = "update Produto set nome_Prod=?,preco_Prod=?,descricao_Prod=?, qtd_Prod=? where id_Produto=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, produto.getNomeProd());
-        ps.setFloat(1, produto.getPrecoProd());
+        ps.setFloat(2, produto.getPrecoProd());
         ps.setString(3, produto.getDescricaoProd());
         ps.setInt(4, produto.getQtdProd());
         ps.setInt(5, produto.getIdProduto());
