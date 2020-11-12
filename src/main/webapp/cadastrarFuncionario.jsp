@@ -26,7 +26,7 @@
             <input value="<c:out value="${funcionario.nome}" />" name="nome" class="form-control" type="text" required="true"/><br/>
 
             <p>Data de Nascimento</p>
-            <input value="<c:out value="${funcionario.data_Nasc}" />" name="data_Nasc" class="form-control" type="text"/><br/>
+            <input value="<c:out value="${funcionario.data_Nasc}" />" name="data_Nasc" class="form-control" type="date"/><br/>
 
             <p>CPF</p>
             <input value="<c:out value="${funcionario.cpf}" />" name="cpf" class="form-control" type="text" required="true"/><br/>
@@ -41,7 +41,7 @@
             <input value="<c:out value="${funcionario.salario_Func}" />" name="salario_Func" class="form-control" type="number"/><br/>
 
             <p>Data de Admissão</p>
-            <input value="<c:out value="${funcionario.data_Admissao}" />" name="data_Admissao" class="form-control" type="text"/><br/>
+            <input value="<c:out value="${funcionario.data_Admissao}" />" name="data_Admissao" class="form-control" type="date"/><br/>
 
             <p>Endereço: </p>
             <p>Logradouro</p>

@@ -2,15 +2,8 @@ package br.com.farmacia.servlet;
 
 import br.com.farmacia.DAO.FuncionarioDAO;
 import br.com.farmacia.Model.Funcionario;
-import br.com.farmacia.Util.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +21,8 @@ public class FuncionarioServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/cadastrarFuncionario.jsp";
     private static String LIST_FUNCIONARIO = "/listaFuncionario.jsp";
+    private static String SUCESSO = "/sucesso.jsp";
+    private static String ERROR = "/erro.jsp";
     private FuncionarioDAO dao;
 
     public FuncionarioServlet() {
@@ -64,42 +59,55 @@ public class FuncionarioServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String forward = "";
+        
+        //Date data = new Date(request.getParameter("data_Nasc"));
+        //Date data2 = new Date(request.getParameter("data_Admissao"));
+        
+        
         Funcionario funcionario = new Funcionario();
 
-        funcionario.setNome("nome");
-        funcionario.setData_Nasc("data_Nasc");
-        funcionario.setCpf("cpf");
-        funcionario.setCel("cel");
-        funcionario.setEmail("email");
+        funcionario.setNome(request.getParameter("nome"));
+        funcionario.setData_Nasc(request.getParameter("data_Nasc"));
+        //funcionario.setData_Nasc(data);
+        funcionario.setCpf(request.getParameter("cpf"));
+        funcionario.setCel(request.getParameter("cel"));
+        funcionario.setEmail(request.getParameter("email"));
         funcionario.setSalario_Func(Double.parseDouble(request.getParameter("salario_Func")));
-        funcionario.setData_Admissao("data_Admissao");
-        funcionario.setLogradouro("logradouro");
-        funcionario.setNumLogr("numLogr");
-        funcionario.setCompLogr("compLogr");
-        funcionario.setBairro("bairro");
-        funcionario.setCidade("cidade");
-        funcionario.setUf("uf");
-        funcionario.setCep("cep");
-        funcionario.setUsuario("usuario");
-        funcionario.setSenha("senha");
-        funcionario.setPerfil_Func("perfil_Func");
+        funcionario.setData_Admissao(request.getParameter("data_Admissao"));
+        //funcionario.setData_Admissao(data2);
+        funcionario.setLogradouro(request.getParameter("logradouro"));
+        funcionario.setNumLogr(request.getParameter("numLogr"));
+        funcionario.setCompLogr(request.getParameter("compLogr"));
+        funcionario.setBairro(request.getParameter("bairro"));
+        funcionario.setCidade(request.getParameter("cidade"));
+        funcionario.setUf(request.getParameter("uf"));
+        funcionario.setCep(request.getParameter("cep"));
+        funcionario.setUsuario(request.getParameter("usuario"));
+        funcionario.setSenha(request.getParameter("senha"));
+        funcionario.setPerfil_Func(request.getParameter("perfil_Func"));
 
         String idFunc = request.getParameter("idFunc");
-        boolean verificaExistencia = dao.containFuncionario(funcionario.getCpf());
+        //boolean verificaExistencia = dao.containFuncionario(funcionario.getCpf());
 
         try {
-            if (idFunc == null || idFunc.isEmpty()) {
-                dao.addFuncionario(funcionario);
-            } else {
-                funcionario.setIdFunc(Integer.parseInt(idFunc));
-                dao.updateFuncionario(funcionario);
-            }
-            RequestDispatcher view = request.getRequestDispatcher(LIST_FUNCIONARIO);
-            request.setAttribute("funcionario", dao.getFuncionario());
-            view.forward(request, response);
-        } catch (Exception e) {
+            if(idFunc == null || idFunc.isEmpty())
+        {
+            dao.addFuncionario(funcionario);
+            forward = SUCESSO;
         }
-
+        else
+        {
+            funcionario.setIdFunc(Integer.parseInt(idFunc));
+            dao.updateFuncionario(funcionario);
+             forward = SUCESSO;
+        }
+       
+        } catch (Exception e) {
+        } finally{
+             RequestDispatcher view = request.getRequestDispatcher(forward);
+        request.setAttribute("funcionario", dao.getFuncionario());
+        view.forward(request, response);
+        }
     }
 }

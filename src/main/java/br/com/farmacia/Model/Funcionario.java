@@ -34,12 +34,12 @@ public class Funcionario {
 
     public Funcionario(int idFunc,
             String nome,
-            String data_Nasc, //REVER SE É STRING MESMO, PORQUE NO BANCO ESTÁ COMO DATE
+            String data_Nasc,
             String cpf,
             String cel,
             String email,
-            double salario_Func, //Atentar-se para o tipo da variável, que vem como numeric do banco
-            String data_Admissao, //REVER SE É STRING MESMO, PORQUE NO BANCO ESTÁ COMO DATE            
+            double salario_Func,
+            String data_Admissao,
             String logradouro,
             String numLogr,
             String compLogr,
