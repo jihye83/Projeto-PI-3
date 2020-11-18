@@ -12,7 +12,7 @@
     <%@include file="header.jsp" %>
     <head>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar funcionários</title>
 
 
@@ -27,7 +27,7 @@
             function excluirFuncionario() {
                 var cpf = $("#cpf").val();
                 $.get("FuncionarioServlet?action=delete&funcionarioCpf=" + cpf, function (resposta) {
-                    $('#modalExclusao').modal('hide')
+                    $('#modalExclusao').modal('hide');
                     if (resposta === "true") {
                         console.log("Funfou!");
                     } else {
@@ -78,7 +78,6 @@
                         <td><c:out value="${funcionario.numLogr}" /></td>
                         <td><c:out value="${funcionario.compLogr}" /></td>
                         <td><c:out value="${funcionario.bairro}" /></td>
-                        <td><c:out value="${funcionario.cidade}" /></td>
                         <td><c:out value="${funcionario.cidade}" /></td>
                         <td><c:out value="${funcionario.uf}" /></td>
                         <td><c:out value="${funcionario.cep}" /></td>

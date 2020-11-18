@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 
 public class FuncionarioDAO {
 
-    public static List<Funcionario> getFuncionario() {
-        List<Funcionario> listaFuncionario = new ArrayList();
+    public static List<Funcionario> getFuncionarios() {
+        List<Funcionario> listaFuncionarios = new ArrayList();
         try {
             Connection con = ConexaoDB.conector();
             String query = "select * from Funcionario";
@@ -30,7 +30,7 @@ public class FuncionarioDAO {
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
-                String bairro = rs.getString("bairro ");
+                String bairro = rs.getString("bairro");
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
@@ -38,7 +38,7 @@ public class FuncionarioDAO {
                 String senha = rs.getString("senha");
                 String perfil_Func = rs.getString("perfil_Func");
 
-                listaFuncionario.add(new Funcionario(idFunc, nome, data_Nasc, cpf, cel, email, salario_Func,
+                listaFuncionarios.add(new Funcionario(idFunc, nome, data_Nasc, cpf, cel, email, salario_Func,
                         data_Admissao, logradouro, numLogr, compLogr, bairro, cidade, uf, cep, usuario, senha,
                         perfil_Func));
             }
@@ -50,7 +50,7 @@ public class FuncionarioDAO {
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
-        return listaFuncionario;
+        return listaFuncionarios;
     }
 
     public static void addFuncionario(Funcionario funcionario) throws SQLException, ClassNotFoundException {
@@ -108,8 +108,8 @@ public class FuncionarioDAO {
     public static void updateFuncionario(Funcionario funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
         String query = "update Funcionario set nome=?, data_Nasc=?, cpf=?, cel=?, email=?, "
-                + "salario_Func=?, data_Admissao=?,logradouro=?, numLogr=?, compLogr=?, bairro=?, "
-                + "cidade=?, uf=?, cep=?, usuario=?, senha=?, perfil_Func=?";
+                + "salario_Func=?, data_Admissao=?, logradouro=?, numLogr=?, compLogr=?, bairro=?, "
+                + "cidade=?, uf=?, cep=?, usuario=?, senha=?, perfil_Func=? ";//where id_Func=?
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getData_Nasc());
@@ -128,12 +128,13 @@ public class FuncionarioDAO {
         ps.setString(15, funcionario.getUsuario());
         ps.setString(16, funcionario.getSenha());
         ps.setString(17, funcionario.getPerfil_Func());
+        //ps.setInt(18, funcionario.getIdFunc());
         ps.execute();
     }
 
     public static void deleteFuncionario(String cpf) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "delete from cliente where cpf=?";
+        String query = "delete from funcionario where cpf=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cpf);
         ps.execute();

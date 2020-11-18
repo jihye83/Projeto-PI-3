@@ -3,7 +3,6 @@ package br.com.farmacia.servlet;
 import br.com.farmacia.DAO.FuncionarioDAO;
 import br.com.farmacia.Model.Funcionario;
 import java.io.IOException;
-import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +38,7 @@ public class FuncionarioServlet extends HttpServlet {
                 String cpf = request.getParameter("funcionarioCpf");
                 dao.deleteFuncionario(cpf);
                 forward = LIST_FUNCIONARIO;
-                request.setAttribute("funcionario", dao.getFuncionario());
+                request.setAttribute("funcionarios", dao.getFuncionarios());
             } else if (action.equalsIgnoreCase("edit")) {
                 forward = INSERT_OR_EDIT;
                 String cpf = request.getParameter("funcionarioCpf");
@@ -47,7 +46,7 @@ public class FuncionarioServlet extends HttpServlet {
                 request.setAttribute("funcionario", funcionario);
             } else if (action.equalsIgnoreCase("listaFuncionario")) {
                 forward = LIST_FUNCIONARIO;
-                request.setAttribute("funcionario", dao.getFuncionario());
+                request.setAttribute("funcionarios", dao.getFuncionarios());
             } else {
                 forward = INSERT_OR_EDIT;
             }
@@ -61,21 +60,15 @@ public class FuncionarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         
-        //Date data = new Date(request.getParameter("data_Nasc"));
-        //Date data2 = new Date(request.getParameter("data_Admissao"));
-        
-        
         Funcionario funcionario = new Funcionario();
 
         funcionario.setNome(request.getParameter("nome"));
         funcionario.setData_Nasc(request.getParameter("data_Nasc"));
-        //funcionario.setData_Nasc(data);
         funcionario.setCpf(request.getParameter("cpf"));
         funcionario.setCel(request.getParameter("cel"));
         funcionario.setEmail(request.getParameter("email"));
         funcionario.setSalario_Func(Double.parseDouble(request.getParameter("salario_Func")));
         funcionario.setData_Admissao(request.getParameter("data_Admissao"));
-        //funcionario.setData_Admissao(data2);
         funcionario.setLogradouro(request.getParameter("logradouro"));
         funcionario.setNumLogr(request.getParameter("numLogr"));
         funcionario.setCompLogr(request.getParameter("compLogr"));
@@ -88,26 +81,26 @@ public class FuncionarioServlet extends HttpServlet {
         funcionario.setPerfil_Func(request.getParameter("perfil_Func"));
 
         String idFunc = request.getParameter("idFunc");
-        //boolean verificaExistencia = dao.containFuncionario(funcionario.getCpf());
+        boolean verificaExistencia = dao.containFuncionario(funcionario.getCpf());
 
         try {
-            if(idFunc == null || idFunc.isEmpty())
-        {
-            dao.addFuncionario(funcionario);
-            forward = SUCESSO;
-        }
-        else
-        {
-            funcionario.setIdFunc(Integer.parseInt(idFunc));
-            dao.updateFuncionario(funcionario);
-             forward = SUCESSO;
-        }
-       
+            if (verificaExistencia) {
+                forward = ERROR;
+            }
+            if ((idFunc == null || idFunc.isEmpty()) && !(verificaExistencia)) {
+                dao.addFuncionario(funcionario);
+                forward = SUCESSO;
+            } else {
+                funcionario.setIdFunc(Integer.parseInt(idFunc));
+                dao.updateFuncionario(funcionario);
+                forward = SUCESSO;
+            }
+
         } catch (Exception e) {
-        } finally{
-             RequestDispatcher view = request.getRequestDispatcher(forward);
-        request.setAttribute("funcionario", dao.getFuncionario());
-        view.forward(request, response);
+        } finally {
+            RequestDispatcher view = request.getRequestDispatcher(forward);
+            request.setAttribute("funcionarios", dao.getFuncionarios());
+            view.forward(request, response);
         }
     }
 }
