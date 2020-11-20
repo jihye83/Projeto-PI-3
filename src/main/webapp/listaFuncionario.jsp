@@ -107,7 +107,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                        <button type="button" class="btn btn-primary" onclick="excluirFuncionario()">
+                            <a href="FuncionarioServlet?action=delete&funcionarioCpf=<c:out value="${funcionario.cpf}" />">Confirmar</a>
+                        </button>
                     </div>
                 </div>
             </div>
