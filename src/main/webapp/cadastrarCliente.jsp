@@ -34,7 +34,7 @@
             <p>Cidade</p>
             <input value="<c:out value="${cliente.cidade}" />" name="cidade" class="form-control" type="text" required="true"/><br/>
             <p>UF</p>
-            <select class="form-control-lg col-4" name="estado">
+            <select class="form-control-lg col-4" name="uf">
                 <option value="<c:out value="${cliente.uf}" />">${cliente.uf}</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -65,7 +65,7 @@
                 <option value="TO">TO</option>
             </select><br/>
             <p>CEP</p>
-            <input value="<c:out value="${fornecedor.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${cliente.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </body>
