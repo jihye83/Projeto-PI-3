@@ -21,7 +21,7 @@
             }
             function excluirFilial() {
                 var id = $("#nomeLoja").val();
-                $.get("FilialServlet?action=delete&idFilial=" + id, function (resposta) {
+                $.get("FilialServlet?action=delete&filialNomeLoja=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
