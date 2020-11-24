@@ -10,6 +10,7 @@ package br.com.farmacia.Model;
  * @author PICHAU
  */
 import java.util.Date;
+import java.util.LinkedList;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,9 +25,17 @@ public class Venda {
     private String pagamento;
     private float total;
     private int id_Cliente;
+    private LinkedList<ItemVenda> itens;
 
     public Venda() {
-
+        this.cod_Venda = 0;
+        this.data_Venda = new Date();
+        this.valor_Bruto = 0;
+        this.desconto = 0;
+        this.pagamento = "";
+        this.total = 0;
+        this.id_Cliente = 0;
+        this.itens = new LinkedList<>();
     }
 
     public Venda(int cod_Venda,

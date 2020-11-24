@@ -25,6 +25,10 @@
         <servlet-class>br.com.farmacia.servlet.AlterarCliente</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>VendaServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.VendaServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
         <servlet-class>br.com.farmacia.servlet.ExcluirCliente</servlet-class>
     </servlet>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarVenda</servlet-name>
         <url-pattern>/CadastrarVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaServlet</servlet-name>
+        <url-pattern>/VendaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>

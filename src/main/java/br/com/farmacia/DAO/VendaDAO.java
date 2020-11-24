@@ -23,6 +23,7 @@ import br.com.farmacia.Model.Cliente;
 import br.com.farmacia.Model.Venda;
 import br.com.farmacia.servlet.ServletDB;
 import br.com.farmacia.DB.ConexaoDB;
+import java.sql.Statement;
 
 public class VendaDAO {
 
@@ -57,17 +58,23 @@ public class VendaDAO {
 
         try {
             Connection con = ConexaoDB.conector();
-            String sql = "insert into Compra(cod_Compra, data_Compra, valorBruto,desconto,total,id_Cliente,pagamento(?,?,?,?,?,?,?))";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, venda.getCod_Venda());
-            pst.setDate(2, new Date(venda.getData_Venda().getTime()));
-            pst.setFloat(3, venda.getValor_Bruto());
-            pst.setFloat(4, venda.getDesconto());
-            pst.setFloat(5, venda.getId_Cliente());
-            pst.setInt(6, venda.getId_Cliente());
-            pst.setString(7, venda.getPagamento());
+            String sql = "insert into Compra(data_Compra, valor_Bruto,desconto,total,pagamento) values (?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            pst.setDate(1, new Date(venda.getData_Venda().getTime()));
+            pst.setFloat(2, venda.getValor_Bruto());
+            pst.setFloat(3, venda.getDesconto());
+            pst.setFloat(4, venda.getTotal());
+            pst.setString(5, venda.getPagamento());
             int rs = pst.executeUpdate();
             if (rs > 0) {
+               
+                    ResultSet generatedKeys = pst.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        int key = generatedKeys.getInt(1);
+                        venda.setCod_Venda(key);
+                    } else {
+                        throw new SQLException("Falha ao obter o ID");
+                    }
                 System.out.println("inserido na tabela de compras com sucesso!");
             } else {
                 System.out.println("erro ao inserir na tabela de compras");
