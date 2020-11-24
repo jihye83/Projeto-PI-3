@@ -77,8 +77,8 @@ public class Filial {
     
     @Override
     public String toString() {
-        return String.format("nomeLoja %s <br/>"
-                + "tel %s <br/>"
+        return String.format("nome_Loja %s <br/>"
+                + "Tel %s <br/>"
                 + "logradouro %s <br/>"
                 + "numLogr %s <br/>"
                 + "compLogr %s <br/>"
