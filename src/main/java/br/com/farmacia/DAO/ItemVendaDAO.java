@@ -51,5 +51,47 @@ public class ItemVendaDAO {
         return listaItens;
     }
 
+    public static void addItemVenda(ItemVenda item) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.conector();
+        String query = "insert into Item_compra(qtd,id_Compra,id_Produto) values (?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, item.getQtd());
+        ps.setInt(2, item.getVenda().getCod_Venda());
+        ps.setInt(3, item.getProduto().getIdProduto());
+        ps.execute();
+    }
+
+
+    public static void deleteProduto(int idITemVenda) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.conector();
+        String query = "delete from Item_compra where cod_ItemCompra=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, idITemVenda);
+        ps.execute();
+    }
+
+    public ItemVenda getItemVenda(int idItemVenda) {
+        ItemVenda item = null;
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Item_compra where cod_ItemCompra=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, idItemVenda);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                    int id = rs.getInt("cod_ItemCompra");
+                int qtd = rs.getInt("qtd");
+                int idCompra = rs.getInt("id_Compra");
+                int idProduto = rs.getInt("id_Produto");
+                Produto produto = produtoDao.getProduto(idProduto);
+                Venda venda = vendaDao.getVenda(idCompra);
+                item = new ItemVenda(id,produto,qtd,venda);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return item;
+    }
     
 }
