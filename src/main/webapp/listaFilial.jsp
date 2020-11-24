@@ -6,21 +6,21 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>listar filiais</title>
+        <title>Listar filiais</title>
 
         <script lang="text/javascript">
-            function mostrarModalExclusao(id_Filial, nome_Loja) {
-                $("#nomeLoja").html(nome_Loja);
-                $("#idFilial").val(id_Filial);
+            function mostrarModalExclusao(idFilial, nomeLoja) {
+                $("#nome_Loja").html(nomeLoja);
+                $("#id_Filial").val(idFilial);
                 $('#modalExclusao').modal('show');
             }
             function excluirFilial() {
-                var id = $("#idFilial").val();
+                var id = $("#id_Filial").val();
                 $.get("FilialServlet?action=delete&idFilial=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
@@ -63,8 +63,8 @@
                         <td><c:out value="${filial.cidade}" /></td>
                         <td><c:out value="${filial.uf}" /></td>
                         <td><c:out value="${filial.cep}" /></td>
-                        <td><a class="btn btn-primary " href="FilialServlet?action=edit&filialNomeLoja=<c:out value="${filial.nomeLoja}" />">Update</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.idLoja}', '${filial.nomeLoja}')">Delete</button></td>
+                        <td><a class="btn btn-primary " href="FilialServlet?action=edit&filialNomeLoja=<c:out value="${filial.idFilial}" />">Update</a></td>
+                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.idFilial}', '${filial.nomeLoja}')">Delete</button></td>
                     </tr>
                 </c:forEach>    
             </tbody>
