@@ -60,6 +60,10 @@
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>br.com.farmacia.servlet.ClienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FilialServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.FilialServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletDB</servlet-name>
         <url-pattern>/ServletDB</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilialServlet</servlet-name>
+        <url-pattern>/FilialServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
