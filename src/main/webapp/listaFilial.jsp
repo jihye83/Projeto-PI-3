@@ -20,7 +20,7 @@
                 $('#modalExclusao').modal('show');
             }
             function excluirFilial() {
-                var id = $("#id_Filial").val();
+                var id = $("#nomeLoja").val();
                 $.get("FilialServlet?action=delete&idFilial=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
@@ -51,7 +51,7 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${filiais}" var="filiais">
+                <c:forEach items="${filiais}" var="filial">
                     <tr>
                         <td><c:out value="${filial.idFilial}" /></td>
                         <td><c:out value="${filial.nomeLoja}" /></td>
@@ -63,8 +63,8 @@
                         <td><c:out value="${filial.cidade}" /></td>
                         <td><c:out value="${filial.uf}" /></td>
                         <td><c:out value="${filial.cep}" /></td>
-                        <td><a class="btn btn-primary " href="FilialServlet?action=edit&filialNomeLoja=<c:out value="${filial.idFilial}" />">Update</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.idFilial}', '${filial.nomeLoja}')">Delete</button></td>
+                        <td><a class="btn btn-primary " href="FilialServlet?action=edit&filialNomeLoja=<c:out value="${filial.nomeLoja}" />">Update</a></td>
+                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.nomeLoja}')">Delete</button></td>
                     </tr>
                 </c:forEach>    
             </tbody>
@@ -79,7 +79,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Confirmar exclusão do filial  <label id="nomeLoja"></label> ?
+                        Confirmar exclusão do filial  <label id="nome_Loja"></label> ?
                         <input id="nomeLoja" hidden="true" />
 
                     </div>
