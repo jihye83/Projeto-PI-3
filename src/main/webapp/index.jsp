@@ -27,6 +27,7 @@
         <a href="cadastrarFuncionario.jsp">Cadastrar Funcionario</a><br>
         <a href="FuncionarioServlet?action=listaFuncionario">Listar Funcionario</a><br>
         <a href="cadastrarFilial.jsp">Cadastrar Filial</a><br/>
+        <a href="FilialServlet?action=listaFilial.jsp">Listar Filiais</a><br/>
         <a href="VendaServlet?action=listaClienteProduto">vendas</a>
     </body>
 </html>
