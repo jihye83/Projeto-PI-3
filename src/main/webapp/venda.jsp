@@ -85,8 +85,8 @@
                 </div>
                 <div class="col mt-2">
                     <h2>Produto</h2>
-                    <select  name="idProduto">
-                        <option value="">Selecione</option>
+                    <select  name="idProduto" id="idProduto">
+<!--                        <option value="">Selecione</option>-->
                         <c:forEach items="${produtos}" var="produto" >
                             <option value="${produto.idProduto}" >${produto.idProduto} - ${produto.nomeProd} </option>
                         </c:forEach>
@@ -121,15 +121,25 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <c:forEach  items="${itemsProd}" var="item">
+                  
+                     <tbody name="itemsVenda" id="itemsVenda">
+                       <c:forEach  items="${itemsVenda}" var="item">
                         <tr>
-                            <td>${item.getProduto().getIdProduto}</td>
-                            <td><c:out value="${item.produto.nomeProd}" /></td>
-                            <td><c:out value="${item.produto.precoProd}" /></td>
-                            <td><c:out value="${item.qtd}" /></td>
+                            <td>${item.getProduto().getIdProduto()}</td>
+                            <td><c:out value="${item.getProduto().getNomeProd()}" /></td>
+                            <td><c:out value="${item.getProduto().getPrecoProd()}" /></td>
+                            <td><c:out value="${item.getQtd()}" /></td>
                             <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.idProduto}, '${produto.nomeProd}')">Excluir</button></td>
                         </tr>
-                    </c:forEach>
+                    </c:forEach> 
+                    </tbody>-->
+                      <select name="itemsVenda" id="itemsVenda">
+                       <c:forEach  items="${itemsVenda}" var="item">
+                    
+
+                         </c:forEach> 
+                    </select>
+                    
                     <!--                    <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
