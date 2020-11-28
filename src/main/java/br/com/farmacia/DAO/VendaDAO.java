@@ -83,6 +83,18 @@ public class VendaDAO {
             e.printStackTrace();
         }
     }
+    
+      public static void updateVenda(Venda venda) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.conector();
+        String query = "update Compra set valor_Bruto=?,total=?,desconto=?, pagamento=?, id_Cliente=? where cod_compra=?";
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setFloat(1, venda.getValor_Bruto());
+         pst.setFloat(2, venda.getTotal());
+            pst.setFloat(3, venda.getDesconto());       
+            pst.setString(4, venda.getPagamento());
+            pst.setInt(5, venda.getCod_Venda());
+        pst.execute();
+    }
 
     public static boolean deletaVenda(int id_Compra) throws SQLException, ClassNotFoundException {
         try {

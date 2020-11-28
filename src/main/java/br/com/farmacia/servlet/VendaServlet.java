@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 @WebServlet(name = "VendaServlet", urlPatterns = {"/VendaServlet"})
 public class VendaServlet extends HttpServlet {
  private static final long serialVersionUID = 1L;
-    private static String LIST_CLIENTE_PRODUTO = "/venda.jsp";
+    private static String VENDA = "/venda.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private ClienteDAO daoCliente;
@@ -40,7 +40,7 @@ public class VendaServlet extends HttpServlet {
     private ItemVendaDAO daoItem;
     private VendaDAO daoVenda;
     private Venda venda;
-     ArrayList<ItemVenda> cart = new ArrayList<>();
+     ArrayList<ItemVenda> cart;
 
     public VendaServlet() {
         super();
@@ -48,7 +48,7 @@ public class VendaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String forward = "/venda.jsp";
+        String forward = VENDA;
         String action = request.getParameter("action");
 
         try {
@@ -56,12 +56,12 @@ public class VendaServlet extends HttpServlet {
                 daoItem = new ItemVendaDAO();
 
                 int idItem = Integer.parseInt(request.getParameter("idItem"));
-              
-                 
+     
                 ItemVenda itemRemove = null;
                 itemRemove = daoItem.getItemVenda(idItem);
-                 System.out.println(itemRemove+"aqui"+idItem);
-//                cart.remove(itemRemove);
+//                 System.out.println(itemRemove+"aqui"+idItem);
+                
+                //removendo item do carrinho/tabela
                 for(int i=0;i<cart.size();i++){
                     if(cart.get(i).getIdItem()==idItem){
                         cart.remove(cart.get(i));
@@ -74,10 +74,7 @@ public class VendaServlet extends HttpServlet {
                 float valorBruto = venda.getValor_Bruto()-itemRemove.getProduto().getPrecoProd() ;
                 float total = venda.getTotal()-itemRemove.getProduto().getPrecoProd();
                  venda.setValor_Bruto( valorBruto > 0 ? valorBruto : 0);
-               venda.setTotal( total > 0 ? total : 0);
-               
-              
-                 
+               venda.setTotal( total > 0 ? total : 0);        
               
            }
                
@@ -103,9 +100,10 @@ public class VendaServlet extends HttpServlet {
         try {
              if(action.equalsIgnoreCase("iniciarVenda")){
                  venda = new Venda();
-                 VendaDAO.adicionaVenda(venda);
+                 daoVenda = new VendaDAO();
+                 daoVenda.adicionaVenda(venda);
                  request.setAttribute("venda", venda);
-//                  cart = new ArrayList<>();
+                 cart = new ArrayList<>();
                   
              }
              else if(action.equalsIgnoreCase("addProduto")){
@@ -126,18 +124,14 @@ public class VendaServlet extends HttpServlet {
                //adicionando ao carrinho
                daoItem.addItemVenda(item);
                cart.add(item);              
-      
-//               
+                   
                //incrementando valores
                venda.setValor_Bruto(venda.getValor_Bruto()+item.getProduto().getPrecoProd());
                venda.setTotal(venda.getTotal()+item.getProduto().getPrecoProd());
                 
                
                request.setAttribute("itemsVenda", cart);
-               request.setAttribute("venda",venda);
-
-           
-               
+               request.setAttribute("venda",venda);      
            }
 
         } catch (Exception e) {
@@ -151,7 +145,4 @@ public class VendaServlet extends HttpServlet {
         }
     }
     
-    
-     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     }
 }

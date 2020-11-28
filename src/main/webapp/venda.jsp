@@ -76,7 +76,7 @@ x<%--
             <div class="row">
                 <div class="col mt-2">
                     <h2>Cliente:</h2>
-                    <select>
+                    <select id="idCliente" name="idCliente">
                         <option value="">Selecione</option>
                         <c:forEach items="${clientes}" var="cliente">
                             <option value="${cliente.idCliente}">${cliente.nome}</option>
