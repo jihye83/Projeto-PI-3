@@ -15,13 +15,13 @@
 
         <script lang="text/javascript">
             function mostrarModalExclusao(idFilial, nomeLoja) {
-                $("#nome_Loja").html(nomeLoja);
-                $("#id_Filial").val(idFilial);
+                $("#nomeLoja").html(nomeLoja);
+                $("#idFilial").val(idFilial);
                 $('#modalExclusao').modal('show');
             }
             function excluirFilial() {
-                var id = $("#nomeLoja").val();
-                $.get("FilialServlet?action=delete&filialNomeLoja=" + id, function (resposta) {
+                var idFilial = $("#idFilial").val();
+                $.get("FilialServlet?action=delete&idFilial=" + idFilial, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -64,7 +64,7 @@
                         <td><c:out value="${filial.uf}" /></td>
                         <td><c:out value="${filial.cep}" /></td>
                         <td><a class="btn btn-primary " href="FilialServlet?action=edit&filialNomeLoja=<c:out value="${filial.nomeLoja}" />">Update</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.nomeLoja}')">Delete</button></td>
+                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${filial.idFilial}')">Delete</button></td>
                     </tr>
                 </c:forEach>    
             </tbody>
@@ -79,8 +79,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Confirmar exclusão do filial  <label id="nome_Loja"></label> ?
-                        <input id="nomeLoja" hidden="true" />
+                        Confirmar exclusão do filial  <label id="id_Filial"></label> ?
+                        <input id="idFilial" hidden="true" />
 
                     </div>
                     <div class="modal-footer">

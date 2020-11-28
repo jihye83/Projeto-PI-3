@@ -90,7 +90,7 @@ public class FilialDAO {
     public static void deleteFilial(String nomeLoja) throws ClassNotFoundException, SQLException {
         try {
             Connection con = ConexaoDB.conector();
-            String query = "delete from Filial where nome_Loja=?";
+            String query = "delete from Filial where id_Filial=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, nomeLoja);
             ps.execute();

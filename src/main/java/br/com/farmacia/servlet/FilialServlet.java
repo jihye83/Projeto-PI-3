@@ -43,8 +43,8 @@ public class FilialServlet extends HttpServlet {
 
         try {
             if (action.equalsIgnoreCase("delete")) {
-                String nomeLoja = request.getParameter("filialNomeLoja");
-                dao.deleteFilial(nomeLoja);
+                String idFilial = request.getParameter("idFilial");
+                dao.deleteFilial(idFilial);
                 forward = LIST_FILIAL;
                 request.setAttribute("filiais", dao.getFilial());
             } else if (action.equalsIgnoreCase("edit")) {
