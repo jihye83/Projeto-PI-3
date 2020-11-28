@@ -120,6 +120,8 @@ public class VendaDAO {
                 venda.setData_Venda(rs.getDate("data_Compra"));
                 venda.setPagamento(rs.getString("pagamento"));
                 rs.getInt("id_Cliente");
+            }else{
+                System.out.println("error ao pegar venda!!!");
             }
         } catch (Exception ex) {
             Logger.getLogger(ServletDB.class.getName()).log(Level.SEVERE, null, ex);

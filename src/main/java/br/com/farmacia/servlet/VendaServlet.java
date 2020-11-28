@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +40,7 @@ public class VendaServlet extends HttpServlet {
     private ItemVendaDAO daoItem;
     private VendaDAO daoVenda;
     private Venda venda;
-     ArrayList<ItemVenda> cart;
+     ArrayList<ItemVenda> cart = new ArrayList<>();
 
     public VendaServlet() {
         super();
@@ -47,20 +48,52 @@ public class VendaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String forward = "";
+        String forward = "/venda.jsp";
         String action = request.getParameter("action");
 
         try {
-            if (action.equalsIgnoreCase("listaClienteProduto")) {
-                forward = LIST_CLIENTE_PRODUTO;
-                request.setAttribute("clientes", daoCliente.getClientes());
-                request.setAttribute("produtos", daoProduto.getProdutos());
-            }
+            if(action.equalsIgnoreCase("deleteItem")){
+                daoItem = new ItemVendaDAO();
+
+                int idItem = Integer.parseInt(request.getParameter("idItem"));
+              
+                 
+                ItemVenda itemRemove = null;
+                itemRemove = daoItem.getItemVenda(idItem);
+                 System.out.println(itemRemove+"aqui"+idItem);
+//                cart.remove(itemRemove);
+                for(int i=0;i<cart.size();i++){
+                    if(cart.get(i).getIdItem()==idItem){
+                        cart.remove(cart.get(i));
+                    }
+                }
+                   daoItem.deleteItemVenda(idItem);
+
+                  
+                //descrementando valores
+                float valorBruto = venda.getValor_Bruto()-itemRemove.getProduto().getPrecoProd() ;
+                float total = venda.getTotal()-itemRemove.getProduto().getPrecoProd();
+                 venda.setValor_Bruto( valorBruto > 0 ? valorBruto : 0);
+               venda.setTotal( total > 0 ? total : 0);
+               
+              
+                 
+              
+           }
+               
         } catch (Exception e) {
+            System.out.println(e);
+           
+        }finally{
+                  request.setAttribute("venda",venda);
+                request.setAttribute("itemsVenda", cart);
+              request.setAttribute("clientes", daoCliente.getClientes());
+                request.setAttribute("produtos", daoProduto.getProdutos());
+                 RequestDispatcher view = request.getRequestDispatcher(forward);
+        view.forward(request, response);
         }
 
-        RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
+       
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,10 +102,10 @@ public class VendaServlet extends HttpServlet {
 
         try {
              if(action.equalsIgnoreCase("iniciarVenda")){
-                 Venda venda = new Venda();
+                 venda = new Venda();
                  VendaDAO.adicionaVenda(venda);
                  request.setAttribute("venda", venda);
-                  cart = new ArrayList<>();
+//                  cart = new ArrayList<>();
                   
              }
              else if(action.equalsIgnoreCase("addProduto")){
@@ -82,25 +115,28 @@ public class VendaServlet extends HttpServlet {
                int qtd = Integer.parseInt(request.getParameter("qtdProduto"));
                Produto produto = ProdutoDAO.getProduto(idProduto);
                
+               // criando item venda
                ItemVenda item = new ItemVenda();
                item.setProduto(produto);
                item.setVenda(venda);
                item.setQtd(qtd);
-//               item.getProduto().setIdProduto(10);
-               
-               cart.add(item);
-               
+               item.setValor(produto.getPrecoProd());
+
+
+               //adicionando ao carrinho
+               daoItem.addItemVenda(item);
+               cart.add(item);              
+      
+//               
+               //incrementando valores
+               venda.setValor_Bruto(venda.getValor_Bruto()+item.getProduto().getPrecoProd());
+               venda.setTotal(venda.getTotal()+item.getProduto().getPrecoProd());
                 
                
-//               daoItem.addItemVenda(item);
-//               
-//               List<ItemVenda> itens = daoItem.getItensVenda(venda.getCod_Venda());
-//               for(ItemVenda item2 : venda.getItens()){
-//                 item2.getProduto().getNomeProd();
-//             }
-//               String teste = request.getParameter("itemsVenda");
-           
                request.setAttribute("itemsVenda", cart);
+               request.setAttribute("venda",venda);
+
+           
                
            }
 
@@ -114,5 +150,8 @@ public class VendaServlet extends HttpServlet {
             view.forward(request, response);
         }
     }
-
+    
+    
+     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     }
 }

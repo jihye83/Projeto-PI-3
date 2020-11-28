@@ -1,4 +1,4 @@
-<%-- 
+x<%-- 
     Document   : venda
     Created on : 12/11/2020, 21:17:34
     Author     : felipe
@@ -97,7 +97,7 @@
 
                 <div class="col mt-2">
                     <label for="inlineRadio1">Qtd
-                        <input class="form-control" type="number"  name="qtdProduto" min="1"/>
+                        <input class="form-control" type="number"  name="qtdProduto" min="1" value="1"/>
                     </label>
                 </div>
 
@@ -122,23 +122,18 @@
                         </tr>
                     </thead>
                   
-                     <tbody name="itemsVenda" id="itemsVenda">
+                     <tbody>
                        <c:forEach  items="${itemsVenda}" var="item">
                         <tr>
                             <td>${item.getProduto().getIdProduto()}</td>
                             <td><c:out value="${item.getProduto().getNomeProd()}" /></td>
                             <td><c:out value="${item.getProduto().getPrecoProd()}" /></td>
                             <td><c:out value="${item.getQtd()}" /></td>
-                            <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.idProduto}, '${produto.nomeProd}')">Excluir</button></td>
+                            <td><a type="button" class="btn btn-primary" href="VendaServlet?action=deleteItem&idItem=${item.getIdItem()}"/>Excluir</a></td>
                         </tr>
                     </c:forEach> 
-                    </tbody>-->
-                      <select name="itemsVenda" id="itemsVenda">
-                       <c:forEach  items="${itemsVenda}" var="item">
-                    
-
-                         </c:forEach> 
-                    </select>
+                    </tbody>
+                     
                     
                     <!--                    <tbody>
                                             <tr>

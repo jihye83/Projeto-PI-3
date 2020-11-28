@@ -90,6 +90,8 @@ public class ProdutoDAO {
                 String descricao_Prod = rs.getString("descricao_Prod");
                 int qtd_Prod = rs.getInt("qtd_Prod");
                 produto = new Produto(id,nome_Prod, preco_Prod, descricao_Prod, qtd_Prod);
+            }else{
+                System.out.println("error ao pegar produto!!!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).

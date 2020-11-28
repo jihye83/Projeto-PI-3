@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,29 +28,6 @@ public class ItemVendaDAO {
     ProdutoDAO produtoDao = new ProdutoDAO();
     VendaDAO vendaDao = new VendaDAO();
     
-    public List<ItemVenda> getItensVenda() {
-        List<ItemVenda> listaItens = new ArrayList<>();
-        try {
-            // colocando o conector de BD
-            Connection con = ConexaoDB.conector();
-            String query = "select * from Item_compra";
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("cod_ItemCompra");
-                int qtd = rs.getInt("qtd");
-                int idCompra = rs.getInt("id_Compra");
-                int idProduto = rs.getInt("id_Produto");
-                Produto produto = produtoDao.getProduto(idProduto);
-                Venda venda = vendaDao.getVenda(idCompra);
-                listaItens.add(new ItemVenda(id,produto,qtd,venda));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ServletDB.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        }
-        return listaItens;
-    }
     public List<ItemVenda> getItensVenda(int idVenda) {
         List<ItemVenda> listaItens = new ArrayList<>();
         try {
@@ -64,9 +42,10 @@ public class ItemVendaDAO {
                 int qtd = rs.getInt("qtd");
                 int idCompra = rs.getInt("id_Compra");
                 int idProduto = rs.getInt("id_Produto");
+                float valor = rs.getFloat("valor_Unitario");
                 Produto produto = produtoDao.getProduto(idProduto);
                 Venda venda = vendaDao.getVenda(idCompra);
-                listaItens.add(new ItemVenda(id,produto,qtd,venda));
+                listaItens.add(new ItemVenda(id,produto,qtd,venda,valor));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -75,18 +54,32 @@ public class ItemVendaDAO {
         return listaItens;
     }
 
-    public static void addItemVenda(ItemVenda item) throws SQLException, ClassNotFoundException {
+    public int addItemVenda(ItemVenda item) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
-        String query = "insert into Item_compra(qtd,id_Compra,id_Produto) values (?,?,?)";
-        PreparedStatement ps = con.prepareStatement(query);
+        String query = "insert into Item_compra(qtd,id_Compra,id_Produto,valor_Unitario) values (?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, item.getQtd());
         ps.setInt(2, item.getVenda().getCod_Venda());
         ps.setInt(3, item.getProduto().getIdProduto());
-        ps.execute();
+        ps.setFloat(4, item.getValor());
+        int rs = ps.executeUpdate();
+        
+        if(rs>0){
+             ResultSet generatedKeys = ps.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        int key = generatedKeys.getInt(1);
+                        item.setIdItem(key);
+                        return key;
+                    } else {
+                        throw new SQLException("Falha ao obter o ID");
+                    }
+        }
+        
+        return -1;
     }
 
 
-    public static void deleteProduto(int idITemVenda) throws SQLException, ClassNotFoundException {
+    public static void deleteItemVenda(int idITemVenda) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
         String query = "delete from Item_compra where cod_ItemCompra=?";
         PreparedStatement ps = con.prepareStatement(query);
@@ -107,9 +100,12 @@ public class ItemVendaDAO {
                 int qtd = rs.getInt("qtd");
                 int idCompra = rs.getInt("id_Compra");
                 int idProduto = rs.getInt("id_Produto");
+                  float valor = rs.getFloat("valor_Unitario");
                 Produto produto = produtoDao.getProduto(idProduto);
                 Venda venda = vendaDao.getVenda(idCompra);
-                item = new ItemVenda(id,produto,qtd,venda);
+                item = new ItemVenda(id,produto,qtd,venda,valor);
+            }else{
+                System.out.println("nao foi possivel encontrar item!!!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
