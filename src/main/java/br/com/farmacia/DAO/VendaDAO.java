@@ -92,7 +92,8 @@ public class VendaDAO {
          pst.setFloat(2, venda.getTotal());
             pst.setFloat(3, venda.getDesconto());       
             pst.setString(4, venda.getPagamento());
-            pst.setInt(5, venda.getCod_Venda());
+            pst.setInt(5, venda.getId_Cliente());
+            pst.setInt(6, venda.getCod_Venda());
         pst.execute();
     }
 

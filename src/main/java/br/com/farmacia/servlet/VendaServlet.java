@@ -110,6 +110,7 @@ public class VendaServlet extends HttpServlet {
                daoItem = new ItemVendaDAO();
                daoVenda = new VendaDAO();
                int idProduto = Integer.parseInt(request.getParameter("idProduto"));
+  
                int qtd = Integer.parseInt(request.getParameter("qtdProduto"));
                Produto produto = ProdutoDAO.getProduto(idProduto);
                
@@ -132,9 +133,40 @@ public class VendaServlet extends HttpServlet {
                
                request.setAttribute("itemsVenda", cart);
                request.setAttribute("venda",venda);      
+           }else if(action.equalsIgnoreCase("finalizarVenda")){
+//               int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+
+             String idCliente = request.getParameter("idCliente");
+                ;
+               String pagamento = request.getParameter("pagamento");
+               String desconto = request.getParameter("desconto");
+                System.out.println("valor do deconto = "+desconto);;
+               float total = Float.parseFloat(request.getParameter("total"));
+               float valorBruto = Float.parseFloat(request.getParameter("valorBruto"));
+               
+               //incluindo informacoes na venda
+                venda.setId_Cliente(Integer.parseInt(idCliente));
+                venda.setPagamento(pagamento);
+                venda.setDesconto(Float.parseFloat(desconto));
+                venda.setTotal(total);
+                venda.setValor_Bruto(valorBruto);
+                
+                 try {
+                      daoVenda.updateVenda(venda);
+                 } catch (Exception e) {
+                     System.out.println(e);
+                 }
+               
+                
+                venda = new Venda();
+                cart = new ArrayList<>();
+                
+                request.setAttribute("venda", venda);
+                request.setAttribute("itemVenda", cart);
            }
 
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null,"erro aqui");
         } finally {
              request.setAttribute("clientes", daoCliente.getClientes());

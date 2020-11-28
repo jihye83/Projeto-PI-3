@@ -19,34 +19,54 @@ x<%--
         <h1 class="p-3">Realizar Venda</h1>
         <form action="VendaServlet?action=iniciarVenda" method="post">
             <button type="submit" class="btn btn-primary">Nova Venda</button>
+             <a  class="ml-4" href="index.jsp">Voltar</a>
         </form>
-        <form action='VendaServlet?action=addProduto' method='post'>
-            <div class="row">
-                <div class="col">
+
+        <!-- Finalizar venda  -->
+        <form action="VendaServlet?action=finalizarVenda" method="post">
+            <div class="row mb-5">
+                <div class="col-6">
                     <label class="" for="inlineRadio1">data
-                        <input class="form-control" type="text" name="" id="dateToday" value="" disabled>
+                        <input class="form-control" type="text" name="" id="dateToday" value="" readOnly="readOnly">
                     </label>
+                </div>
+                <div class="row">
+
+
+                    <div class="col-12">
+                        <h2>Cliente:</h2>
+                        <select name="idCliente" id="idCliente">
+                            <c:forEach items="${clientes}" var="cliente">
+                                <option value="${cliente.idCliente}">${cliente.idCliente} - ${cliente.nome}</option>
+                            </c:forEach>
+                        </select>
+                        
+                    </div>
+
+
+
+
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label class="" for="inlineRadio1">COD
-                        <input value="<c:out value="${venda.cod_Venda}" />" readonly name="codVenda" class="form-control" type="text" id="inlineRadio1" disabled>
+                        <input value="<c:out value="${venda.cod_Venda}" />" readonly name="codVenda" class="form-control" type="text" id="inlineRadio1" readOnly="readOnly">
                     </label>
                 </div>
                 <div class="col">
-                    <label class="" for="inlineRadio3">ValorBruto
-                        <input value="<c:out value="${venda.valor_Bruto}" />" class="form-control" type="text" name="valorBruto" id="" disabled>
-                    </label>
+                    <p>ValorBruto
+                        <input value="<c:out value="${venda.valor_Bruto}" />" class="form-control" type="text" name="valorBruto" id="" readOnly="readOnly">
+                    </p>
                 </div>
                 <div class="col">
-                    <label class="" for="inlineRadio1">desconto
-                        <input value="<c:out value="${venda.desconto}" />" class="form-control" type="text" name=desconto"" id="" disabled>
+                    <label class="">desconto
+                        <input value="<c:out value="${venda.desconto}" />" class="form-control" type="text" name="desconto" readOnly="readOnly">
                     </label>
                 </div>
                 <div class="col">
                     <label class="" for="inlineRadio1">total
-                        <input value="<c:out value="${venda.total}" />" class="form-control" type="text" name="total" id="inlineRadio1" disabled>
+                        <input value="<c:out value="${venda.total}" />" class="form-control" type="text" name="total" id="inlineRadio1" readOnly="readOnly">
                     </label>
                 </div>
 
@@ -55,15 +75,17 @@ x<%--
             <div class="row">
                 <div class="col">
                     <label>Pagamento
-                        <select class="form-control" value="<c:out value="${venda.pagamento}" />" >
+                        <select class="form-control" name="pagamento" id="pagamento">
                             <option value="dinheiro">dinheiro</option>
                             <option value="credito">crédito</option>
                             <option value="debito">débito</option>
                         </select>
                     </label>
+                    
+                   
                 </div>
                 <div class="col">
-
+                     <button type="submit" class="ml-2 mt-4 btn btn-secondary">Finalizar Venda</button>
                 </div>
                 <div class="col">
 
@@ -73,20 +95,21 @@ x<%--
                 </div>
             </div>
 
+
+
+            
+        </form>
+
+
+        <!-- add produto --> 
+        <form action='VendaServlet?action=addProduto' method='post'>
+
             <div class="row">
-                <div class="col mt-2">
-                    <h2>Cliente:</h2>
-                    <select id="idCliente" name="idCliente">
-                        <option value="">Selecione</option>
-                        <c:forEach items="${clientes}" var="cliente">
-                            <option value="${cliente.idCliente}">${cliente.nome}</option>
-                        </c:forEach>
-                    </select>
-                </div>
+
                 <div class="col mt-2">
                     <h2>Produto</h2>
-                    <select  name="idProduto" id="idProduto">
-<!--                        <option value="">Selecione</option>-->
+                    <select  name="idProduto">
+                        <!--                        <option value="">Selecione</option>-->
                         <c:forEach items="${produtos}" var="produto" >
                             <option value="${produto.idProduto}" >${produto.idProduto} - ${produto.nomeProd} </option>
                         </c:forEach>
@@ -95,7 +118,7 @@ x<%--
 
                 </div>
 
-                <div class="col mt-2">
+                <div class="col mt-4">
                     <label for="inlineRadio1">Qtd
                         <input class="form-control" type="number"  name="qtdProduto" min="1" value="1"/>
                     </label>
@@ -108,44 +131,38 @@ x<%--
 
 
 
+            <div class="container">
+                <div class="tableArea mt-3" style=".tableArea{width:100%;}">
+                    <h2>Produtos</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Qtd</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
 
-            <div class="tableArea mt-3">
-                <h2>Produtos</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Preço</th>
-                            <th scope="col">Qtd</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                  
-                     <tbody>
-                       <c:forEach  items="${itemsVenda}" var="item">
-                        <tr>
-                            <td>${item.getProduto().getIdProduto()}</td>
-                            <td><c:out value="${item.getProduto().getNomeProd()}" /></td>
-                            <td><c:out value="${item.getProduto().getPrecoProd()}" /></td>
-                            <td><c:out value="${item.getQtd()}" /></td>
-                            <td><a type="button" class="btn btn-primary" href="VendaServlet?action=deleteItem&idItem=${item.getIdItem()}"/>Excluir</a></td>
-                        </tr>
-                    </c:forEach> 
-                    </tbody>
-                     
-                    
-                    <!--                    <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Dipirona</td>
-                                                <td>4</td>
-                                                <td><button class="btn btn-secondary">Remover</button></td>
-                                            </tr>
-                                        </tbody>-->
-                </table>
+                        <tbody>
+                            <c:forEach  items="${itemsVenda}" var="item">
+                                <tr>
+                                    <td>${item.getProduto().getIdProduto()}</td>
+                                    <td><c:out value="${item.getProduto().getNomeProd()}" /></td>
+                                    <td><c:out value="${item.getProduto().getPrecoProd()}" /></td>
+                                    <td><c:out value="${item.getQtd()}" /></td>
+                                    <td><a type="button" class="btn btn-primary" href="VendaServlet?action=deleteItem&idItem=${item.getIdItem()}"/>Excluir</a></td>
+                                </tr>
+                            </c:forEach> 
+                        </tbody>                   
+                    </table>
+                </div>
             </div>
+
         </form>
+
+
 
 
         <script>
@@ -154,18 +171,18 @@ x<%--
             data = formatDate(data);
             $("#dateToday").val(data);
             function formatDate(props) {
-            const date = new Date(props)
-                    var day = date.getDate();
-            if (day < 10) {
-            day = "0" + day
-            }
-            var month = date.getMonth();
-            month++
-                    if (month < 10) {
-            month = "0" + month
-            }
-            var year = date.getFullYear();
-            return day + "/" + month + "/" + year;
+                const date = new Date(props)
+                var day = date.getDate();
+                if (day < 10) {
+                    day = "0" + day
+                }
+                var month = date.getMonth();
+                month++
+                if (month < 10) {
+                    month = "0" + month
+                }
+                var year = date.getFullYear();
+                return day + "/" + month + "/" + year;
             }
 
             //Add na tabela
