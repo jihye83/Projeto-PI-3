@@ -100,7 +100,7 @@ public class VendaDAO {
     public static boolean deletaVenda(int id_Compra) throws SQLException, ClassNotFoundException {
         try {
             Connection con = ConexaoDB.conector();
-            String sql = "delete from Compra where id_Compra=?";
+            String sql = "delete from Compra where cod_compra=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id_Compra);
             int rs = ps.executeUpdate();

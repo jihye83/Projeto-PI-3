@@ -17,11 +17,21 @@ x<%--
     </head>
     <body class="container">
         <h1 class="p-3">Realizar Venda</h1>
-        <form action="VendaServlet?action=iniciarVenda" method="post">
+        <div class="row">
+            <div class="col-4">
+                <form action="VendaServlet?action=iniciarVenda" method="post">
             <button type="submit" class="btn btn-primary">Nova Venda</button>
              <a  class="ml-4" href="index.jsp">Voltar</a>
         </form>
-
+            </div>
+            <div class="col-8">
+                 <form action="VendaServlet?action=cancelarVenda&idVenda=${venda.cod_Venda}" method="post">
+                        <button type="submit" class="btn btn-primary" href=""/>Cancelar venda</button>
+        </form>
+            </div>
+        </div>
+        
+       
         <!-- Finalizar venda  -->
         <form action="VendaServlet?action=finalizarVenda" method="post">
             <div class="row mb-5">
@@ -88,7 +98,9 @@ x<%--
                      <button type="submit" class="ml-2 mt-4 btn btn-secondary">Finalizar Venda</button>
                 </div>
                 <div class="col">
-
+                 
+                        
+                    
                 </div>
                 <div class="col">
 

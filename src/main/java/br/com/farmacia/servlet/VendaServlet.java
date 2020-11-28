@@ -140,7 +140,7 @@ public class VendaServlet extends HttpServlet {
                 ;
                String pagamento = request.getParameter("pagamento");
                String desconto = request.getParameter("desconto");
-                System.out.println("valor do deconto = "+desconto);;
+//                System.out.println("valor do deconto = "+desconto);;
                float total = Float.parseFloat(request.getParameter("total"));
                float valorBruto = Float.parseFloat(request.getParameter("valorBruto"));
                
@@ -158,6 +158,23 @@ public class VendaServlet extends HttpServlet {
                  }
                
                 
+                venda = new Venda();
+                cart = new ArrayList<>();
+                
+                request.setAttribute("venda", venda);
+                request.setAttribute("itemVenda", cart);
+           }else if(action.equalsIgnoreCase("cancelarVenda")){
+               int idVenda = Integer.parseInt(request.getParameter("idVenda"));
+//                 System.out.println(idVenda+" id da venda");
+               
+               //deletando itens da venda
+               for(int i=0;i<cart.size();i++){
+                   daoItem.deleteItemVenda(cart.get(i).getIdItem());
+               }
+               
+               //deletar venda
+               daoVenda.deletaVenda(idVenda);
+               
                 venda = new Venda();
                 cart = new ArrayList<>();
                 
