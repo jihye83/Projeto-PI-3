@@ -33,7 +33,7 @@ public class FilialDAO {
             while (rs.next()) {
                 int id = rs.getInt("id_Filial");
                 String nomeLoja = rs.getString("nome_Loja");
-                String tel = rs.getString("Tel");
+                String Tel = rs.getString("Tel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -42,7 +42,7 @@ public class FilialDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
 
-                listaFiliais.add(new Filial(id, nomeLoja, tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
+                listaFiliais.add(new Filial(id, nomeLoja, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
