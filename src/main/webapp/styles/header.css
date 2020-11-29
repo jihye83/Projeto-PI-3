@@ -1,0 +1,19 @@
+.headerArea{
+        position: absolute;
+    left:0;
+    background-color: #7ec4da;
+    height: 100vh;
+    width: 10em;
+    color:white;
+
+}
+
+.headerArea a{
+    color:white;
+    text-decoration: none;
+}
+
+.header{
+    text-align: center;
+}
+

@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <h1>Menu</h1>
+<!--        <h1>Menu</h1>
         <a href="ClienteServlet?action=listaCliente">Lista Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         <a href="ProdutoServlet?action=listaProduto">Listar Produtos</a><br/>
@@ -28,6 +28,6 @@
         <a href="FuncionarioServlet?action=listaFuncionario">Listar Funcionario</a><br>
         <a href="cadastrarFilial.jsp">Cadastrar Filial</a><br/>
         <a href="FilialServlet?action=listaFilial">Listar Filiais</a><br/>
-        <a href="VendaServlet?action=listaClienteProduto">vendas</a>
+        <a href="VendaServlet?action=listaClienteProduto">vendas</a>-->
     </body>
 </html>
