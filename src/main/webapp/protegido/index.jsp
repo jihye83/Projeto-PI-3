@@ -17,9 +17,9 @@
 
         <h1>Menu</h1>
         <h2>Bem vindo, ${sessionScope.usuario.nome}</h2>
-        <a href="<c:url value="ClienteServlet?action=listaCliente"/>">Lista Clientes</a><br/>
+        <a href="<c:url value="/ClienteServlet?action=listaCliente"/>">Lista Clientes</a><br/>
         <c:if test="${sessionScope.usuario.admin}">
-            <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
+            <a href="admin/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         </c:if>
         <a href="ProdutoServlet?action=listaProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br>

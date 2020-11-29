@@ -51,50 +51,52 @@
                     <th>UF</th>
                     <th>CEP</th>
                 </tr>
-        </thead>
-        <tbody> 
-            <c:forEach var="cliente" items="${clientes}">
-                <tr>
-                    <td><c:out value="${cliente.idCliente}" /></td>
-                    <td><c:out value="${cliente.nome}" /></td>
-                    <td><c:out value="${cliente.cpf}" /></td>
-                    <td><c:out value="${cliente.email}" /></td>
-                    <td><c:out value="${cliente.cel}" /></td>
-                    <td><c:out value="${cliente.logradouro}" /></td>
-                    <td><c:out value="${cliente.bairro}" /></td>
-                    <td><c:out value="${cliente.cidade}" /></td>
-                    <td><c:out value="${cliente.uf}" /></td>
-                    <td><c:out value="${cliente.cep}" /></td>
-                    <td><a class="btn btn-primary " href="ClienteServlet?action=edit&clienteCpf=<c:out value="${cliente.cpf}" />">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Delete</button></td>
-                </tr>
-            </c:forEach>
+            </thead>
+            <tbody> 
+                <c:forEach var="cliente" items="${clientes}">
+                    <tr>
+                        <td><c:out value="${cliente.idCliente}" /></td>
+                        <td><c:out value="${cliente.nome}" /></td>
+                        <td><c:out value="${cliente.cpf}" /></td>
+                        <td><c:out value="${cliente.email}" /></td>
+                        <td><c:out value="${cliente.cel}" /></td>
+                        <td><c:out value="${cliente.logradouro}" /></td>
+                        <td><c:out value="${cliente.bairro}" /></td>
+                        <td><c:out value="${cliente.cidade}" /></td>
+                        <td><c:out value="${cliente.uf}" /></td>
+                        <td><c:out value="${cliente.cep}" /></td>
+                        <c:if test="${sessionScope.usuario.admin}">
+                            <td><a class="btn btn-primary " href="ClienteServlet?action=edit&clienteCpf=<c:out value="${cliente.cpf}" />">Alterar</a></td>
+                            <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Delete</button></td>
+                        </c:if>
+                    </tr>
+                </c:forEach>
 
-        </tbody>
+            </tbody>
 
-    </table>
-    <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Confirmar exclusão do cliente  <label id="nome"></label> ?
-                    <input id="cpf" hidden="true" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+        </table>
+        <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Confirmar exclusão do cliente  <label id="nome"></label> ?
+                        <input id="cpf" hidden="true" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-        
-    <p><a href="ClienteServlet?action=insert">Add Cliente</a></p>
-    <a href="index.jsp">Voltar</a>
-</body>
+
+        <p><a href="ClienteServlet?action=insert">Add Cliente</a></p>
+        <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
+    </body>
 </html>

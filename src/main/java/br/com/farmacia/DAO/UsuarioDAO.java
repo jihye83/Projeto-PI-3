@@ -6,7 +6,6 @@
 package br.com.farmacia.DAO;
 
 import br.com.farmacia.DB.ConexaoDB;
-import br.com.farmacia.Model.Cliente;
 import br.com.farmacia.Model.Usuario;
 import br.com.farmacia.servlet.ServletDB;
 import java.sql.Connection;
@@ -22,18 +21,18 @@ import java.util.logging.Logger;
  */
 public class UsuarioDAO {
     
-    public static Usuario getUsuario(String login, String senha) {
+    public static Usuario getUsuario(String login) {
         Usuario usuario = null;
         try {
             Connection con = ConexaoDB.conector();
-            String query = "select * from Usuario where login=? and senha=?";
+            String query = "select * from Usuario where login=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, login);
-            ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String nome = rs.getString("nome");
                 String perfil = rs.getString("perfil");
+                String senha = rs.getString("senha");
                 usuario = new Usuario();
                 usuario.setNome(nome);
                 usuario.setLogin(login);

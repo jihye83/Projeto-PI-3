@@ -5,6 +5,7 @@
  */
 package br.com.farmacia.filter;
 
+import br.com.farmacia.Model.Usuario;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -41,10 +42,18 @@ public class AutorizacaoFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         
         HttpSession sessao = httpRequest.getSession();
-        
+        // verificar se usuario esta logado
         if (sessao.getAttribute("usuario") == null) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }
+        
+        // verificar se o usuario logado tem permissao
+        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+        String url = httpRequest.getRequestURI();
+        if (url.contains("/admin/") && !usuario.isAdmin()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+        }
+        System.out.println("URL = " + url);
     }    
     
     private void doAfterProcessing(ServletRequest request, ServletResponse response)

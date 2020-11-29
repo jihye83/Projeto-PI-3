@@ -29,8 +29,8 @@ public class LoginServlet extends HttpServlet {
         
         //query no bd
         
-        Usuario usuario = UsuarioDAO.getUsuario(login, senha);
-        if (usuario == null) {
+        Usuario usuario = UsuarioDAO.getUsuario(login);
+        if (usuario == null || !usuario.validarSenha(senha)) {
             response.sendRedirect(request.getContextPath() + "/login.jsp?erro=UserNotFound");
     } else {
             HttpSession sessao = request.getSession();

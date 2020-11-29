@@ -9,6 +9,8 @@ package br.com.farmacia.Model;
  *
  * @author PICHAU
  */
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import javax.ws.rs.core.Response;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +22,15 @@ public class Usuario {
     private String login;
     private String senha;
     private String perfil;
+    
+    public static String codificarSenha(String senha) {
+        return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
+    }
+    
+    public boolean validarSenha(String senha) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senha.toCharArray(), this.getSenha());
+        return response.verified;
+    }
     
     public boolean isAdmin() {
         return this.perfil.equalsIgnoreCase("admin");

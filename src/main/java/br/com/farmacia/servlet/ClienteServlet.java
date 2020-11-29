@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ClienteServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/cadastrarCliente.jsp";
-    private static String LIST_CLIENTE = "/listaCliente.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/cadastrarCliente.jsp";
+    private static String LIST_CLIENTE = "/protegido/listaCliente.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private ClienteDAO dao;
