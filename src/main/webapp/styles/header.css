@@ -3,9 +3,10 @@
     left:0;
     background-color: #7ec4da;
     height: 100vh;
-    width: 10em;
+    width: 7%;
     color:white;
-
+    box-sizing: border-box;
+    overflow: none;
 }
 
 .headerArea a{
@@ -15,5 +16,14 @@
 
 .header{
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1em;
+    
 }
 
+.header div{
+    margin:1em 0 1em 0;
+}

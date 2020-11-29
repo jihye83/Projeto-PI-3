@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
+         <link rel="stylesheet" href="./styles/produto.css"/>
         <script lang="text/javascript">
 
             function mostrarModalExclusao(id_Produto, nome_Prod) {
@@ -34,7 +35,7 @@
             }
         </script>
     </head>
-    <body class="container">
+    <body class="container listaProdutoArea">
         <h1>Lista de Produtos</h1>
         <table class="table">
             <thead>

@@ -13,8 +13,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Produto</title>
+        <link rel="stylesheet" href="./styles/produto.css"/>
     </head>
-    <body>
+    <body class="container cadastrarProdutoArea">
         <h1>Cadastro</h1>
 		<form action="ProdutoServlet" method="POST">
                         <p>Código</p>

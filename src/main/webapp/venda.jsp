@@ -13,9 +13,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
-
+        <link rel="stylesheet" href="./styles/venda.css"/>
     </head>
-    <body class="container">
+    <body class="vendaArea container">
         <h1 class="p-3">Realizar Venda</h1>
         <div class="row">
             <div class="col-4">
