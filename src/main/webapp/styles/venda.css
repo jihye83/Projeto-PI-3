@@ -1,3 +1,4 @@
 .vendaArea{
-    float:right ;
+    position: absolute;
+    left:250px;
 }

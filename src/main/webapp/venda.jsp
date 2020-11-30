@@ -15,7 +15,10 @@
         <title>Realizar Venda</title>
         <link rel="stylesheet" href="./styles/venda.css"/>
     </head>
-    <body class="vendaArea container">
+    <body >
+        <div class="vendaArea">
+            
+    
         <h1 class="p-3">Realizar Venda</h1>
         <div class="row">
             <div class="col-4">
@@ -176,7 +179,7 @@
 
 
 
-
+    </div>
         <script>
             //Data
             var data = new Date();
