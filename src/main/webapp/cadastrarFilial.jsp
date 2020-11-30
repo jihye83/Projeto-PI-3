@@ -13,8 +13,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Filial</title>
+         <link rel="stylesheet" href="./styles/filial.css"/>
     </head>
     <body class="container">
+        <div class="cadastrarFilialArea">
         <h1>Cadastro de Filial</h1>
         <form action="FilialServlet" method="POST">
             <p>ID</p>
@@ -68,5 +70,6 @@
             <input value="<c:out value="${filial.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+            </div>
     </body>
 </html>

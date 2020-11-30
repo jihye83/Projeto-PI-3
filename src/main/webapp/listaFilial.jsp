@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar filiais</title>
-
+         <link rel="stylesheet" href="./styles/filial.css"/>
         <script lang="text/javascript">
             function mostrarModalExclusao(idFilial, nomeLoja) {
                 $("#nomeLoja").html(nomeLoja);
@@ -34,6 +34,7 @@
         </script>    
     </head>
     <body class="container">
+        <div class="listaFilialArea">
         <h1>Lista de Filiais</h1>
         <table class="table">
             <thead>
@@ -93,5 +94,6 @@
 
         <p><a href="FilialServlet?action=insert">Add Filial</a></p>
         <a href="index.jsp">voltar</a>
+        </div>
     </body>
 </html>
