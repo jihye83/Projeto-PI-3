@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
         <title>listar fornecedores</title>
         
-        
+             <link rel="stylesheet" href="./styles/fornecedor.css"/>
         <script lang="text/javascript">
             
             function mostrarModalExclusao(cnpj, razao){
@@ -34,6 +34,7 @@
         </script>
     </head>
     <body class="container">
+        <div class="listaFornecedorArea">
         <h1>Lista de Fornecedores</h1>
         <table border=0 class="table">
         <thead>
@@ -95,6 +96,6 @@
         
     <p><a href="FornecedorServlet?action=insert">Add Fornecedor</a></p>
     <a href="index.jsp">voltar</a>
-    
+    </div>
 </body>
 </html>

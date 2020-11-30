@@ -13,8 +13,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Fornecedor</title>
+             <link rel="stylesheet" href="./styles/fornecedor.css"/>
     </head>
         <body class="container">
+            <div class="cadastrarFornecedorArea">
+                
+           
         <h1>Cadastro de Fornecedor</h1>
         <form action="FornecedorServlet" method="POST">
             <p>ID</p>
@@ -70,6 +74,6 @@
             <input value="<c:out value="${fornecedor.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
-    </body>
+             </div>
     </body>
 </html>
