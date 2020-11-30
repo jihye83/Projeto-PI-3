@@ -10,7 +10,6 @@ package br.com.farmacia.Model;
  * @author PICHAU
  */
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import javax.ws.rs.core.Response;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +17,6 @@ import lombok.Setter;
 @Setter
 public class Usuario {
     
-    private String nome;
     private String login;
     private String senha;
     private String perfil;
@@ -32,7 +30,7 @@ public class Usuario {
         return response.verified;
     }
     
-    public boolean isAdmin() {
-        return this.perfil.equalsIgnoreCase("admin");
+    public boolean isDiretor() {
+        return this.perfil.equalsIgnoreCase("diretor");
     }
 }

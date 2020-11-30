@@ -65,7 +65,7 @@
                         <td><c:out value="${cliente.cidade}" /></td>
                         <td><c:out value="${cliente.uf}" /></td>
                         <td><c:out value="${cliente.cep}" /></td>
-                        <c:if test="${sessionScope.usuario.admin}">
+                        <c:if test="${sessionScope.usuario.diretor}">
                             <td><a class="btn btn-primary " href="ClienteServlet?action=edit&clienteCpf=<c:out value="${cliente.cpf}" />">Alterar</a></td>
                             <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Delete</button></td>
                         </c:if>

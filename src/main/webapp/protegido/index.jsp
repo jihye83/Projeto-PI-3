@@ -13,12 +13,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu</title>
     </head>
-    <body>
+    
 
         <h1>Menu</h1>
-        <h2>Bem vindo, ${sessionScope.usuario.nome}</h2>
+        <h2>Bem vindo, ${sessionScope.login.nome}</h2>
         <a href="<c:url value="/ClienteServlet?action=listaCliente"/>">Lista Clientes</a><br/>
-        <c:if test="${sessionScope.usuario.admin}">
+        <c:if test="${sessionScope.login.admin}">
             <a href="admin/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         </c:if>
         <a href="ProdutoServlet?action=listaProduto">Listar Produtos</a><br/>
@@ -36,5 +36,5 @@
         <br/>
         <br/>
         <a href="<c:url value="/LogoutServlet"/>"> Logout</a>
-    </body>
+    
 </html>

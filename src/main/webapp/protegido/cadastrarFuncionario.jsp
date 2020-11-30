@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Funcionário</title>
@@ -94,14 +94,19 @@
             <p>CEP</p>
             <input value="<c:out value="${funcionario.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
 
-            <p>Usuario</p>
-            <input value="<c:out value="${funcionario.usuario}" />" name="usuario" class="form-control" type="text" required="true"/><br/>
+            <p>Login</p>
+            <input value="<c:out value="${funcionario.login}" />" name="usuario" class="form-control" type="text" required="true"/><br/>
 
             <p>Senha</p>
             <input value="<c:out value="${funcionario.senha}" />" name="senha" class="form-control" type="text" required="true"/><br/>
-
+            
             <p>Perfil do Funcionário</p>
-            <input value="<c:out value="${funcionario.perfil_Func}" />" name="perfil_Func" class="form-control" type="text" required="true"/><br/>
+            <select class="form-control-lg col-4" name="uf">
+                <option value="<c:out value="${funcionario.cargo}" />">${funcionario.cargo}</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Gerente Filial">Gerente Filial</option>
+                <option value="Gerente Global">Gerente Global</option>
+            </select><br/>
 
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

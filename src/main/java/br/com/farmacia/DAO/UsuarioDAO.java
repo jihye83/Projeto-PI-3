@@ -30,11 +30,9 @@ public class UsuarioDAO {
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String nome = rs.getString("nome");
                 String perfil = rs.getString("perfil");
                 String senha = rs.getString("senha");
                 usuario = new Usuario();
-                usuario.setNome(nome);
                 usuario.setLogin(login);
                 usuario.setSenha(senha);
                 usuario.setPerfil(perfil);

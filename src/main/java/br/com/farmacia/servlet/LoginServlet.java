@@ -5,7 +5,9 @@
  */
 package br.com.farmacia.servlet;
 
+import br.com.farmacia.DAO.FuncionarioDAO;
 import br.com.farmacia.DAO.UsuarioDAO;
+import br.com.farmacia.Model.Funcionario;
 import br.com.farmacia.Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,12 +31,12 @@ public class LoginServlet extends HttpServlet {
         
         //query no bd
         
-        Usuario usuario = UsuarioDAO.getUsuario(login);
-        if (usuario == null || !usuario.validarSenha(senha)) {
+        Funcionario funcionario = FuncionarioDAO.getAcesso(login);
+        if (funcionario == null || !funcionario.validarSenha(senha)) {
             response.sendRedirect(request.getContextPath() + "/login.jsp?erro=UserNotFound");
     } else {
             HttpSession sessao = request.getSession();
-            sessao.setAttribute("usuario", usuario);
+            sessao.setAttribute("login", funcionario);
             response.sendRedirect(request.getContextPath() + "/protegido/index.jsp");
         }
         

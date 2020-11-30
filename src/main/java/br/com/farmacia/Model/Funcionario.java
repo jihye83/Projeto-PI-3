@@ -1,5 +1,6 @@
 package br.com.farmacia.Model;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,9 +27,9 @@ public class Funcionario {
     private String cidade;
     private String uf;
     private String cep;
-    private String usuario;
+    private String login;
     private String senha;
-    private String perfil_Func;
+    private String cargo;
 
     public Funcionario(int idFunc,
             String nome,
@@ -45,9 +46,9 @@ public class Funcionario {
             String cidade,
             String uf,
             String cep,
-            String usuario,
+            String login,
             String senha,
-            String perfil_Func) {
+            String cargo) {
 
         this.idFunc = idFunc;
         this.nome = nome;
@@ -64,9 +65,9 @@ public class Funcionario {
         this.cidade = cidade;
         this.uf = uf;
         this.cep = cep;
-        this.usuario = usuario;
+        this.login = login;
         this.senha = senha;
-        this.perfil_Func = perfil_Func;
+        this.cargo = cargo;
 
     }
 
@@ -84,9 +85,9 @@ public class Funcionario {
             String cidade,
             String uf,
             String cep,
-            String usuario,
+            String login,
             String senha,
-            String perfil_Func) {
+            String cargo) {
     }
 
     /*public Funcionario(int idFunc, String nome, String data_Nasc, String cpf, String cel,
@@ -114,9 +115,9 @@ public class Funcionario {
                 + "cidade %s <br/> "
                 + "uf %s <br/> "
                 + "cep %s <br/> "
-                + "usuario %s <br/> "
+                + "login %s <br/> "
                 + "senha %s <br/> "
-                + "perfil_Func %s <br/> ",
+                + "cargo %s <br/> ",
                 this.getNome(),
                 this.getData_Nasc(),
                 this.getCpf(),
@@ -131,8 +132,21 @@ public class Funcionario {
                 this.getCidade(),
                 this.getUf(),
                 this.getCep(),
-                this.getUsuario(),
+                this.getLogin(),
                 this.getSenha(),
-                this.getPerfil_Func());
+                this.getCargo());
+    }
+    
+    public static String codificarSenha(String senha) {
+        return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
+    }
+    
+    public boolean validarSenha(String senha) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senha.toCharArray(), this.getSenha());
+        return response.verified;
+    }
+    
+    public boolean isAdmin() {
+        return this.cargo.equalsIgnoreCase("admin");
     }
 }
