@@ -13,8 +13,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Cliente</title>
+         <link rel="stylesheet" href="./styles/cliente.css"/>
     </head>
     <body class="container">
+        <div class="cadastrarClienteArea">
+            
+     
         <h1>Cadastro de Clientes</h1>
         <form action="ClienteServlet" method="POST">
             <p>ID</p>
@@ -69,4 +73,6 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </body>
+    
+       </div>
 </html>

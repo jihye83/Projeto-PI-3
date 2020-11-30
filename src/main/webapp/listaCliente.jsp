@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Clientes</title>
-
+         <link rel="stylesheet" href="./styles/cliente.css"/>
         <script lang="text/javascript">
 
             function mostrarModalExclusao(cpf, nome) {
@@ -36,6 +36,9 @@
         </script>
     </head>
     <body class="container">
+        <div class="listaClienteArea">
+            
+      
         <h1>Lista de Clientes</h1>
         <table border=0 class="table">
             <thead>
@@ -96,5 +99,6 @@
         
     <p><a href="ClienteServlet?action=insert">Add Cliente</a></p>
     <a href="index.jsp">Voltar</a>
+      </div>
 </body>
 </html>
