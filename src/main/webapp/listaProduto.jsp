@@ -35,7 +35,9 @@
             }
         </script>
     </head>
-    <body class="container listaProdutoArea">
+    <body class="container ">
+        <div class="listaProdutoArea">        
+       
         <h1>Lista de Produtos</h1>
         <table class="table">
             <thead>
@@ -86,5 +88,6 @@
     
     <p><a href="ProdutoServlet?action=insert">Add Produto</a></p>
     <a href="index.jsp">Voltar</a>
+     </div>
 </body>
 </html>
