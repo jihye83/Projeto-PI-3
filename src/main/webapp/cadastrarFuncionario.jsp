@@ -13,9 +13,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Funcionário</title>
+        <link rel="stylesheet" href="./styles/funcionario.css"/>
     </head>
-    <body>
     <body class="container">
+        <div class="cadastrarFuncionarioArea">
         <h1>Cadastro</h1>
         <form action="FuncionarioServlet" method="POST">
 
@@ -105,6 +106,7 @@
 
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+            </div>
     </body>
 </body>
 </html>

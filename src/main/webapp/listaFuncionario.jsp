@@ -15,7 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar funcionários</title>
 
-
+          <link rel="stylesheet" href="./styles/funcionario.css"/>
         <script lang="text/javascript">
 
             function mostrarModalExclusao(nome, cpf) {
@@ -39,6 +39,7 @@
         </script>
     </head>
     <body class="container">
+        <div class="listaFuncionarioArea">
         <h1>Lista de Funcionários</h1>
         <table border=0 class="table">
             <thead>
@@ -117,6 +118,6 @@
 
         <p><a href="FuncionarioServlet?action=insert">Add Funcionario</a></p>
         <a href="index.jsp">voltar</a>
-
+        </div>
     </body>
 </html>
