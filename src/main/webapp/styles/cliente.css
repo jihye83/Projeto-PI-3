@@ -1,13 +1,14 @@
-.listaProdutoArea{
+.listaClienteArea{
     position:relative;
     left:50px;
-     height: 100vh;
+    height: 100vh;
     overflow: auto;
 }
 
-.cadastrarProdutoArea{
+.cadastrarClienteArea{
     position:relative;
     left:50px;
-     height: 100vh;
+    height: 100vh;
     overflow: auto;
 }
+

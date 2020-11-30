@@ -3,10 +3,10 @@
     left:0;
     background-color: #7ec4da;
     height: 100vh;
-    width: 7%;
+    width: 100px;
     color:white;
     box-sizing: border-box;
-    overflow: none;
+    /*overflow: auto;*/
 }
 
 .headerArea a{
@@ -26,4 +26,5 @@
 
 .header div{
     margin:1em 0 1em 0;
+
 }
