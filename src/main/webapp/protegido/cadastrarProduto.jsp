@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>Cadastro</h1>
-		<form action="ProdutoServlet" method="POST">
+		<form action="<c:url value="/ProdutoServlet"/>" method="POST">
                         <p>Código</p>
                         <input value="<c:out value="${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control" type="number"/><br/>
 			<p>Nome do Produto</p>

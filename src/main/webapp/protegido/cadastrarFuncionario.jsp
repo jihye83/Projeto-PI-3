@@ -16,8 +16,8 @@
     </head>
     <body>
     <body class="container">
-        <h1>Cadastro</h1>
-        <form action="FuncionarioServlet" method="POST">
+        <h1>Cadastro de Funcionário</h1>
+        <form action="<c:url value="/FuncionarioServlet"/>" method="POST">
 
             <p>ID</p>
             <input value="<c:out value="${funcionario.idFunc}" />" readonly="readonly" name="idFunc" class="form-control" type="number"/><br/>
@@ -37,7 +37,7 @@
             <p>E-mail</p>
             <input value="<c:out value="${funcionario.email}" />" name="email" class="form-control" type="text" required="true"/><br/>
 
-            <p>Salário do Funcioário</p>
+            <p>Salário do Funcionário</p>
             <input value="<c:out value="${funcionario.salario_Func}" />" name="salario_Func" class="form-control" type="number"/><br/>
 
             <p>Data de Admissão</p>
@@ -95,13 +95,13 @@
             <input value="<c:out value="${funcionario.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
 
             <p>Login</p>
-            <input value="<c:out value="${funcionario.login}" />" name="usuario" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${funcionario.login}" />" name="login" class="form-control" type="text" required="true"/><br/>
 
             <p>Senha</p>
-            <input value="<c:out value="${funcionario.senha}" />" name="senha" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${funcionario.senha}" />" name="senha" class="form-control" type="password" required="true"/><br/>
             
             <p>Perfil do Funcionário</p>
-            <select class="form-control-lg col-4" name="uf">
+            <select class="form-control-lg col-4" name="cargo">
                 <option value="<c:out value="${funcionario.cargo}" />">${funcionario.cargo}</option>
                 <option value="Vendedor">Vendedor</option>
                 <option value="Gerente Filial">Gerente Filial</option>

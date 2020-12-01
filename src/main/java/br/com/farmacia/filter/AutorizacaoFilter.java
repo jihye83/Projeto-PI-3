@@ -6,7 +6,6 @@
 package br.com.farmacia.filter;
 
 import br.com.farmacia.Model.Funcionario;
-import br.com.farmacia.Model.Usuario;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -63,35 +62,8 @@ public class AutorizacaoFilter implements Filter {
         if (debug) {
             log("AutorizacaoFilter:DoAfterProcessing");
         }
-
-        // Write code here to process the request and/or response after
-        // the rest of the filter chain is invoked.
-        // For example, a logging filter might log the attributes on the
-        // request object after the request has been processed. 
-        /*
-	for (Enumeration en = request.getAttributeNames(); en.hasMoreElements(); ) {
-	    String name = (String)en.nextElement();
-	    Object value = request.getAttribute(name);
-	    log("attribute: " + name + "=" + value.toString());
-
-	}
-         */
-        // For example, a filter might append something to the response.
-        /*
-	PrintWriter respOut = new PrintWriter(response.getWriter());
-	respOut.println("<P><B>This has been appended by an intrusive filter.</B>");
-         */
     }
 
-    /**
-     *
-     * @param request The servlet request we are processing
-     * @param response The servlet response we are creating
-     * @param chain The filter chain we are processing
-     *
-     * @exception IOException if an input/output error occurs
-     * @exception ServletException if a servlet error occurs
-     */
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
@@ -106,17 +78,12 @@ public class AutorizacaoFilter implements Filter {
         try {
             chain.doFilter(request, response);
         } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
             problem = t;
             t.printStackTrace();
         }
         
         doAfterProcessing(request, response);
 
-        // If there was a problem, we want to rethrow it if it is
-        // a known type, otherwise log it.
         if (problem != null) {
             if (problem instanceof ServletException) {
                 throw (ServletException) problem;
@@ -128,31 +95,17 @@ public class AutorizacaoFilter implements Filter {
         }
     }
 
-    /**
-     * Return the filter configuration object for this filter.
-     */
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);
     }
 
-    /**
-     * Set the filter configuration object for this filter.
-     *
-     * @param filterConfig The filter configuration object
-     */
     public void setFilterConfig(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
     }
 
-    /**
-     * Destroy method for this filter
-     */
     public void destroy() {        
     }
 
-    /**
-     * Init method for this filter
-     */
     public void init(FilterConfig filterConfig) {        
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
@@ -162,9 +115,6 @@ public class AutorizacaoFilter implements Filter {
         }
     }
 
-    /**
-     * Return a String representation of this object.
-     */
     @Override
     public String toString() {
         if (filterConfig == null) {

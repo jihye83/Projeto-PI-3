@@ -58,9 +58,9 @@
                     <th>cidade</th>
                     <th>uf</th>
                     <th>cep</th>
-                    <th>usuario</th>
+                    <th>login</th>
                     <th>senha</th>
-                    <th>perfil funcionario</th>
+                    <th>cargo</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,9 +81,9 @@
                         <td><c:out value="${funcionario.cidade}" /></td>
                         <td><c:out value="${funcionario.uf}" /></td>
                         <td><c:out value="${funcionario.cep}" /></td>
-                        <td><c:out value="${funcionario.usuario}" /></td>
+                        <td><c:out value="${funcionario.login}" /></td>
                         <td><c:out value="${funcionario.senha}" /></td>
-                        <td><c:out value="${funcionario.perfil_Func}" /></td>
+                        <td><c:out value="${funcionario.cargo}" /></td>
 
                         <td><a class="btn btn-primary " href="FuncionarioServlet?action=edit&funcionarioCpf=<c:out value="${funcionario.cpf}" />">Update</a></td>
                         <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${funcionario.nome}', '${funcionario.cpf}')">Delete</button></td>
@@ -115,8 +115,8 @@
             </div>
         </div>
 
-        <p><a href="FuncionarioServlet?action=insert">Add Funcionario</a></p>
-        <a href="index.jsp">voltar</a>
+        <p><a href="<c:url value="/FuncionarioServlet?action=insert"/>">Add Funcionario</a></p>
+        <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
 
     </body>
 </html>

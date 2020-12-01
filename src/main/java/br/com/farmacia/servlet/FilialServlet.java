@@ -26,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FilialServlet extends HttpServlet {
 
     private static final long seralVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/cadastrarFilial.jsp";
-    private static String LIST_FILIAL = "/listaFilial.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/cadastrarFilial.jsp";
+    private static String LIST_FILIAL = "/protegido/listaFilial.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private FilialDAO dao;
@@ -69,7 +69,7 @@ public class FilialServlet extends HttpServlet {
 
         Filial filial = new Filial();
         filial.setNomeLoja(request.getParameter("nome_Loja"));
-        filial.setTel(request.getParameter("Tel"));
+        filial.setCel(request.getParameter("cel"));
         filial.setLogradouro(request.getParameter("logradouro"));
         filial.setNumLogr(request.getParameter("numLogr"));
         filial.setCompLogr(request.getParameter("compLogr"));

@@ -17,10 +17,10 @@
     </head>
     <body class="container">
         <h1 class="p-3">Realizar Venda</h1>
-        <form action="VendaServlet?action=iniciarVenda" method="post">
+        <form action="<c:url value="/VendaServlet?action=iniciarVenda"/>" method="POST">
             <button type="submit" class="btn btn-primary">Nova Venda</button>
         </form>
-        <form action='VendaServlet?action=addProduto' method='post'>
+        <form action="<c:url value="/VendaServlet?action=addProduto"/>" method="POST">
             <div class="row">
                 <div class="col">
                     <label class="" for="inlineRadio1">data

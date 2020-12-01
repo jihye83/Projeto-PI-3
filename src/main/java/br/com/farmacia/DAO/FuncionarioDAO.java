@@ -98,7 +98,7 @@ public class FuncionarioDAO {
         ps.setString(13, funcionario.getUf());
         ps.setString(14, funcionario.getCep());
         ps.setString(15, funcionario.getLogin());
-        ps.setString(16, funcionario.getSenha());
+        ps.setString(16, funcionario.codificarSenha(funcionario.getSenha()));
         ps.setString(17, funcionario.getCargo());
         ps.execute();
 
@@ -183,7 +183,7 @@ public class FuncionarioDAO {
                 funcionario.setUf(rs.getString("uf"));
                 funcionario.setCep(rs.getString("cep"));
                 funcionario.setLogin(rs.getString("login"));
-                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setSenha(rs.getString("senha"));                
                 funcionario.setCargo(rs.getString("cargo"));
             }
         } catch (ClassNotFoundException ex) {

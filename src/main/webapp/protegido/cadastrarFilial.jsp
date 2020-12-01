@@ -16,13 +16,14 @@
     </head>
     <body class="container">
         <h1>Cadastro de Filial</h1>
-        <form action="FilialServlet" method="POST">
+        <form action="<c:url value="/FilialServlet"/>" method="POST">
             <p>ID</p>
             <input value="<c:out value="${filial.idFilial}" />" readonly="readonly" name="id_Filial" class="form-control" type="number"/><br/>
             <p>Nome da Loja</p>
             <input value="<c:out value="${filial.nomeLoja}" />" name="nome_Loja" class="form-control" type="text" required="true"/><br/>
             <p>Telefone</p>
-            <input value="<c:out value="${filial.tel}" />" name="Tel" class="form-control" type="text" required="true"/><br/>
+            <input value="<c:out value="${filial.cel}" />" name="cel" class="form-control" type="text" required="true"/><br/>
+            
             <p>Logradouro</p>
             <input value="<c:out value="${filial.logradouro}" />" name="logradouro" class="form-control" type="text" required="true"/><br/>
             <p>Número Logradouro</p>
@@ -64,8 +65,10 @@
                 <option value="SE">SE</option>
                 <option value="TO">TO</option>
             </select><br/>
+            
             <p>CEP</p>
             <input value="<c:out value="${filial.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
+            
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </body>

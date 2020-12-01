@@ -16,7 +16,7 @@
     </head>
         <body class="container">
         <h1>Cadastro de Fornecedor</h1>
-        <form action="FornecedorServlet" method="POST">
+        <form action="<c:url value="/FornecedorServlet"/>" method="POST">
             <p>ID</p>
             <input value="<c:out value="${fornecedor.idFornecedor}" />" readonly="readonly" name="idFornecedor" class="form-control" type="number"/><br/>
             <p>Razão Social</p>

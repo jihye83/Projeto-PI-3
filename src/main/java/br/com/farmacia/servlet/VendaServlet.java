@@ -12,8 +12,6 @@ import br.com.farmacia.Model.ItemVenda;
 import br.com.farmacia.Model.Produto;
 import br.com.farmacia.Model.Venda;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "VendaServlet", urlPatterns = {"/VendaServlet"})
 public class VendaServlet extends HttpServlet {
  private static final long serialVersionUID = 1L;
-    private static String LIST_CLIENTE_PRODUTO = "/venda.jsp";
+    private static String LIST_CLIENTE_PRODUTO = "/protegido/venda.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private ClienteDAO daoCliente;

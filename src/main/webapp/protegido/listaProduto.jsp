@@ -22,7 +22,7 @@
 
             function excluirProduto() {
                 var id = $("#idProd").val();
-                $.get( "ProdutoServlet?action=delete&idProduto="+id, function( resposta ) {
+                $.get("ProdutoServlet?action=delete&idProduto=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -82,8 +82,8 @@
         </div>
     </div>
     <br/>
-    
-    <p><a href="ProdutoServlet?action=insert">Add Produto</a></p>
-    <a href="index.jsp">Voltar</a>
+
+    <p><a href="<c:url value="/ProdutoServlet?action=insert"/>">Add Produto</a></p>
+    <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
 </body>
 </html>

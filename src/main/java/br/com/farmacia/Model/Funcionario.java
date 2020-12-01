@@ -68,7 +68,6 @@ public class Funcionario {
         this.login = login;
         this.senha = senha;
         this.cargo = cargo;
-
     }
 
     public Funcionario(String nome,

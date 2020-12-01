@@ -93,8 +93,8 @@
             </div>
           </div>
         
-    <p><a href="FornecedorServlet?action=insert">Add Fornecedor</a></p>
-    <a href="index.jsp">voltar</a>
+        <p><a href="<c:url value="/FornecedorServlet?action=insert"/>">Add Fornecedor</a></p>
+        <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
     
 </body>
 </html>
