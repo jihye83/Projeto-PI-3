@@ -7,15 +7,7 @@ package br.com.farmacia.servlet;
 
 import br.com.farmacia.DAO.FornecedorDAO;
 import br.com.farmacia.Model.Fornecedor;
-import br.com.farmacia.Util.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FornecedorServlet extends HttpServlet {
 
       private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/cadastrarFornecedor.jsp";
-    private static String LIST_FORNECEDOR = "/listaFornecedor.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/cadastrarFornecedor.jsp";
+    private static String LIST_FORNECEDOR = "/protegido/listaFornecedor.jsp";
     private static String SUCESSO = "/sucesso.jsp";
      private static String ERROR = "/erro.jsp";
     private FornecedorDAO dao;

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class Filial {
     private int idFilial;
     private String nomeLoja;
-    private String tel;
+    private String cel;
     private String logradouro;
     private String numLogr;
     private String compLogr;
@@ -31,7 +31,7 @@ public class Filial {
     private String cep;
     
     public Filial (String nomeLoja,
-            String tel,
+            String cel,
             String logradouro,
             String numLogr,
             String compLogr,
@@ -40,7 +40,7 @@ public class Filial {
             String uf,
             String cep){
         this.nomeLoja = nomeLoja;
-        this.tel = tel;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;
@@ -52,7 +52,7 @@ public class Filial {
     
     public Filial (int idFilial,
             String nomeLoja,
-            String tel,
+            String cel,
             String logradouro,
             String numLogr,
             String compLogr,
@@ -62,7 +62,7 @@ public class Filial {
             String cep){
         this.idFilial = idFilial;
         this.nomeLoja = nomeLoja;
-        this.tel = tel;
+        this.cel = cel;
         this.logradouro = logradouro;
         this.numLogr = numLogr;
         this.compLogr = compLogr;
@@ -87,7 +87,7 @@ public class Filial {
                 + "uf %s <br/>"
                 + "cep %s <br/> ",
                 this.getNomeLoja(),
-                this.getTel(),
+                this.getCel(),
                 this.getLogradouro(),
                 this.getNumLogr(),
                 this.getCompLogr(),

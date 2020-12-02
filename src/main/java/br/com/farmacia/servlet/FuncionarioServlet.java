@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FuncionarioServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/cadastrarFuncionario.jsp";
-    private static String LIST_FUNCIONARIO = "/listaFuncionario.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/cadastrarFuncionario.jsp";
+    private static String LIST_FUNCIONARIO = "/protegido/listaFuncionario.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private FuncionarioDAO dao;
@@ -76,9 +76,9 @@ public class FuncionarioServlet extends HttpServlet {
         funcionario.setCidade(request.getParameter("cidade"));
         funcionario.setUf(request.getParameter("uf"));
         funcionario.setCep(request.getParameter("cep"));
-        funcionario.setUsuario(request.getParameter("usuario"));
+        funcionario.setLogin(request.getParameter("login"));
         funcionario.setSenha(request.getParameter("senha"));
-        funcionario.setPerfil_Func(request.getParameter("perfil_Func"));
+        funcionario.setCargo(request.getParameter("cargo"));
 
         String idFunc = request.getParameter("idFunc");
         boolean verificaExistencia = dao.containFuncionario(funcionario.getCpf());
