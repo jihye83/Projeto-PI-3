@@ -31,9 +31,37 @@ public class VendaDAO {
         List<Venda> listaVendas = new ArrayList();
         try {
             Connection con = ConexaoDB.conector();
-            String sql = "select * from vendas";
+            String sql = "select * from Compra";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Venda venda = new Venda();
+                venda.setCod_Venda(rs.getInt("cod_Compra"));
+                venda.setData_Venda(rs.getDate("data_Compra"));
+                venda.setValor_Bruto(rs.getFloat("valor_Bruto"));
+                venda.setDesconto(rs.getFloat("desconto"));
+                venda.setTotal(rs.getFloat("total"));
+                venda.setPagamento(rs.getString("pagamento"));
+                Cliente cliCompra = new Cliente();
+                cliCompra.setIdCliente(rs.getInt("id_Cliente"));
+                venda.setId_Cliente(rs.getInt("id_Cliente"));
+                listaVendas.add(venda);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(ServletDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaVendas;
+    }
+    public static List<Venda> getVendasFilial( int idFilial) {
+        List<Venda> listaVendas = new ArrayList();
+        try {
+            Connection con = ConexaoDB.conector();
+            String sql = "select * from Compra where id_Filial = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+             ps.setInt(1, idFilial);
+            ResultSet rs = ps.executeQuery();
+           
             while (rs.next()) {
                 Venda venda = new Venda();
                 venda.setCod_Venda(rs.getInt("cod_Compra"));

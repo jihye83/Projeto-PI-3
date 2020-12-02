@@ -127,8 +127,8 @@ public class VendaServlet extends HttpServlet {
                cart.add(item);              
                    
                //incrementando valores
-               venda.setValor_Bruto(venda.getValor_Bruto()+item.getProduto().getPrecoProd());
-               venda.setTotal(venda.getTotal()+item.getProduto().getPrecoProd());
+               venda.setValor_Bruto(venda.getValor_Bruto()+(item.getProduto().getPrecoProd()*qtd));
+               venda.setTotal(venda.getTotal()+(item.getProduto().getPrecoProd()*qtd));
                 
                
                request.setAttribute("itemsVenda", cart);

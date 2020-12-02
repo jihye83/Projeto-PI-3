@@ -70,9 +70,14 @@ public class ProdutoDAO {
     public static void deleteProduto(int idProduto) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.conector();
         String query = "delete from Produto where id_Produto=?";
-        PreparedStatement ps = con.prepareStatement(query);
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, idProduto);
         ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     public static Produto getProduto(int id_Produto) {

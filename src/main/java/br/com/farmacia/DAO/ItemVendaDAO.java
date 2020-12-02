@@ -38,6 +38,7 @@ public class ItemVendaDAO {
             ps.setInt(1, idVenda);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+//                System.out.println("entrou aqui");
                 int id = rs.getInt("cod_ItemCompra");
                 int qtd = rs.getInt("qtd");
                 int idCompra = rs.getInt("id_Compra");
@@ -45,9 +46,12 @@ public class ItemVendaDAO {
                 float valor = rs.getFloat("valor_Unitario");
                 Produto produto = produtoDao.getProduto(idProduto);
                 Venda venda = vendaDao.getVenda(idCompra);
-                listaItens.add(new ItemVenda(id,produto,qtd,venda,valor));
+                ItemVenda item = new ItemVenda(id,produto,qtd,venda,valor);
+                listaItens.add(item);
             }
         } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("erro");
+            ex.printStackTrace();
             Logger.getLogger(ServletDB.class.getName()).
                     log(Level.SEVERE, null, ex);
         }

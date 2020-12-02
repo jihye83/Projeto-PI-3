@@ -64,6 +64,10 @@
         <servlet-name>FilialServlet</servlet-name>
         <servlet-class>br.com.farmacia.servlet.FilialServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.RelatorioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletDB</servlet-name>
         <url-pattern>/ServletDB</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>FilialServlet</servlet-name>
         <url-pattern>/FilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioServlet</servlet-name>
+        <url-pattern>/RelatorioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

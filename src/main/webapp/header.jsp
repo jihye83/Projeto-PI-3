@@ -66,7 +66,7 @@
                     </a>
                 </div>
                 <div class="relatorio">
-                    <a href="listarVendas.jsp">
+                    <a href="relatorio.jsp">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-easel-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2h2.092L8.473.337zM12.15 11h-1.058l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11zM8.5 11h-1v2.5a.5.5 0 0 0 1 0V11zm-3.592 0H3.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11zM1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z"/>
                         </svg>
@@ -99,31 +99,6 @@
             </div>
 
         </div>
-
-        <!--    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <span class="navbar-text">&nbsp;</span>
-            <div class="navbar-collapse collapse" id="navbar8">
-                <ul class="navbar-nav abs-center-x">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Center</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="//codeply.com">Codeply</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>-->
 
         <script>
 

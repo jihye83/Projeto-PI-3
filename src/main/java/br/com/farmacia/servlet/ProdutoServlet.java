@@ -41,6 +41,7 @@ public class ProdutoServlet extends HttpServlet {
         
         try {
              if (action.equalsIgnoreCase("delete")){
+                 System.out.println("aqui");
             int id = Integer.parseInt(request.getParameter("idProduto"));
             dao.deleteProduto(id);
             forward = LIST_PRODUTOS;
