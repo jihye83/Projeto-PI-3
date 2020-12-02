@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>br.com.farmacia.filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/protegido/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ServletDB</servlet-name>
         <servlet-class>br.com.farmacia.servlet.ServletDB</servlet-class>
@@ -17,24 +25,8 @@
         <servlet-class>br.com.farmacia.servlet.AlterarFornecedor</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.ListarCliente</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AlterarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.AlterarCliente</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VendaServlet</servlet-name>
         <servlet-class>br.com.farmacia.servlet.VendaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ExcluirCliente</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.ExcluirCliente</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarCliente</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarProduto</servlet-name>
@@ -45,16 +37,8 @@
         <servlet-class>br.com.farmacia.servlet.AlterarProduto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ExcluirProduto</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.ExcluirProduto</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
         <servlet-class>br.com.farmacia.servlet.CadastrarProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarVenda</servlet-name>
-        <servlet-class>br.com.farmacia.servlet.CadastrarVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
@@ -63,6 +47,14 @@
     <servlet>
         <servlet-name>FilialServlet</servlet-name>
         <servlet-class>br.com.farmacia.servlet.FilialServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>br.com.farmacia.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletDB</servlet-name>
@@ -81,22 +73,6 @@
         <url-pattern>/AlterarFornecedor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListarCliente</servlet-name>
-        <url-pattern>/ListarCliente</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AlterarCliente</servlet-name>
-        <url-pattern>/AlterarCliente</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ExcluirCliente</servlet-name>
-        <url-pattern>/ExcluirCliente</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastrarCliente</servlet-name>
-        <url-pattern>/CadastrarCliente</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ListarProduto</servlet-name>
         <url-pattern>/ListarProduto</url-pattern>
     </servlet-mapping>
@@ -105,16 +81,8 @@
         <url-pattern>/AlterarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ExcluirProduto</servlet-name>
-        <url-pattern>/ExcluirProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastrarVenda</servlet-name>
-        <url-pattern>/CadastrarVenda</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VendaServlet</servlet-name>
@@ -128,9 +96,20 @@
         <servlet-name>FilialServlet</servlet-name>
         <url-pattern>/FilialServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>protegido/header.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -34,13 +34,13 @@ public class FuncionarioDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                String usuario = rs.getString("usuario");
+                String login = rs.getString("login");
                 String senha = rs.getString("senha");
-                String perfil_Func = rs.getString("perfil_Func");
+                String cargo = rs.getString("cargo");
 
                 listaFuncionarios.add(new Funcionario(idFunc, nome, data_Nasc, cpf, cel, email, salario_Func,
-                        data_Admissao, logradouro, numLogr, compLogr, bairro, cidade, uf, cep, usuario, senha,
-                        perfil_Func));
+                        data_Admissao, logradouro, numLogr, compLogr, bairro, cidade, uf, cep, login, senha,
+                        cargo));
             }
 
         } catch (ClassNotFoundException ex) {
@@ -76,9 +76,9 @@ public class FuncionarioDAO {
                 + "cidade,"
                 + "uf,"
                 + "cep,"
-                + "usuario,"
+                + "login,"
                 + "senha,"
-                + "perfil_Func)"
+                + "cargo)"
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionario.getNome());
@@ -97,9 +97,9 @@ public class FuncionarioDAO {
         ps.setString(12, funcionario.getCidade());
         ps.setString(13, funcionario.getUf());
         ps.setString(14, funcionario.getCep());
-        ps.setString(15, funcionario.getUsuario());
-        ps.setString(16, funcionario.getSenha());
-        ps.setString(17, funcionario.getPerfil_Func());
+        ps.setString(15, funcionario.getLogin());
+        ps.setString(16, funcionario.codificarSenha(funcionario.getSenha()));
+        ps.setString(17, funcionario.getCargo());
         ps.execute();
 
     }
@@ -109,7 +109,7 @@ public class FuncionarioDAO {
             Connection con = ConexaoDB.conector();
             String query = "update Funcionario set nome=?, data_Nasc=?, cpf=?, cel=?, email=?, "
                     + "salario_Func=?, data_Admissao=?, logradouro=?, numLogr=?, compLogr=?, bairro=?, "
-                    + "cidade=?, uf=?, cep=?, usuario=?, senha=?, perfil_Func=? where id_Func = ?;";//where id_Func=?
+                    + "cidade=?, uf=?, cep=?, login=?, senha=?, cargo=? where id_Func = ?;";//where id_Func=?
 
             PreparedStatement ps = con.prepareStatement(query);
 
@@ -127,15 +127,15 @@ public class FuncionarioDAO {
             ps.setString(12, funcionario.getCidade());
             ps.setString(13, funcionario.getUf());
             ps.setString(14, funcionario.getCep());
-            ps.setString(15, funcionario.getUsuario());
+            ps.setString(15, funcionario.getLogin());
             ps.setString(16, funcionario.getSenha());
-            ps.setString(17, funcionario.getPerfil_Func());
+            ps.setString(17, funcionario.getCargo());
             ps.setInt(18, funcionario.getIdFunc());
 
             int linhasAfetadas = ps.executeUpdate();
 
             if (linhasAfetadas < 1) {
-                String m = "Nunhma linha afetada.";
+                String m = "Nenhuma linha afetada.";
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -182,9 +182,9 @@ public class FuncionarioDAO {
                 funcionario.setCidade(rs.getString("cidade"));
                 funcionario.setUf(rs.getString("uf"));
                 funcionario.setCep(rs.getString("cep"));
-                funcionario.setUsuario(rs.getString("usuario"));
-                funcionario.setSenha(rs.getString("senha"));
-                funcionario.setPerfil_Func(rs.getString("perfil_Func"));
+                funcionario.setLogin(rs.getString("login"));
+                funcionario.setSenha(rs.getString("senha"));                
+                funcionario.setCargo(rs.getString("cargo"));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -215,5 +215,45 @@ public class FuncionarioDAO {
         }
         return false;
     }
-
+    
+    public static Funcionario getAcesso(String login) {
+        Funcionario funcionario = null;
+        try {
+            Connection con = ConexaoDB.conector();
+            String query = "select * from Funcionario where login=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String cargo = rs.getString("cargo");
+                String senha = rs.getString("senha");
+                funcionario = new Funcionario();
+                funcionario.setLogin(login);
+                funcionario.setSenha(senha);
+                funcionario.setCargo(cargo);
+                funcionario.setIdFunc(rs.getInt("id_Func"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setData_Nasc(rs.getString("data_Nasc"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setCel(rs.getString("cel"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setSalario_Func(rs.getDouble("salario_Func"));
+                funcionario.setData_Admissao(rs.getString("data_Admissao"));
+                funcionario.setLogradouro(rs.getString("logradouro"));
+                funcionario.setNumLogr(rs.getString("numLogr"));
+                funcionario.setCompLogr(rs.getString("compLogr"));
+                funcionario.setBairro(rs.getString("bairro"));
+                funcionario.setCidade(rs.getString("cidade"));
+                funcionario.setUf(rs.getString("uf"));
+                funcionario.setCep(rs.getString("cep"));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletDB.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return funcionario;
+    }
 }

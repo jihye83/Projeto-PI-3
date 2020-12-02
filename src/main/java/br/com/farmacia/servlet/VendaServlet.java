@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 @WebServlet(name = "VendaServlet", urlPatterns = {"/VendaServlet"})
 public class VendaServlet extends HttpServlet {
  private static final long serialVersionUID = 1L;
-    private static String VENDA = "/venda.jsp";
+    private static String LIST_CLIENTE_PRODUTO = "/protegido/venda.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private ClienteDAO daoCliente;
@@ -48,7 +48,7 @@ public class VendaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String forward = VENDA;
+        String forward = LIST_CLIENTE_PRODUTO;
         String action = request.getParameter("action");
 
         try {
@@ -94,7 +94,7 @@ public class VendaServlet extends HttpServlet {
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String forward = "/venda.jsp";
+        String forward = "/protegido/venda.jsp";
         String action = request.getParameter("action");
 
         try {

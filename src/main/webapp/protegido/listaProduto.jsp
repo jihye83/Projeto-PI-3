@@ -23,7 +23,7 @@
 
             function excluirProduto() {
                 var id = $("#idProd").val();
-                $.get( "ProdutoServlet?action=delete&idProduto="+id, function( resposta ) {
+                $.get("ProdutoServlet?action=delete&idProduto=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -55,8 +55,8 @@
                     <td><c:out value="${produto.precoProd}" /></td>
                     <td><c:out value="${produto.descricaoProd}" /></td>
                     <td><c:out value="${produto.qtdProd}" /></td>
-                    <td><a href="ProdutoServlet?action=edit&idProduto=<c:out value="${produto.idProduto}" />">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.idProduto}, '${produto.nomeProd}')">Excluir</button></td>
+                    <td><a class="btn btn-primary" href="ProdutoServlet?action=edit&idProduto=<c:out value="${produto.idProduto}" />">Alterar</a></td>
+                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.idProduto}', '${produto.nomeProd}')">Excluir</button></td>
                 </tr>
             </c:forEach>
 
@@ -85,9 +85,8 @@
         </div>
     </div>
     <br/>
-    
-    <p><a href="ProdutoServlet?action=insert">Add Produto</a></p>
-    <a href="index.jsp">Voltar</a>
-     </div>
+
+    <p><a href="<c:url value="/ProdutoServlet?action=insert"/>">Add Produto</a></p>
+    <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
 </body>
 </html>

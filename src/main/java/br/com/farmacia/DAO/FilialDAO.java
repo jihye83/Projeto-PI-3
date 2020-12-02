@@ -33,7 +33,7 @@ public class FilialDAO {
             while (rs.next()) {
                 int id = rs.getInt("id_Filial");
                 String nomeLoja = rs.getString("nome_Loja");
-                String tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -42,7 +42,7 @@ public class FilialDAO {
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
 
-                listaFiliais.add(new Filial(id, nomeLoja, tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
+                listaFiliais.add(new Filial(id, nomeLoja, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletDB.class.getName()).
@@ -54,10 +54,10 @@ public class FilialDAO {
     public static void addFilial(Filial filial) throws SQLException, ClassNotFoundException {
         try {
             Connection con = ConexaoDB.conector();
-            String query = "insert into Filial (nome_Loja, Tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
+            String query = "insert into Filial (nome_Loja, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep) values (?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, filial.getNomeLoja());
-            ps.setString(2, filial.getTel());
+            ps.setString(2, filial.getCel());
             ps.setString(3, filial.getLogradouro());
             ps.setString(4, filial.getNumLogr());
             ps.setString(5, filial.getCompLogr());
@@ -72,10 +72,10 @@ public class FilialDAO {
 
     public static void updateFilial(Filial filial) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.conector();
-        String query = "update Filial set nome_Loja=?,Tel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=? where id_Filial=?";
+        String query = "update Filial set nome_Loja=?,cel=?,logradouro=?,numLogr=?,compLogr=?,bairro=?,cidade=?,uf=?,cep=? where id_Filial=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, filial.getNomeLoja());
-        ps.setString(2, filial.getTel());
+        ps.setString(2, filial.getCel());
         ps.setString(3, filial.getLogradouro());
         ps.setString(4, filial.getNumLogr());
         ps.setString(5, filial.getCompLogr());
@@ -108,7 +108,7 @@ public class FilialDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 int id = rs.getInt("id_Filial");
-                String tel = rs.getString("Tel");
+                String cel = rs.getString("cel");
                 String logradouro = rs.getString("logradouro");
                 String numLogr = rs.getString("numLogr");
                 String compLogr = rs.getString("compLogr");
@@ -116,7 +116,7 @@ public class FilialDAO {
                 String cidade = rs.getString("cidade");
                 String uf = rs.getString("uf");
                 String cep = rs.getString("cep");
-                filial = new Filial(id, nomeLoja, tel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
+                filial = new Filial(id, nomeLoja, cel, logradouro, numLogr, compLogr, bairro, cidade, uf, cep);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletDB.class.getName()).

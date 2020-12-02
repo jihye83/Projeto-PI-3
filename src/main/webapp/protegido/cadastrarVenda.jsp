@@ -3,11 +3,11 @@
     Created on : 29/10/2020, 11:59:51
     Author     : PICHAU
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
@@ -35,7 +35,7 @@
                 <b>Cliente</b>
             </div>
             <div class="card-body float-left w-100">
-                <form action="PesquisarCliente" method="GET" class="form-inline">
+                <form action="<c:url value="/PesquisarCliente"/>" method="GET" class="form-inline">
                     <div class="col-12 form-group mb-1">
                         <label type="text" for="cpf" class="input-group-text">CPF</label>
                         <input type="search" id="cpf" name="cpf_cliente" size="15" placeholder="000.000.000-00" value="${cliente.cpf_cliente}" class="form-control" onclick="pesquisarCliente(cliente.cpf_cliente);"/>
@@ -46,7 +46,7 @@
                         <input name="nome" value="${cliente.nome}" class="form-control"/><br/>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastrarCliente.jsp'">Cadastrar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '/admin/cadastrarCliente.jsp'">Cadastrar</button>
                     </div>
                 </form>
             </div>
@@ -57,7 +57,7 @@
                 <b>Dados do Produto</b>
             </div>
             <div class="card-body float-left w-100">
-                <form action="PesquisarProduto" method="GET" class="form-inline">
+                <form action="<c:url value="/PesquisarProduto"/>" method="GET" class="form-inline">
                     <div class="col-12 form-group mb-1">
                         <label type="text" for="codigo" class="input-group-text">Código</label>
                         <input type="search" id="codigo" name="cod_produto" size="5" value="${produto.cod_produto}" class="form-control" onclick="pesquisarProduto(produto.cod_produto), pesquisarCliente(cliente.cpf_cliente);"/>
@@ -125,6 +125,6 @@
             </div>
         </div>
         <br>
-        <a href="index.jsp">Voltar</a>
+        <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
     </body>
 </html>

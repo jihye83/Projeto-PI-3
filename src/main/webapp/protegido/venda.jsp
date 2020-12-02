@@ -22,9 +22,9 @@
         <h1 class="p-3">Realizar Venda</h1>
         <div class="row">
             <div class="col-4">
-                <form action="VendaServlet?action=iniciarVenda" method="post">
+        <form action="VendaServlet?action=iniciarVenda" method="POST">
             <button type="submit" class="btn btn-primary">Nova Venda</button>
-             <a  class="ml-4" href="index.jsp">Voltar</a>
+             <a  class="ml-4" href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
         </form>
             </div>
             <div class="col-8">
@@ -39,6 +39,9 @@
         <form action="VendaServlet?action=finalizarVenda" method="post">
             <div class="row mb-5">
                 <div class="col-6">
+        <form action="VendaServlet?action=addProduto" method="POST">
+            <div class="row">
+                <div class="col">
                     <label class="" for="inlineRadio1">data
                         <input class="form-control" type="text" name="" id="dateToday" value="" readOnly="readOnly">
                     </label>

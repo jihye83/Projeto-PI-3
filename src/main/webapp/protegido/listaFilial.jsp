@@ -14,6 +14,7 @@
         <title>Listar filiais</title>
          <link rel="stylesheet" href="./styles/filial.css"/>
         <script lang="text/javascript">
+            
             function mostrarModalExclusao(idFilial, nomeLoja) {
                 $("#nomeLoja").html(nomeLoja);
                 $("#idFilial").val(idFilial);
@@ -56,7 +57,7 @@
                     <tr>
                         <td><c:out value="${filial.idFilial}" /></td>
                         <td><c:out value="${filial.nomeLoja}" /></td>
-                        <td><c:out value="${filial.tel}" /></td>
+                        <td><c:out value="${filial.cel}" /></td>
                         <td><c:out value="${filial.logradouro}" /></td>
                         <td><c:out value="${filial.numLogr}" /></td>
                         <td><c:out value="${filial.compLogr}" /></td>
@@ -86,14 +87,15 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" onclick="excluirFilial()">Confirmar</button>
+                        <button type="button" class="btn btn-primary" onclick="excluirFilial()">
+                            <a href="FilialServlet?action=delete&idFilial=<c:out value="${filial.idFilial}" />">Confirmar</a>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
-        <p><a href="FilialServlet?action=insert">Add Filial</a></p>
-        <a href="index.jsp">voltar</a>
-        </div>
+        <p><a href="<c:url value="/FilialServlet?action=insert"/>">Add Filial</a></p>
+        <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
     </body>
 </html>
