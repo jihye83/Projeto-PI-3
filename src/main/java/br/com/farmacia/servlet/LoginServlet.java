@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
     } else {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("login", funcionario);
-            response.sendRedirect(request.getContextPath() + "/protegido/header.jsp");
+            response.sendRedirect(request.getContextPath() + "/protegido/index.jsp");
         }
         
 //        HttpSession sessao = request.getSession();
