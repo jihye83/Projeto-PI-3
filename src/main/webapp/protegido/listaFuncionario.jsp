@@ -53,8 +53,8 @@
                     <th>Cpf</th>
                     <th>Cel</th>
                     <th>Email</th>
-                    <th>salario</th>
-                    <th>Data Admissao</th>
+                    <th>Salário</th>
+                    <th>Data Admissão</th>
                     <th>Logradouro</th>
                     <th>Número</th>
                     <th>Comp.</th>
