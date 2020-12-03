@@ -11,24 +11,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
+        <link rel="stylesheet" href="./styles/login.css"/>
     </head>
     <body class="container">
-        <%--<%@include file="header.jsp" %>--%>
-        <c:if test="${not empty param.erro}">
-            <div class="alert alert-danger" role="alert">
-                Usuario/Senha inválidos!
+        <div class="loginArea">
+            <div class="formArea">
+               
+                <c:if test="${not empty param.erro}">
+                    <div class="alert alert-danger" role="alert">
+                        Usuario/Senha inválidos!
+                    </div>
+                </c:if> 
+                <form action="LoginServlet" method="POST">
+                     <h3 >Faça seu Acesso:</h3>
+                    <div class="form-group">
+                        <label class="h3">Usuário</label>
+                        <input name="login" required class="form-control" autofocus="autofocus"/>
+                    </div>            
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" name="senha" required class="form-control"/>
+                    </div>
+                    <div class="btn-area">
+                        <button type="submit" class="btn btn-primary ">Login</button>
+                    </div>
+                    
+                </form>
             </div>
-        </c:if> 
-        <form action="LoginServlet" method="POST">
-            <div class="form-group">
-                <label>Login</label>
-                <input name="login" required class="form-control"/>
-            </div>            
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" name="senha" required class="form-control"/>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+        </div>
+
     </body>
 </html>
