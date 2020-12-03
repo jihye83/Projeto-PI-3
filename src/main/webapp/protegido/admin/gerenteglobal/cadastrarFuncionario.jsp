@@ -105,9 +105,9 @@
             <p>Perfil do Funcionário</p>
             <select class="form-control-lg col-4" name="cargo">
                 <option value="<c:out value="${funcionario.cargo}" />">${funcionario.cargo}</option>
-                <option value="Vendedor">Vendedor</option>
-                <option value="Gerente Filial">Gerente Filial</option>
-                <option value="Gerente Global">Gerente Global</option>
+                <option value="vendedor">Vendedor</option>
+                <option value="filial">Gerente Filial</option>
+                <option value="global">Gerente Global</option>
             </select><br/>
 
             <button type="submit" class="btn btn-primary">Enviar</button>
