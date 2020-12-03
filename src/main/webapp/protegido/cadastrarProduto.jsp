@@ -24,7 +24,7 @@
                 
                  <div class="form-group">
                         <label>Código</label>
-                <input class="form-control" value="<c:out value=" ${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control" type="number"/><br />
+                <input class="form-control" value="${produto.idProduto}" readonly="readonly" name="idProduto" class="form-control" type="number"/><br />
  
                  </div>  
                  
@@ -42,13 +42,13 @@
                
                 <div class="form-group">
                     <label>Preço</label>
-                <input class="form-control" value="<c:out value=" ${produto.precoProd}" />" name="precoProd" type="number" class="form-control" required="true">
+                <input class="form-control" value="${produto.precoProd}" name="precoProd" type="number" class="form-control" required="true">
                      
                 </div>
                 
                 <div class="form-group">
                     <label>Quantidade</label>
-                <input class="form-control" value="<c:out value=" ${produto.qtdProd}" />" name="qtdProd" type="number" class="form-control" required="true">
+                <input class="form-control" value="${produto.qtdProd}" name="qtdProd" type="number" class="form-control" required="true">
 
                 </div>
                 

@@ -8,23 +8,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-       <%@include file="header.jsp" %>
+    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatório Filial</title>
-         <link rel="stylesheet" href="./styles/relatorio.css"/>
+        <link rel="stylesheet" href="./styles/relatorio.css"/>
     </head>
     <body class="container">
         <div class="relatorioFilialArea">
-      
+
             <h1 class="text-center">Relatório Filial</h1>
             <div class="p-3">
-                
-                <form  action="RelatorioServlet?action=listaRelatorioFilial" method="post">
-                   <label>
-                    ID Filial
-                    <input value="<c:out value="${idFilial}" />" type="text" name="idFilial" id="idFilial"/>
-                </label>
+
+                <form  action="<c:url value="/RelatorioServlet?action=listaRelatorioFilial"/>" method="post">
+                    <label>
+                        ID Filial
+                        <input value="<c:out value="${idFilial}" />" type="text" name="idFilial" id="idFilial"/>
+                    </label>
                     <button type="submit" class="btn-primary btn" href="">Pesquisar</button>
                 </form>
             </div>
@@ -49,20 +49,14 @@
                                 <td><c:out value="${venda.total}" /></td>
                                 <td><c:out value="${venda.valor_Bruto}" /></td>
                                 <td><c:out value="${venda.id_Cliente}" /></td>
-                                <td><a href="RelatorioServlet?action=listaItensFilial&idVenda=${venda.cod_Venda}"><button type="button" class="btn btn-primary">Itens</button></a></td>
+                                <td><a href="<c:url value="/RelatorioServlet?action=listaItensFilial&idVenda=${venda.cod_Venda}"/>"><button type="button" class="btn btn-primary">Itens</button></a></td>
                             </tr>
                         </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
-               
-
             </div>
             <div class="listItensVendaFilial">
-                 <table class="table tableStyle">
+                <table class="table tableStyle">
                     <thead>
                     <th>ID</th>
                     <th>ID Produto</th>
@@ -78,11 +72,7 @@
                                 <td><c:out value="${item.valor}" /></td>
                             </tr>
                         </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
             </div>
         </div>

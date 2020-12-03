@@ -41,17 +41,12 @@
                                 <td><c:out value="${venda.total}" /></td>
                                 <td><c:out value="${venda.valor_Bruto}" /></td>
                                 <td><c:out value="${venda.id_Cliente}" /></td>
-                                <td><a href="RelatorioServlet?action=listaItens&idVenda=${venda.cod_Venda}"><button type="button" class="btn btn-primary">Itens</button></a></td>
+                                <td><a href="<c:url value="/RelatorioServlet?action=listaItens&idVenda=${venda.cod_Venda}"/>">
+                                        <button type="button" class="btn btn-primary">Itens</button></a></td>
                             </tr>
                         </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
-               
-
             </div>
             <h2 class="mt-3">Itens:</h2>
             <div class="listItensVendaGeral">
@@ -72,16 +67,11 @@
                                 <td><c:out value="${item.valor}" /></td>
                             </tr>
                         </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
             </div>
         </div>
         <script>
-
         </script>
     </body>
 </html>

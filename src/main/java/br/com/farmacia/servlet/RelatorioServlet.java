@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 public class RelatorioServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String RELATORIO_GERAL = "/relatorioGeral.jsp";
-    private static String RELATORIO_FILIAL = "/relatorioFilial.jsp";
+    private static String RELATORIO_GERAL = "/protegido/relatorioGeral.jsp";
+    private static String RELATORIO_FILIAL = "/protegido/relatorioFilial.jsp";
     private static int IDFILIAL;
     private VendaDAO dao;
     private ItemVendaDAO daoItem;
