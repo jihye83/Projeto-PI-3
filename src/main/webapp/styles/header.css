@@ -2,12 +2,14 @@
     position: absolute;
     left:0;
     background-color: #7ec4da;
-    height: 100vh;
+    min-height: 100%;
     width: 100px;
     color:white;
     box-sizing: border-box;
     /*overflow: auto;*/
 }
+
+
 
 .headerArea a{
     color:white;
@@ -28,4 +30,8 @@
     margin:1em 0 1em 0;
 
 }
-/*p { color: red !important; }*/
+
+body{
+    overflow: none;
+    box-sizing: border-box;
+}

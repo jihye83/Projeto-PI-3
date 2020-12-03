@@ -19,25 +19,42 @@
 
     <body class="container">
         <div class="cadastrarProdutoArea">
-            <h1>Cadastro</h1>
+            <h1 class="text-danger">Cadastro de Produto</h1>
             <form action="ProdutoServlet" method="POST">
+                
+                 <div class="form-group">
+                        <label>Código</label>
+                <input class="form-control" value="<c:out value=" ${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control" type="number"/><br />
+ 
+                 </div>  
+                 
+                <div class="form-group">
+                    <label>Nome</label>
+                <input class="form-control" value="<c:out value=" ${produto.nomeProd}" />" name="nomeProd" type="text" class="form-control" required="true">
+              
+                </div>
+                
+                <div class="form-group">
+                       <label>Descrição</label>
+                <input class="form-control" value="<c:out value=" ${produto.descricaoProd}" />" name="descricaoProd" type="text" class="form-control" required="true">
 
-                <p>Código</p>
-                <input value="<c:out value=" ${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control" type="number"/><br />
+                </div>
+               
+                <div class="form-group">
+                    <label>Preço</label>
+                <input class="form-control" value="<c:out value=" ${produto.precoProd}" />" name="precoProd" type="number" class="form-control" required="true">
+                     
+                </div>
+                
+                <div class="form-group">
+                    <label>Quantidade</label>
+                <input class="form-control" value="<c:out value=" ${produto.qtdProd}" />" name="qtdProd" type="number" class="form-control" required="true">
 
-                <p>Nome do Produto</p>
-                <input value="<c:out value=" ${produto.nomeProd}" />" name="nomeProd" type="text" class="form-control" required="true">
-
-                <p>Preço</p>
-                <input value="<c:out value=" ${produto.precoProd}" />" name="precoProd" type="number" class="form-control" required="true">
-
-                <p>Descrição</p>
-                <input value="<c:out value=" ${produto.descricaoProd}" />" name="descricaoProd" type="text" class="form-control" required="true">
-
-                <p>Quantidade</p>
-                <input value="<c:out value=" ${produto.qtdProd}" />" name="qtdProd" type="number" class="form-control" required="true">
-
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+                
+               
+               
+                <button type="submit" class="btn btn-primary btn-add-produto" style="width:250px; margin: 0 auto">Cadastrar</button>
             </form>
         </div>
     </body>
