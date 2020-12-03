@@ -59,9 +59,6 @@
                     <th>cidade</th>
                     <th>uf</th>
                     <th>cep</th>
-                    <th>login</th>
-                    <th>senha</th>
-                    <th>cargo</th>
                 </tr>
             </thead>
             <tbody>
@@ -82,9 +79,6 @@
                         <td><c:out value="${funcionario.cidade}" /></td>
                         <td><c:out value="${funcionario.uf}" /></td>
                         <td><c:out value="${funcionario.cep}" /></td>
-                        <td><c:out value="${funcionario.login}" /></td>
-                        <td><c:out value="${funcionario.senha}" /></td>
-                        <td><c:out value="${funcionario.cargo}" /></td>
 
                         <td><a class="btn btn-primary " href="FuncionarioServlet?action=edit&funcionarioCpf=<c:out value="${funcionario.cpf}" />">Update</a></td>
                         <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${funcionario.nome}', '${funcionario.cpf}')">Delete</button></td>
