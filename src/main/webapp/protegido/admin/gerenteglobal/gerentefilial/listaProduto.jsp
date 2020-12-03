@@ -38,7 +38,7 @@
     <body class="container ">
 
         <div class="listaProdutoArea">     
-            <a href="<c:url value="/ProdutoServlet?action=insert"/>" class="btn-add-produto"> Cadastrar Produto</a>
+            <a href="<c:url value="/ProdutoServlet?action=insert"/>" class="btn-add-produto" style="width:250px;"> Cadastrar Produto</a>
             <h1 class="text-center text-danger">Produtos</h1>
             <table class="table tableStyle">
                 <thead style="border-bottom: 1px solid black">
