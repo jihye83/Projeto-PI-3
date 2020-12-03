@@ -152,8 +152,9 @@
                             <option value="Gerente Filial">Gerente Filial</option>
                             <option value="Gerente Global">Gerente Global</option>
                         </select><br/>
-
-                        <button type="submit" class="btn btn-primary" style="width:250px; margin: 0 auto">Cadastrar</button>
+                        <div class="botao-cadastrar">
+                            <button type="submit" class="btn btn-cadastrar" style="width:250px; margin: 0 auto">Cadastrar</button>
+                        </div>
                     </form>
             </div>
         </div>
