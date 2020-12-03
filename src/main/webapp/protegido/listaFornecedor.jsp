@@ -6,11 +6,10 @@
 <html>
     <%@include file="header.jsp" %>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-        <title>listar fornecedores</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Listar Fornecedores</title>
         <link rel="stylesheet" href="./styles/fornecedor.css"/>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <script lang="text/javascript">
 
 

@@ -15,16 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Produto</title>
         <link rel="stylesheet" href="./styles/produto.css" />
+
     </head>
 
     <body class="container">
         <div class="cadastrarProdutoArea">
 
-
             <div class="form-group">
                 <h1><hr>Cadastro de Produto<hr></h1>
-                <form action="ProdutoServlet" method="POST">
 
+                <form action="ProdutoServlet" method="POST">
                     <p></p>
                     <input value="<c:out value="${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control-sm" placeholder="ID" type="number"/><br/>
 
@@ -43,11 +43,11 @@
                                 <input class="form-control" value="${produto.qtdProd}" name="qtdProd" type="number" class="form-control" placeholder="Qtd" required="true">
                             </div>
                         </div>
-                    </form>
 
-                    <p></p>
-                    <button type="submit" class="btn btn-primary btn-add-produto" style="width:250px; margin: 0 auto">Cadastrar</button>
-                </form>
+                        <p></p>
+                        <button type="submit" class="btn btn-primary btn-add-produto" style="width:250px; margin: 0 auto">Cadastrar</button>
+                    </form>
             </div>
+        </div>
     </body>
 </html>

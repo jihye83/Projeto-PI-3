@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar filiais</title>
         <link rel="stylesheet" href="./styles/filial.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script lang="text/javascript">
 
             function mostrarModalExclusao(idFilial, nomeLoja) {
@@ -98,9 +99,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="excluirFilial()">
-                                <a href="FilialServlet?action=delete&idFilial=<c:out value="${filial.idFilial}" />">Confirmar</a>
-
+                            <button type="button" class="btn btn-primary" onclick="excluirFilial()">Confirmar</button>
+                                <!--<a href="FilialServlet?action=delete&idFilial=<c:out value="${filial.idFilial}" />">Confirmar</a>-->
                         </div>
                     </div>
                 </div>
@@ -109,5 +109,6 @@
                     <p><a href="<c:url value="/FilialServlet?action=insert"/>">Add Filial</a></p>
                     <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
             -->
+        </div>
     </body>
 </html>
