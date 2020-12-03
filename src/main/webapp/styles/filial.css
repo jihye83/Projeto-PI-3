@@ -2,16 +2,13 @@
     position:relative;
     left:50px;
     height: 100vh;
-  
+
 }
 .tableStyle{
     background-color: #353535;
     border-radius: 15px;
     width:800px;
     margin: 0 auto;
-}
-
-.tableStyle{
     color:white;
 }
 
@@ -43,13 +40,13 @@
 }
 
 body{
-    background-color: #4d4d4d;
+    background-color: #B8B8B8;
 }
 .cadastrarFilialArea{
     position:relative;
     left:50px;
     height: 100vh;
-      display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;

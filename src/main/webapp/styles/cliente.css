@@ -54,7 +54,7 @@
 /*.cadastrarClienteArea form{
     width:600px;
     margin:0 auto;
-      display: flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     background-color:#7ec4da;
@@ -64,7 +64,7 @@
 }*/
 
 body{
-    background-color: #4d4d4d;
+    background-color: #B8B8B8;
 }
 
 .btn-excluir{
@@ -89,7 +89,7 @@ body{
 }
 
 .btn-add-cliente {
-    display: flex;
+    /*display: flex; tirei isto pq o botap ficava do tamanha da label*/
     justify-content: center;
 }
 
@@ -104,8 +104,4 @@ h1 {
 .form-control-sm {
     width: 100px;
     border-radius: 10px;
-}
-
-.container {
-    background-color: #B8B8B8;
 }

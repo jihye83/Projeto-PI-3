@@ -1,7 +1,7 @@
 .listaProdutoArea{
     position:relative;
     left:50px;
-     max-height: 600px;
+    max-height: 600px;
     overflow: auto;
 }
 
@@ -39,7 +39,7 @@ h1 {
     display: inline-block;
     border-radius: 7px;
     transition: .4s;
-    
+
 }
 
 .btn-add-produto:hover{
