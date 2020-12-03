@@ -38,6 +38,7 @@
                 </div>
 
 
+                    <c:if test="${sessionScope.login.admin}">
                 <div class="produto">
                     <a href="<c:url value="/ProdutoServlet?action=listaProduto"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-box-seam" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +46,7 @@
                         </svg>
                     </a>
                 </div>
+                    </c:if>
 
                 <div class="cliente">
                     <a href="<c:url value="/ClienteServlet?action=listaCliente"/>">
@@ -53,6 +55,7 @@
                         </svg>
                     </a>
                 </div>
+                    <c:if test="${sessionScope.login.admin}">
                 <div class="funcionario">
                     <a href="<c:url value="/FuncionarioServlet?action=listaFuncionario"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-file-earmark-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +63,8 @@
                         </svg>
                     </a>
                 </div>
+                        </c:if>
+                    <c:if test="${sessionScope.login.admin}">
                 <div class="fornecedor">
                     <a href="<c:url value="/FornecedorServlet?action=listaFornecedor"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-bookmark-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -67,6 +72,8 @@
                         </svg>  
                     </a>
                 </div>
+                        </c:if>
+                    <c:if test="${sessionScope.login.admin}">
                 <div class="relatorio">
                     <a href="<c:url value="/protegido/admin/gerenteglobal/gerentefilial/relatorio.jsp"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-easel-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +81,8 @@
                         </svg>
                     </a>
                 </div>
+                        </c:if>
+                    <c:if test="${sessionScope.login.admin}">
                 <div class="filial">
                     <a href="<c:url value="/FilialServlet?action=listaFilial"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -82,6 +91,7 @@
                         </svg>
                     </a>
                 </div>
+                    </c:if>
                 <div class="venda">
                     <a href="<c:url value="/VendaServlet?action=listaClienteProduto"/>">
                         <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-cart-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
