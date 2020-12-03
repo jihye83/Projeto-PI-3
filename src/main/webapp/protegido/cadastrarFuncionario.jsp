@@ -18,7 +18,7 @@
     <body class="container">
         <div class="cadastrarFuncionarioArea">
             
-        <h1>Cadastro de Funcionário</h1>
+        <h1>Funcionários</h1>
         <form action="FuncionarioServlet" method="POST">
 
             <p>ID</p>

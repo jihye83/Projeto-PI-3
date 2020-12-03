@@ -15,6 +15,6 @@ public class main {
     public static void main(String[] args) {
         Funcionario funcionario = new Funcionario();
         String senhaCripto = funcionario.codificarSenha("admin");
-        System.out.println(senhaCripto);
+        System.out.println("senha " + senhaCripto);
     }
 }

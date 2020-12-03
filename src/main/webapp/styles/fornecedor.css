@@ -1,13 +1,51 @@
 .listaFornecedorArea{
-    position:relative;
+    position: relative;
     left:50px;
     height: 100vh;
     overflow: auto;
 }
 
 .cadastrarFornecedorArea{
-    position:relative;
+    position: relative;
     left:50px;
     height: 100vh;
     overflow: auto;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    width: 60%;
+    position: relative;
+    left: 30px;
+    background-color: #7EC4DA;
+    padding: 2% 10%;
+    border-radius: 40px;
+    width: 800px;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.col {
+    border-radius: 10px;
+}
+
+.form-control-sm {
+    border-radius: 10px;
+}
+
+.btn-enviar {
+    background-color: #78D600;
+    border-radius: 10px;
+
+}
+
+.botao-enviar {
+    display: flex;
+    justify-content: center;
 }

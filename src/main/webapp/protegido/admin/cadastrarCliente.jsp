@@ -19,7 +19,7 @@
         <div class="cadastrarClienteArea">
             
      
-        <h1>Cadastro de Clientes</h1>
+        <h1><hr>Clientes<hr></h1>
         <form action="ClienteServlet" method="POST">
             <p>ID</p>
             <input value="<c:out value="${cliente.idCliente}" />" readonly="readonly" name="idCliente" class="form-control" type="number"/><br/>
