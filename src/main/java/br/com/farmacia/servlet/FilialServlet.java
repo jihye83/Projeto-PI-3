@@ -26,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FilialServlet extends HttpServlet {
 
     private static final long seralVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/protegido/cadastrarFilial.jsp";
-    private static String LIST_FILIAL = "/protegido/listaFilial.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/admin/gerenteglobal/cadastrarFilial.jsp";
+    private static String LIST_FILIAL = "/protegido/admin/gerenteglobal/listaFilial.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private FilialDAO dao;

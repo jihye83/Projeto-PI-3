@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../../header.jsp" %>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,7 +20,7 @@
     <body class="container">
         <div class="cadastrarProdutoArea">
             <h1 class="text-danger">Cadastro de Produto</h1>
-            <form action="ProdutoServlet" method="POST">
+            <form action="<c:url value="/ProdutoServlet"/>" method="POST">
                 
                  <div class="form-group">
                         <label>Código</label>

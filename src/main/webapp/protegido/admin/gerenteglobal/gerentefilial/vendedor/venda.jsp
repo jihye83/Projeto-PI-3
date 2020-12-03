@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../../../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
@@ -22,7 +22,7 @@
         <h1 class="p-3">Realizar Venda</h1>
         <div class="row">
             <div class="col-4">
-        <form action="VendaServlet?action=iniciarVenda" method="POST">
+        <form action="<c:url value="/VendaServlet?action=iniciarVenda"/>" method="POST">
             <button type="submit" class="btn btn-primary">Nova Venda</button>
              <a  class="ml-4" href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
         </form>

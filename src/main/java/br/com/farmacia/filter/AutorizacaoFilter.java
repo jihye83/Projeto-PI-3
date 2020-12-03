@@ -53,8 +53,16 @@ public class AutorizacaoFilter implements Filter {
         
         if (url.contains("/admin/") && !funcionario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+        } else if (url.contains("/admin/gerenteglobal/") && !funcionario.isGerenteGlobal()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+        } else if (url.contains("/admin/gerenteglobal/gerentefilial/") && !funcionario.isGerenteFilial()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+        } else if (url.contains("/admin/gerenteglobal/gerentefilial/vendedor/") && !funcionario.isVendedor()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+        } else {
+            System.out.println("URL = " + url);
         }
-        System.out.println("URL = " + url);
+        
     }    
     
     private void doAfterProcessing(ServletRequest request, ServletResponse response)

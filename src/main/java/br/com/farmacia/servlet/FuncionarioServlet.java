@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 public class FuncionarioServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String INSERT = "/protegido/cadastrarFuncionario.jsp";
-    private static String EDIT = "/protegido/alterarFuncionario.jsp";
-    private static String LIST_FUNCIONARIO = "/protegido/listaFuncionario.jsp";
+    private static String INSERT = "/protegido/admin/gerenteglobal/cadastrarFuncionario.jsp";
+    private static String EDIT = "/protegido/admin/gerenteglobal/alterarFuncionario.jsp";
+    private static String LIST_FUNCIONARIO = "/protegido/admin/gerenteglobal/listaFuncionario.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private FuncionarioDAO dao;

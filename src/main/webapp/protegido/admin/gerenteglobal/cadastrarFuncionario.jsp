@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Funcionário</title>
@@ -19,7 +19,7 @@
         <div class="cadastrarFuncionarioArea">
             
         <h1>Funcionários</h1>
-        <form action="FuncionarioServlet" method="POST">
+        <form action="<c:url value="/FuncionarioServlet"/>" method="POST">
 
             <p>ID</p>
             <input value="<c:out value="${funcionario.idFunc}" />" readonly="readonly" name="idFunc" class="form-control" type="number"/><br/>
