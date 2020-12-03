@@ -94,7 +94,5 @@ public class ProdutoServlet extends HttpServlet {
             request.setAttribute("produtos", dao.getProdutos());
             view.forward(request, response);
         }
-
     }
-
 }
