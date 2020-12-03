@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FuncionarioServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/protegido/cadastrarFuncionario.jsp";
+    private static String INSERT = "/protegido/cadastrarFuncionario.jsp";
+    private static String EDIT = "/protegido/alterarFuncionario.jsp";
     private static String LIST_FUNCIONARIO = "/protegido/listaFuncionario.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
@@ -40,7 +41,7 @@ public class FuncionarioServlet extends HttpServlet {
                 forward = LIST_FUNCIONARIO;
                 request.setAttribute("funcionarios", dao.getFuncionarios());
             } else if (action.equalsIgnoreCase("edit")) {
-                forward = INSERT_OR_EDIT;
+                forward = EDIT;
                 String cpf = request.getParameter("funcionarioCpf");
                 Funcionario funcionario = dao.getFuncionario(cpf);
                 request.setAttribute("funcionario", funcionario);
@@ -48,7 +49,7 @@ public class FuncionarioServlet extends HttpServlet {
                 forward = LIST_FUNCIONARIO;
                 request.setAttribute("funcionarios", dao.getFuncionarios());
             } else {
-                forward = INSERT_OR_EDIT;
+                forward = INSERT;
             }
         } catch (Exception e) {
         }

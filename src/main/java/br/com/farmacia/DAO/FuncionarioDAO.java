@@ -109,7 +109,7 @@ public class FuncionarioDAO {
             Connection con = ConexaoDB.conector();
             String query = "update Funcionario set nome=?, data_Nasc=?, cpf=?, cel=?, email=?, "
                     + "salario_Func=?, data_Admissao=?, logradouro=?, numLogr=?, compLogr=?, bairro=?, "
-                    + "cidade=?, uf=?, cep=?, login=?, senha=?, cargo=? where id_Func = ?;";//where id_Func=?
+                    + "cidade=?, uf=?, cep=? where id_Func = ?;";//where id_Func=?
 
             PreparedStatement ps = con.prepareStatement(query);
 
@@ -127,10 +127,7 @@ public class FuncionarioDAO {
             ps.setString(12, funcionario.getCidade());
             ps.setString(13, funcionario.getUf());
             ps.setString(14, funcionario.getCep());
-            ps.setString(15, funcionario.getLogin());
-            ps.setString(16, funcionario.getSenha());
-            ps.setString(17, funcionario.getCargo());
-            ps.setInt(18, funcionario.getIdFunc());
+            ps.setInt(15, funcionario.getIdFunc());
 
             int linhasAfetadas = ps.executeUpdate();
 

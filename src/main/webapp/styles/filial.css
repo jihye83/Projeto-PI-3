@@ -2,14 +2,105 @@
     position:relative;
     left:50px;
     height: 100vh;
-    overflow: auto;
+  
+}
+.tableStyle{
+    background-color: #353535;
+    border-radius: 15px;
+    width:800px;
+    margin: 0 auto;
 }
 
+.tableStyle{
+    color:white;
+}
+
+.btn-excluir{
+    background-color:#ff7878;
+    color:white;
+    border:none;
+    transition: .4s;
+}
+
+.btn-excluir:hover{
+    background-color:#d10100;
+}
+.btn-add-filial{
+    margin-top: 2em;
+    background-color: #78d600;
+    color:white;
+    padding: 7px 25px;
+    display: inline-block;
+    border-radius: 7px;
+    transition: .4s;
+
+}
+
+.btn-add-filial:hover{
+    color:white;
+    background-color: #4cb647;
+    text-decoration: none;
+}
+
+body{
+    background-color: #4d4d4d;
+}
 .cadastrarFilialArea{
     position:relative;
     left:50px;
     height: 100vh;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 30px;
     overflow: auto;
 }
 
+h1 {
+    text-align: center;
+}
 
+.form-group {
+    width: 60%;
+    position: relative;
+    left: 30px;
+    background-color: #7EC4DA;
+    padding: 2% 10%;
+    border-radius: 40px;
+    width: 800px;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.col {
+    border-radius: 10px;
+}
+
+.form-control-sm {
+    border-radius: 10px;
+}
+
+.btn-enviar {  
+    margin-top: 2em;
+    background-color: #78d600;
+    color:white;
+    padding: 7px 25px;
+    display: inline-block;
+    border-radius: 7px;
+    transition: .4s;
+}
+
+.botao-enviar {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-enviar:hover{
+    color:white;
+    background-color: #4cb647;
+    text-decoration: none;
+}
