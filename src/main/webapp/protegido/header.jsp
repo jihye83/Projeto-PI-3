@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!--<link rel="stylesheet" href="./icomoon/style.css"/>-->
         <link rel="stylesheet" href="./styles/header.css"/>
+        <link rel="stylesheet" href="../styles/header.css"/>
     </head>
     <body>
         <div class="headerArea" id="headerArea" >
