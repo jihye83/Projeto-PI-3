@@ -19,7 +19,7 @@
         <div class="cadastrarFornecedorArea">
 
             <div class="form-group">
-                <h1><hr>Fornecedores<hr></h1>
+                <h1><hr>Cadastro de Fornecedor<hr></h1>
                 <form action="FornecedorServlet" method="POST">
 
                     <p></p>
