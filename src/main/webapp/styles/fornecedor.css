@@ -57,13 +57,9 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-<<<<<<< HEAD
     margin:0 auto;
     padding:30px;
-=======
-    margin: 0 auto;
-    padding: 30px;
->>>>>>> refs/remotes/origin/master
+
 }
 
 h1 {
@@ -92,26 +88,18 @@ h1 {
     border-radius: 10px;
 }
 
-<<<<<<< HEAD
+
 .btn-enviar {
-    /*background-color: #78D600;
-    border-radius: 10px;*/
-    
     margin-top: 2em;
-=======
-.btn-enviar {  
->>>>>>> refs/remotes/origin/master
     background-color: #78d600;
     color:white;
     padding: 7px 25px;
     display: inline-block;
     border-radius: 7px;
     transition: .4s;
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/master
 }
+
 
 .botao-enviar {
     display: flex;
@@ -123,10 +111,7 @@ h1 {
     background-color: #4cb647;
     text-decoration: none;
 }
-<<<<<<< HEAD
 
 .container {
     background-color: #B8B8B8;
 }
-=======
->>>>>>> refs/remotes/origin/master
