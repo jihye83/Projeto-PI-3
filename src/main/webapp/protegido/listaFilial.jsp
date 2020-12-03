@@ -45,8 +45,8 @@
                 <th>Nome Loja</th>
                 <th>Telefone</th>
                 <th>Logradouro</th>
-                <th>Número Logradouro</th>
-                <th>Comp Logradouro</th>
+                <th>Número</th>
+                <th>Comp.</th>
                 <th>Bairro</th>
                 <th>Cidade</th>
                 <th>Uf</th>

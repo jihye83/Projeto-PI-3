@@ -47,21 +47,21 @@
                 <table class="table tableStyle">
                     <thead style="border-bottom: 1px solid black">               
                     
-                    <th>id</th>
-                    <th>nome</th>
-                    <th>data nascimento</th>
-                    <th>cpf</th>
-                    <th>cel</th>
-                    <th>email</th>
-                    <th>salario funcionario</th>
-                    <th>data admissao</th>
-                    <th>logradouro</th>
-                    <th>número</th>
-                    <th>comp.</th>
-                    <th>bairro</th>
-                    <th>cidade</th>
-                    <th>uf</th>
-                    <th>cep</th>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Data Nascimento</th>
+                    <th>Cpf</th>
+                    <th>Cel</th>
+                    <th>Email</th>
+                    <th>salario</th>
+                    <th>Data Admissao</th>
+                    <th>Logradouro</th>
+                    <th>Número</th>
+                    <th>Comp.</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Uf</th>
+                    <th>Cep</th>
                     
                     </thead>
                     <tbody>

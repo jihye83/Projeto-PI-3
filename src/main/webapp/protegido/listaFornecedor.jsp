@@ -42,17 +42,17 @@
             <table class="table tableStyle">
                 <thead style="border-bottom: 1px solid black">
 
-                <th>id</th>
-                <th>razao social</th>
-                <th>cnpj</th>
-                <th>cel</th>
-                <th>logradouro</th>
-                <th>número</th>
-                <th>comp.</th>
-                <th>bairro</th>
-                <th>cidade</th>
-                <th>uf</th>
-                <th>cep</th>
+                <th>Id</th>
+                <th>Razao Social</th>
+                <th>Cnpj</th>
+                <th>Cel</th>
+                <th>Logradouro</th>
+                <th>Número</th>
+                <th>Comp.</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Uf</th>
+                <th>Cep</th>
 
                 </thead>
                 <tbody>
