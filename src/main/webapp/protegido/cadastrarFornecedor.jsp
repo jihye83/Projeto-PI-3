@@ -63,7 +63,6 @@
                         </div>
                     </form>
 
-
                     <form>
                         <div class="form-row">
                             <div class="col">
@@ -98,7 +97,6 @@
                                     <option value="SE">SE</option>
                                     <option value="TO">TO</option>
                                 </select><br/>                            
-                                </select>
                             </div>
                             <div class="col">
                                 <input value="<c:out value="${fornecedor.cep}" />" name="cep" class="form-control" placeholder="CEP" type="text" required="true"/><br/>
@@ -106,7 +104,7 @@
                         </div>
                     </form>
                     <div class="botao-enviar">
-                        <button type="submit" class="btn-enviar">Enviar</button>
+                        <button type="submit" class="btn-enviar" style="width:250px; margin: 0 auto">Cadastrar</button>
                     </div>
                 </form>
             </div>

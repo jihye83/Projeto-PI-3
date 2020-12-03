@@ -7,11 +7,41 @@
 
 .cadastrarFuncionarioArea{
     position:relative;
-    left:50px;
+    left:190px;
     height: 100vh;
     overflow: auto;
 }
 
 h1 {
     text-align: center;
+}
+
+.form-group {
+    width: 60%;
+    position: relative;
+    left: 30px;
+    background-color: #7EC4DA;
+    padding: 2% 10%;
+    border-radius: 40px;
+    width: 800px;
+}
+
+.camposLogin {
+    width: 350px;
+}
+
+.btn-primary {
+    margin-top: 2em;
+    background-color: #78d600;
+    color:white;
+    padding: 7px 25px;
+    display: inline-block;
+    border-radius: 7px;
+    transition: .4s;    
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #B8B8B8;
 }

@@ -17,102 +17,146 @@
     </head>
     <body class="container">
         <div class="cadastrarFuncionarioArea">
-            
-        <h1>Funcionários</h1>
-        <form action="FuncionarioServlet" method="POST">
 
-            <p>ID</p>
-            <input value="<c:out value="${funcionario.idFunc}" />" readonly="readonly" name="idFunc" class="form-control" type="number"/><br/>
+            <div class="form-group">
+                <h1><hr>Funcionários<hr></h1>
+                <form action="FuncionarioServlet" method="POST">
 
-            <p>Nome</p>
-            <input value="<c:out value="${funcionario.nome}" />" name="nome" class="form-control" type="text" required="true"/><br/>
+                    <p></p>
+                    <input value="<c:out value="${funcionario.idFunc}" />" readonly="readonly" name="idFunc" class="form-control-sm" placeholder="ID" type="number"/><br/>
 
-            <p>Data de Nascimento</p>
-            <input value="<c:out value="${funcionario.data_Nasc}" />" name="data_Nasc" class="form-control" type="date"/><br/>
+                    <p></p>
+                    <input value="<c:out value="${funcionario.nome}" />" name="nome" class="form-control" placeholder="Nome" type="text" required="true"/><br/>
 
-            <p>CPF</p>
-            <input value="<c:out value="${funcionario.cpf}" />" name="cpf" class="form-control" type="text" required="true"/><br/>
+                    <p>Data de Nascimento</p>
+                    <form>                   
+                        <div class="form-row">
+                            <div class="col">
+                                <input value="<c:out value="${funcionario.data_Nasc}" />" name="data_Nasc" class="form-control" placeholder="Nascimento" type="date"/><br/>
+                            </div>
+                            <div class="col">
+                                <input value="<c:out value="${funcionario.cpf}" />" name="cpf" class="form-control" placeholder="CPF" type="text" required="true"/><br/>
+                            </div>
+                        </div>
+                    </form>
 
-            <p>Celular</p>
-            <input value="<c:out value="${funcionario.cel}" />" name="cel" class="form-control" type="text" required="true"/><br/>
+                    <p></p>
+                    <form>                   
+                        <div class="form-row">
+                            <div class="col">
+                                <input value="<c:out value="${funcionario.email}" />" name="email" class="form-control" placeholder="E-mail" type="text" required="true"/><br/>
+                            </div>
+                            <div class="col">
+                                <input value="<c:out value="${funcionario.cel}" />" name="cel" class="form-control" placeholder="Celular" type="text" required="true"/><br/>
+                            </div>
+                        </div>
 
-            <p>E-mail</p>
-            <input value="<c:out value="${funcionario.email}" />" name="email" class="form-control" type="text" required="true"/><br/>
+                        <p>Data de Admissão</p>
+                        <form>                   
+                            <div class="form-row">
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.data_Admissao}" />" name="data_Admissao" class="form-control" type="date"/><br/>
+                                </div>
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.salario_Func}" />" name="salario_Func" class="form-control" placeholder="Salário" type="number"/><br/>
+                                </div>
+                            </div>
+                        </form>        
 
-            <p>Salário do Funcionário</p>
-            <input value="<c:out value="${funcionario.salario_Func}" />" name="salario_Func" class="form-control" type="number"/><br/>
+                        <p>Endereço</p>
+                        <form>                   
+                            <div class="form-row">
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.logradouro}" />" name="logradouro" class="form-control" placeholder="Logradouro" type="text" required="true"/><br/>
+                                </div>
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.numLogr}" />" name="numLogr" class="form-control" placeholder="Número" type="text" required="true"/><br/>
+                                </div>
+                            </div>
+                        </form>    
 
-            <p>Data de Admissão</p>
-            <input value="<c:out value="${funcionario.data_Admissao}" />" name="data_Admissao" class="form-control" type="date"/><br/>
+                        <form>                   
+                            <div class="form-row">
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.compLogr}" />" name="compLogr" class="form-control" placeholder="Complemento" type="text" required="true"/><br/>
+                                </div>
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.bairro}" />" name="bairro" class="form-control" placeholder="Bairro" type="text" required="true"/><br/>
+                                </div>
+                            </div>
+                        </form> 
 
-            <p>Endereço: </p>
-            <p>Logradouro</p>
-            <input value="<c:out value="${funcionario.logradouro}" />" name="logradouro" class="form-control" type="text" required="true"/><br/>
+                        <form>                   
+                            <div class="form-row">
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.cidade}" />" name="cidade" class="form-control" placeholder="Cidade" type="text" required="true"/><br/>
+                                </div>
+                                <div class="col">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>UF</option>
+                                        <option value="<c:out value="${funcionario.uf}" />">${funcionario.uf}</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+                                    </select><br/> 
+                                </div>
+                            </div>
+                        </form> 
 
-            <p>Número</p>
-            <input value="<c:out value="${funcionario.numLogr}" />" name="numLogr" class="form-control" type="text" required="true"/><br/>
 
-            <p>Complemento</p>
-            <input value="<c:out value="${funcionario.compLogr}" />" name="compLogr" class="form-control" type="text" required="true"/><br/>
+                        <form>                   
+                            <div class="form-row">
+                                <div class="col">
+                                    <input value="<c:out value="${funcionario.cep}" />" name="cep" class="form-control" placeholder="CEP" type="text" required="true"/><br/>
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        </form> 
 
-            <p>Bairro</p>
-            <input value="<c:out value="${funcionario.bairro}" />" name="bairro" class="form-control" type="text" required="true"/><br/>
+                        <div class="camposLogin">
+                            <p></p>
+                            <input value="<c:out value="${funcionario.login}" />" name="login" class="form-control" placeholder="Login" type="text" required="true"/><br/>
 
-            <p>Cidade</p>
-            <input value="<c:out value="${funcionario.cidade}" />" name="cidade" class="form-control" type="text" required="true"/><br/>
+                            <input value="<c:out value="${funcionario.senha}" />" name="senha" class="form-control" placeholder="Senha" type="password" required="true"/><br/>
+                        </div>
 
-            <p>UF</p>
-            <select class="form-control-lg col-4" name="uf">
-                <option value="<c:out value="${funcionario.uf}" />">${funcionario.uf}</option>
-                <option value="AC">AC</option>
-                <option value="AL">AL</option>
-                <option value="AP">AP</option>
-                <option value="AM">AM</option>
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MT">MT</option>
-                <option value="MS">MS</option>
-                <option value="MG">MG</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PR">PR</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RS">RS</option>
-                <option value="RO">RO</option>
-                <option value="RR">RR</option>
-                <option value="SC">SC</option>
-                <option value="SP">SP</option>
-                <option value="SE">SE</option>
-                <option value="TO">TO</option>
-            </select><br/>
+                        <select class="form-control col-4" name="cargo">
+                            <option>Perfil</option>
+                            <option value="<c:out value="${funcionario.cargo}" />" >${funcionario.cargo}</option>
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="Gerente Filial">Gerente Filial</option>
+                            <option value="Gerente Global">Gerente Global</option>
+                        </select><br/>
 
-            <p>CEP</p>
-            <input value="<c:out value="${funcionario.cep}" />" name="cep" class="form-control" type="text" required="true"/><br/>
-                
-            <p>Login</p>
-            <input value="<c:out value="${funcionario.login}" />" name="login" class="form-control" type="text" required="true"/><br/>
-
-            <p>Senha</p>
-            <input value="<c:out value="${funcionario.senha}" />" name="senha" class="form-control" type="password" required="true"/><br/>
-            
-            <p>Perfil do Funcionário</p>
-            <select class="form-control-lg col-4" name="cargo">
-                <option value="<c:out value="${funcionario.cargo}" />">${funcionario.cargo}</option>
-                <option value="Vendedor">Vendedor</option>
-                <option value="Gerente Filial">Gerente Filial</option>
-                <option value="Gerente Global">Gerente Global</option>
-            </select><br/>
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+                        <button type="submit" class="btn btn-primary" style="width:250px; margin: 0 auto">Cadastrar</button>
+                    </form>
             </div>
+        </div>
     </body>
 </body>
 </html>

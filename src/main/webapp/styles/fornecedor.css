@@ -6,11 +6,16 @@
 }
 
 .cadastrarFornecedorArea{
-    position: relative;
+    position:relative;
     left:50px;
+    width:700px;
     height: 100vh;
-    overflow: auto;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    padding:30px;
 }
 
 h1 {
@@ -40,12 +45,30 @@ h1 {
 }
 
 .btn-enviar {
-    background-color: #78D600;
-    border-radius: 10px;
+    /*background-color: #78D600;
+    border-radius: 10px;*/
+    
+    margin-top: 2em;
+    background-color: #78d600;
+    color:white;
+    padding: 7px 25px;
+    display: inline-block;
+    border-radius: 7px;
+    transition: .4s;
 
 }
 
 .botao-enviar {
     display: flex;
     justify-content: center;
+}
+
+.btn-enviar:hover{
+    color:white;
+    background-color: #4cb647;
+    text-decoration: none;
+}
+
+.container {
+    background-color: #B8B8B8;
 }

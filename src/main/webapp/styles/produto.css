@@ -5,6 +5,10 @@
     overflow: auto;
 }
 
+h1 {
+    text-align: center;
+}
+
 .tableStyle{
     background-color: #353535;
     border-radius: 15px;
@@ -44,18 +48,17 @@
     text-decoration: none;
 }
 
-.form-group{
-    display: flex;
-    justify-content: left;
-    width: 400px;
-    margin:2em auto;
+.form-group {
+    width: 60%;
+    position: relative;
+    left: 30px;
+    background-color: #7EC4DA;
+    padding: 2% 10%;
+    border-radius: 40px;
+    width: 800px;
 }
 
-.form-group label{
-    margin-right: 2em;
-}
-
-.cadastrarProdutoArea form{
+/*.cadastrarProdutoArea form{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -63,7 +66,7 @@
     padding: 2em;
     border-radius: 10px;
     color:white;
-}
+}*/
 
 .cadastrarProdutoArea{
     position:relative;
@@ -78,14 +81,15 @@
     padding:30px;
 }
 
-.form-group input{
-    width: 200px;
-    position: absolute;
-    right:15em ;
-    /*margin-left: 10px;*/
-}
-
 body{
-    background-color: #4d4d4d;
+    background-color: #B8B8B8;
 }
 
+.form-control {
+    border-radius: 10px;
+}
+
+.btn-add-produto {
+    display: flex;
+    justify-content: center;
+}

@@ -8,8 +8,14 @@
 .cadastrarClienteArea{
     position:relative;
     left:50px;
+    width:700px;
     height: 100vh;
-    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    padding:30px;
 }
 
 .tableStyle{
@@ -21,7 +27,7 @@
 }
 
 .btn-add-cliente{
-    
+
     background-color: #78d600;
     color:white;
     padding: 7px 25px;
@@ -30,7 +36,7 @@
     text-align: center;
     border-radius: 7px;
     transition: .4s;
-    
+
 }
 
 .btn-add-cliente:hover{
@@ -45,7 +51,7 @@
     margin:0 auto;
 }
 
-.cadastrarClienteArea form{
+/*.cadastrarClienteArea form{
     width:600px;
     margin:0 auto;
       display: flex;
@@ -55,7 +61,7 @@
     padding: 2em;
     border-radius: 10px;
     color:white;
-}
+}*/
 
 body{
     background-color: #4d4d4d;
@@ -72,3 +78,34 @@ body{
     background-color:#d10100;
 }
 
+.form-group {
+    width: 60%;
+    position: relative;
+    left: 30px;
+    background-color: #7EC4DA;
+    padding: 2% 10%;
+    border-radius: 40px;
+    width: 800px;
+}
+
+.btn-add-cliente {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.form-control-sm {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.container {
+    background-color: #B8B8B8;
+}
