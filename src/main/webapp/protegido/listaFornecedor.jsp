@@ -47,8 +47,8 @@
                 <th>cnpj</th>
                 <th>cel</th>
                 <th>logradouro</th>
-                <th>num Logradouro</th>
-                <th>comp Logradouro</th>
+                <th>número</th>
+                <th>comp.</th>
                 <th>bairro</th>
                 <th>cidade</th>
                 <th>uf</th>
