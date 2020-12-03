@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FornecedorServlet extends HttpServlet {
 
       private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/protegido/cadastrarFornecedor.jsp";
-    private static String LIST_FORNECEDOR = "/protegido/listaFornecedor.jsp";
+    private static String INSERT_OR_EDIT = "/protegido/admin/gerenteglobal/gerentefilial/cadastrarFornecedor.jsp";
+    private static String LIST_FORNECEDOR = "/protegido/admin/gerenteglobal/gerentefilial/listaFornecedor.jsp";
     private static String SUCESSO = "/sucesso.jsp";
      private static String ERROR = "/erro.jsp";
     private FornecedorDAO dao;

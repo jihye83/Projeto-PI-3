@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Funcionário</title>
@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <h1><hr>Funcionários<hr></h1>
-                <form action="FuncionarioServlet" method="POST">
+                <form action="<c:url value="/FuncionarioServlet"/>" method="POST">
 
                     <p></p>
                     <input value="<c:out value="${funcionario.idFunc}" />" readonly="readonly" name="idFunc" class="form-control-sm" placeholder="ID" type="number"/><br/>
@@ -134,9 +134,9 @@
                         <select class="form-control col-4" name="cargo">
                             <option>Perfil</option>
                             <option value="<c:out value="${funcionario.cargo}" />" >${funcionario.cargo}</option>
-                            <option value="Vendedor">Vendedor</option>
-                            <option value="Gerente Filial">Gerente Filial</option>
-                            <option value="Gerente Global">Gerente Global</option>
+                            <option value="vendedor">Vendedor</option>
+                            <option value="filial">Gerente Filial</option>
+                            <option value="global">Gerente Global</option>
                         </select><br/>
                         <div class="botao-cadastrar">
                             <button type="submit" class="btn btn-cadastrar" style="width:250px; margin: 0 auto">Cadastrar</button>

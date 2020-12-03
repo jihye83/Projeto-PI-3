@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../../header.jsp" %>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,9 +24,9 @@
             <div class="form-group">
                 <h1><hr>Cadastro de Produto<hr></h1>
 
-                <form action="ProdutoServlet" method="POST">
+                <form action="<c:url value="/ProdutoServlet"/>" method="POST">
                     <p></p>
-                    <input value="<c:out value="${produto.idProduto}" />" readonly="readonly" name="idProduto" class="form-control-sm" placeholder="ID" type="number"/><br/>
+                    <input value="${produto.idProduto}" readonly="readonly" name="idProduto" class="form-control-sm" placeholder="ID" type="number"/><br/>
 
                     <p></p>
                     <input value="<c:out value="${produto.nomeProd}" />" name="nomeProd" class="form-control" placeholder="Nome Produto" type="text" required="true"/><br/>
@@ -37,7 +37,7 @@
                     <form>
                         <div class="form-row">
                             <div class="col">
-                                <input value="<c:out value="${produto.precoProd}" />" name="precoProd" class="form-control" placeholder="Preço" type="number"/><br/>
+                                <input value="${produto.precoProd}" name="precoProd" class="form-control" placeholder="Preço" type="number"/><br/>
                             </div>
                             <div class="col">
                                 <input class="form-control" value="${produto.qtdProd}" name="qtdProd" type="number" class="form-control" placeholder="Qtd" required="true">

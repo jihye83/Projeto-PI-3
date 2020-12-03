@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 @WebServlet(name = "VendaServlet", urlPatterns = {"/VendaServlet"})
 public class VendaServlet extends HttpServlet {
  private static final long serialVersionUID = 1L;
-    private static String LIST_CLIENTE_PRODUTO = "/protegido/venda.jsp";
+    private static String LIST_CLIENTE_PRODUTO = "/protegido/admin/gerenteglobal/gerentefilial/vendedor/venda.jsp";
     private static String SUCESSO = "/sucesso.jsp";
     private static String ERROR = "/erro.jsp";
     private ClienteDAO daoCliente;

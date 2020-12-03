@@ -150,4 +150,16 @@ public class Funcionario {
     public boolean isAdmin() {
         return this.cargo.equalsIgnoreCase("admin");
     }
+    
+    public boolean isGlobal() {
+        return this.cargo.equalsIgnoreCase("global");
+    }
+    
+    public boolean isFilial() {
+        return this.cargo.equalsIgnoreCase("filial");
+    }
+    
+    public boolean isVendedor() {
+        return this.cargo.equalsIgnoreCase("vendedor");
+    }
 }
