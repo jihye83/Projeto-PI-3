@@ -101,7 +101,7 @@
                         </div>
                     </form>
                     <div class="botao-enviar">
-                        <button type="submit" class="btn-enviar">Enviar</button>
+                        <button type="submit" class="btn-enviar" style="width: 250px; margin: 0 auto">Enviar</button>
                     </div>
                 </form>
             </div>
