@@ -28,7 +28,7 @@
         </form>
             </div>
             <div class="col-8">
-                 <form action="VendaServlet?action=cancelarVenda&idVenda=${venda.cod_Venda}" method="post">
+                 <form action="<c:url value="/VendaServlet?action=cancelarVenda&idVenda=${venda.cod_Venda}"/>" method="post">
                         <button type="submit" class="btn btn-primary" href=""/>Cancelar venda</button>
         </form>
             </div>
@@ -36,10 +36,10 @@
         
        
         <!-- Finalizar venda  -->
-        <form action="VendaServlet?action=finalizarVenda" method="post">
+        <form action="<c:url value="/VendaServlet?action=finalizarVenda"/>" method="post">
             <div class="row mb-5">
                 <div class="col-6">
-        <form action="VendaServlet?action=addProduto" method="POST">
+        <form action="<c:url value="/VendaServlet?action=addProduto"/>" method="POST">
             <div class="row">
                 <div class="col">
                     <label class="" for="inlineRadio1">data
@@ -120,7 +120,7 @@
 
 
         <!-- add produto --> 
-        <form action='VendaServlet?action=addProduto' method='post'>
+        <form action="<c:out value="VendaServlet?action=addProduto" />" method='post'>
 
             <div class="row">
 
@@ -170,7 +170,7 @@
                                     <td><c:out value="${item.getProduto().getNomeProd()}" /></td>
                                     <td><c:out value="${item.getProduto().getPrecoProd()}" /></td>
                                     <td><c:out value="${item.getQtd()}" /></td>
-                                    <td><a type="button" class="btn btn-primary" href="VendaServlet?action=deleteItem&idItem=${item.getIdItem()}"/>Excluir</a></td>
+                                    <td><a type="button" class="btn btn-primary" href="<c:out value="/VendaServlet?action=deleteItem&idItem=${item.getIdItem()}" />"/>Excluir</a></td>
                                 </tr>
                             </c:forEach> 
                         </tbody>                   

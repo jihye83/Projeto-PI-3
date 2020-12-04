@@ -44,7 +44,7 @@
                         <input name="nome" value="${cliente.nome}" class="form-control"/><br/>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href = '/admin/cadastrarCliente.jsp'">Cadastrar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '<c:url value="/admin/gerenteglobal/gerentefilial/vendedor/cadastrarCliente.jsp"/>'">Cadastrar</button>
                     </div>
                 </form>
             </div>

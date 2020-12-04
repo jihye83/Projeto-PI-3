@@ -44,7 +44,7 @@
 <body class="container">
     <div class="listaFuncionarioArea">
         <div class="listaFuncionarioArea">
-            <a href="<c:url value=" /FuncionarioServlet?action=insert" />" class="btn-add-funcionario"> Cadastrar
+            <a href="<c:url value="FuncionarioServlet?action=insert" />" class="btn-add-funcionario"> Cadastrar
             Funcionario</a>
             <h1 class="text-center text-danger">Funcionários</h1>
 
@@ -118,8 +118,7 @@
                             </td>
 
                             <td><a class="btn btn-primary "
-                                    href="FuncionarioServlet?action=edit&funcionarioCpf=<c:out value="
-                                    ${funcionario.cpf}" />">
+                                    href="<c:url value="/FuncionarioServlet?action=edit&funcionarioCpf=${funcionario.cpf}"/>">
                                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pencil-square"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -164,7 +163,7 @@
                 </div>
             </div>
         </div>
-        <!--        <p><a href="<c:url value="/FuncionarioServlet?action=insert"/>">Add Funcionario</a></p>
+        <!--        <p><a href="<c:url value="FuncionarioServlet?action=insert"/>">Add Funcionario</a></p>
             <a href="<c:url value="/protegido/index.jsp"/>">Voltar</a>
 -->
 </body>

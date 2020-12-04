@@ -94,7 +94,7 @@ public class VendaServlet extends HttpServlet {
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String forward = "/protegido/venda.jsp";
+        String forward = "/protegido/admin/gerenteglobal/gerentefilial/vendedor/venda.jsp";
         String action = request.getParameter("action");
 
         try {
