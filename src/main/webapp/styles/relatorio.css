@@ -1,0 +1,38 @@
+.relatorioArea{
+     height: 100vh;
+    overflow: auto;
+}
+
+.relatorioGeralArea, .relatorioFilialArea{
+    width: 1000px;
+    margin: 0 auto;
+        height: 100vh;
+    overflow: auto;
+}
+
+.listVendasGeral{
+    height: 250px;
+    overflow:auto;
+}
+
+.listItensVendaGeral{
+    height: 250px;
+    overflow:auto;
+}
+.listVendasFilial{
+    height: 250px;
+    overflow:auto;
+}
+
+.listItensVendaFilial{
+    height: 250px;
+    overflow:auto;
+}
+
+.tableStyle{
+    margin: 2em auto;
+    height:250px;
+    overflow: auto;
+}
+
+
